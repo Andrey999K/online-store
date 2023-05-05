@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Card from "./components/card/card";
 import Header from "./components/header/header";
-import api from "./api";
 import Pagination from "./components/pagination/pagination";
 import { paginate } from "./utils/paginate";
 import Filters from "./components/filters/filters";
 import { orderBy } from "lodash";
+import api from "./api";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -33,15 +33,26 @@ function App() {
 
   useEffect(() => {
     api.catalog.fetchAll()
-      .then(data => setProducts(data));
+      .then(response => {
+        const data = response.map(item => {
+          const reviewsCount = item.reviews.length;
+          if (!reviewsCount) return { ...item, reviewsCount, rateProduct: 0 };
+          let sumRate = 0;
+          item.reviews.forEach(review => {
+            sumRate += review.rate;
+          });
+          return { ...item, reviewsCount, rateProduct: (sumRate / reviewsCount).toFixed(1) };
+        });
+        setProducts(data);
+      });
   }, []);
 
   const filteredProducts = products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
   const sortedProducts = sortBy
     ? orderBy(filteredProducts, [sortBy.iter], [sortBy.order])
     : filteredProducts;
-  console.log(sortedProducts);
-  const catalogCrop = paginate(sortedProducts, pageSize, currentPage);
+  const productsCrop = paginate(sortedProducts, pageSize, currentPage);
+  console.log(products);
 
   return (
     <div className="App">
@@ -51,13 +62,15 @@ function App() {
         <Pagination itemsCount={products.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
       </div>
       <div className="flex flex-wrap gap-y-5 justify-start max-w-screen-lg mx-auto">
-        {catalogCrop.map(item => (
+        {productsCrop.map(item => (
           <div key={item.id} className="basis-1/4 flex justify-center">
             <Card id={item.id}
                   name={item.name}
                   price={item.price}
                   oldPrice={item.oldPrice}
                   listBadges={item.badges}
+                  reviewsNumber={item.reviewsCount}
+                  rate={item.rateProduct}
             />
           </div>
         ))}

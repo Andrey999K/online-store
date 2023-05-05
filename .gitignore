@@ -25,3 +25,4 @@ yarn-error.log*
 /src/api/addFieldCatalog.js
 /src/api/catalog2.js
 /src/api/fake.api/catalog.api1.js
+/src/api/fake.api/data.json

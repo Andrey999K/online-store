@@ -6,7 +6,7 @@ import Icon from "../UI/icon/icon";
 import Price from "../price/price";
 import Bookmark from "../bookmark/bookmark";
 
-const Card = ({ id, name, price, oldPrice, listBadges }) => {
+const Card = ({ id, name, price, oldPrice, listBadges, reviewsNumber, rate }) => {
   return (
     <a href="#" className="relative pt-2 px-4 pb-4 rounded flex flex-col gap-2 max-w-[230px] hover:shadow-2xl ease-out duration-300">
       <div className="flex gap-2 flex-wrap pr-5">
@@ -22,14 +22,18 @@ const Card = ({ id, name, price, oldPrice, listBadges }) => {
         )}
       </div>
       <div className="flex items-center gap-3">
-        <div className="flex items-center gap-1">
-          <Icon name="star" className="text-sky-500 w-[16px] h-[16px]" />
-          <span>4.5</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <Icon name="review" className="text-gray-400 w-[16px] h-[16px]" />
-          <span>21</span>
-        </div>
+        {!!reviewsNumber && (
+          <>
+            <div className="flex items-center gap-1">
+              <Icon name="star" className="text-sky-500 w-[16px] h-[16px]" />
+              <span>{rate}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Icon name="review" className="text-gray-400 w-[16px] h-[16px]" />
+              <span>{reviewsNumber}</span>
+            </div>
+          </>
+        )}
       </div>
       <div className="line-clamp-3 hover:text-sky-500">{name}</div>
       <div className="flex justify-between relative">
@@ -62,7 +66,9 @@ Card.propTypes = {
       text: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired
     })
-  )
+  ),
+  reviewsNumber: PropTypes.number,
+  rate: PropTypes.number
 };
 
 Card.defaultProps = {};

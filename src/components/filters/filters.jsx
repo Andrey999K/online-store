@@ -5,8 +5,8 @@ const Filters = ({ onSort }) => {
   return (
     <div>
       <ul className="flex text-base gap-3">
-        <li role="button">По рейтингу</li>
-        <li role="button">По отзывам</li>
+        <li onClick={() => onSort("rateProduct")} role="button">По рейтингу</li>
+        <li onClick={() => onSort("reviewsCount")} role="button">По отзывам</li>
         <li onClick={() => onSort("price")} role="button">По цене</li>
         <li onClick={() => onSort("name")} role="button">По названию</li>
       </ul>

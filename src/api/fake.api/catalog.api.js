@@ -1,4 +1,5 @@
 import { badges } from "./badges.api";
+import axios from "axios";
 
 export const catalog = [
   {
@@ -14,7 +15,7 @@ export const catalog = [
     id: 2,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
     price: 119990,
-    oldPrice: "",
+    oldPrice: 119990,
     badges: [
       badges[0]
     ]
@@ -588,10 +589,20 @@ export const catalog = [
   }
 ];
 
-const fetchAll = () => {
-  return new Promise(resolve => {
-    resolve(catalog);
-  });
+// const fetchAll = () => {
+//   return new Promise(resolve => {
+//     resolve(catalog);
+//   });
+// };
+
+const fetchAll = async() => {
+  try {
+    const response = await axios.get("data/data.json");
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 };
 
 export default {
