@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Badge = ({ text, type, color }) => {
-  return <div className={(color ? `bg-[${color}]` : (type === "super" ? "bg-green-500" : "bg-sky-500")) + " inline-block box-border text-white text-[12px] py-1 px-2 rounded"}>{text}</div>;
+  let colorBadge = color ? `bg-[${color}]` : "bg-sky-500";
+  if (type === "super") colorBadge = "bg-green-500";
+  return <div className={colorBadge + " inline-block box-border text-white text-[12px] py-1 px-2 rounded"}>{text}</div>;
 };
 
 Badge.propTypes = {

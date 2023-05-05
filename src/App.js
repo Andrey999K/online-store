@@ -52,14 +52,13 @@ function App() {
     ? orderBy(filteredProducts, [sortBy.iter], [sortBy.order])
     : filteredProducts;
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
-  console.log(products);
 
   return (
     <div className="App">
       <Header search={search} onSearch={handleSearchProduct}/>
       <div className="w-full max-w-screen-lg mx-auto my-6 flex justify-between">
         <Filters onSort={handleSort}/>
-        <Pagination itemsCount={products.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
+        <Pagination itemsCount={filteredProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
       </div>
       <div className="flex flex-wrap gap-y-5 justify-start max-w-screen-lg mx-auto">
         {productsCrop.map(item => (
