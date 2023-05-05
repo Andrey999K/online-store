@@ -4,8 +4,8 @@ export const catalog = [
   {
     id: 1,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
       badges[0]
     ]
@@ -13,7 +13,7 @@ export const catalog = [
   {
     id: 2,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
+    price: 119990,
     oldPrice: "",
     badges: [
       badges[0]
@@ -22,8 +22,8 @@ export const catalog = [
   {
     id: 3,
     name: "Ноутбук игровой MSI Sword 15 A12UE-487XRU, 15.6\",  IPS, Intel Core i7 12700H, 14-ядерный, 16ГБ DDR4, 512ГБ SSD,  NVIDIA GeForce  RTX 3060 для ноутбуков - 6 ГБ, белый",
-    price: "105 990",
-    oldPrice: "",
+    price: 105990,
+    oldPrice: 105990,
     badges: [
       badges[1]
     ]
@@ -31,8 +31,8 @@ export const catalog = [
   {
     id: 4,
     name: "Ноутбук Huawei MateBook D 16 RLEF-X, 16\",  IPS, Intel Core i7 12700H, 14-ядерный, 16ГБ LPDDR4x, 512ГБ SSD,  Intel Iris Xe graphics , серый",
-    price: "79 990",
-    oldPrice: "",
+    price: 79990,
+    oldPrice: 79990,
     badges: [
       badges[1]
     ]
@@ -40,8 +40,8 @@ export const catalog = [
   {
     id: 5,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -49,8 +49,8 @@ export const catalog = [
   {
     id: 6,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -58,8 +58,8 @@ export const catalog = [
   {
     id: 7,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -67,8 +67,8 @@ export const catalog = [
   {
     id: 8,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -76,8 +76,8 @@ export const catalog = [
   {
     id: 9,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -85,8 +85,8 @@ export const catalog = [
   {
     id: 10,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -94,8 +94,8 @@ export const catalog = [
   {
     id: 11,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -103,8 +103,8 @@ export const catalog = [
   {
     id: 12,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -112,8 +112,8 @@ export const catalog = [
   {
     id: 13,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -121,8 +121,8 @@ export const catalog = [
   {
     id: 14,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -130,8 +130,8 @@ export const catalog = [
   {
     id: 15,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -139,8 +139,8 @@ export const catalog = [
   {
     id: 16,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -148,8 +148,8 @@ export const catalog = [
   {
     id: 17,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -157,8 +157,8 @@ export const catalog = [
   {
     id: 18,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -166,8 +166,8 @@ export const catalog = [
   {
     id: 19,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -175,8 +175,8 @@ export const catalog = [
   {
     id: 20,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -184,8 +184,8 @@ export const catalog = [
   {
     id: 21,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -193,8 +193,8 @@ export const catalog = [
   {
     id: 22,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -202,8 +202,8 @@ export const catalog = [
   {
     id: 23,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -211,8 +211,8 @@ export const catalog = [
   {
     id: 24,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -220,8 +220,8 @@ export const catalog = [
   {
     id: 25,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -229,8 +229,8 @@ export const catalog = [
   {
     id: 26,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -238,8 +238,8 @@ export const catalog = [
   {
     id: 27,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -247,8 +247,8 @@ export const catalog = [
   {
     id: 28,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -256,8 +256,8 @@ export const catalog = [
   {
     id: 29,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -265,8 +265,8 @@ export const catalog = [
   {
     id: 30,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -274,8 +274,8 @@ export const catalog = [
   {
     id: 31,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -283,8 +283,8 @@ export const catalog = [
   {
     id: 32,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -292,8 +292,8 @@ export const catalog = [
   {
     id: 33,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -301,8 +301,8 @@ export const catalog = [
   {
     id: 34,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -310,8 +310,8 @@ export const catalog = [
   {
     id: 35,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -319,8 +319,8 @@ export const catalog = [
   {
     id: 36,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -328,8 +328,8 @@ export const catalog = [
   {
     id: 37,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -337,8 +337,8 @@ export const catalog = [
   {
     id: 38,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -346,8 +346,8 @@ export const catalog = [
   {
     id: 39,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -355,8 +355,8 @@ export const catalog = [
   {
     id: 40,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -364,8 +364,8 @@ export const catalog = [
   {
     id: 41,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -373,8 +373,8 @@ export const catalog = [
   {
     id: 42,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -382,8 +382,8 @@ export const catalog = [
   {
     id: 43,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -391,8 +391,8 @@ export const catalog = [
   {
     id: 44,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -400,8 +400,8 @@ export const catalog = [
   {
     id: 45,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -409,8 +409,8 @@ export const catalog = [
   {
     id: 46,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -418,8 +418,8 @@ export const catalog = [
   {
     id: 47,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -427,8 +427,8 @@ export const catalog = [
   {
     id: 48,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -436,8 +436,8 @@ export const catalog = [
   {
     id: 49,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -445,8 +445,8 @@ export const catalog = [
   {
     id: 50,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -454,8 +454,8 @@ export const catalog = [
   {
     id: 51,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -463,8 +463,8 @@ export const catalog = [
   {
     id: 52,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -472,8 +472,8 @@ export const catalog = [
   {
     id: 53,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -481,8 +481,8 @@ export const catalog = [
   {
     id: 54,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -490,8 +490,8 @@ export const catalog = [
   {
     id: 55,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -499,8 +499,8 @@ export const catalog = [
   {
     id: 56,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -508,8 +508,8 @@ export const catalog = [
   {
     id: 57,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -517,8 +517,8 @@ export const catalog = [
   {
     id: 58,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -526,8 +526,8 @@ export const catalog = [
   {
     id: 59,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -535,8 +535,8 @@ export const catalog = [
   {
     id: 60,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -544,8 +544,8 @@ export const catalog = [
   {
     id: 61,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -553,8 +553,8 @@ export const catalog = [
   {
     id: 62,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -562,8 +562,8 @@ export const catalog = [
   {
     id: 63,
     name: "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
-    price: "44990",
-    oldPrice: "48990",
+    price: 44990,
+    oldPrice: 48990,
     badges: [
 
     ]
@@ -571,8 +571,8 @@ export const catalog = [
   {
     id: 64,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]
@@ -580,8 +580,8 @@ export const catalog = [
   {
     id: 65,
     name: "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
-    price: "119990",
-    oldPrice: "",
+    price: 119990,
+    oldPrice: 119990,
     badges: [
 
     ]

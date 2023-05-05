@@ -54,8 +54,8 @@ const Card = ({ id, name, price, oldPrice, listBadges }) => {
 Card.propTypes = {
   id: PropTypes.number,
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  oldPrice: PropTypes.string,
+  price: PropTypes.number.isRequired,
+  oldPrice: PropTypes.number,
   listBadges: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

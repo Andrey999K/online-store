@@ -4,12 +4,15 @@ import Header from "./components/header/header";
 import api from "./api";
 import Pagination from "./components/pagination/pagination";
 import { paginate } from "./utils/paginate";
+import Filters from "./components/filters/filters";
+import { orderBy } from "lodash";
 
 function App() {
-  const [catalog, setCatalog] = useState([]);
+  const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 12;
   const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState({ iter: "price", order: "asc" });
 
   const handleSearchProduct = (productName) => {
     setSearch(productName);
@@ -19,20 +22,33 @@ function App() {
     setCurrentPage(pageNumber);
   };
 
+  const handleSort = (field) => {
+    if (sortBy.iter === field) setSortBy(prevState => ({ ...prevState, order: prevState.order === "asc" ? "desc" : "asc" }));
+    else setSortBy({ iter: field, order: "asc" });
+  };
+
+  useEffect(() => {
+    console.log(sortBy);
+  }, [sortBy]);
+
   useEffect(() => {
     api.catalog.fetchAll()
-      .then(data => setCatalog(data));
+      .then(data => setProducts(data));
   }, []);
 
-  const filteredUsers = catalog.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
-
-  const catalogCrop = paginate(filteredUsers, pageSize, currentPage);
+  const filteredProducts = products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
+  const sortedProducts = sortBy
+    ? orderBy(filteredProducts, [sortBy.iter], [sortBy.order])
+    : filteredProducts;
+  console.log(sortedProducts);
+  const catalogCrop = paginate(sortedProducts, pageSize, currentPage);
 
   return (
     <div className="App">
       <Header search={search} onSearch={handleSearchProduct}/>
-      <div className="w-full max-w-screen-lg mx-auto my-6 flex justify-end">
-        <Pagination itemsCount={catalog.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
+      <div className="w-full max-w-screen-lg mx-auto my-6 flex justify-between">
+        <Filters onSort={handleSort}/>
+        <Pagination itemsCount={products.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
       </div>
       <div className="flex flex-wrap gap-y-5 justify-start max-w-screen-lg mx-auto">
         {catalogCrop.map(item => (
@@ -47,7 +63,7 @@ function App() {
         ))}
       </div>
       <div className="w-full max-w-screen-lg mx-auto my-6 flex justify-end">
-        <Pagination itemsCount={catalog.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
+        <Pagination itemsCount={products.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
       </div>
     </div>
   );

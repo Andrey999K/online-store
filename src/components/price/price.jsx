@@ -16,8 +16,8 @@ const Price = ({ price, oldPrice }) => {
 };
 
 Price.propTypes = {
-  price: PropTypes.string.isRequired,
-  oldPrice: PropTypes.string
+  price: PropTypes.number.isRequired,
+  oldPrice: PropTypes.number
 };
 
 Price.defaultProps = {};

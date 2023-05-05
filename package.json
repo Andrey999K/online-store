@@ -1,5 +1,5 @@
 {
-  "homepage": "https://nameaccount.github.io/namerepository",
+  "homepage": "https://andrey999k.github.io/online-store",
   "name": "react-app-template",
   "version": "0.1.0",
   "private": true,
@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+    "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-scripts": "5.0.1",
