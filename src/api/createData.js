@@ -2,7 +2,10 @@ const fs = require("fs");
 
 const badgesData = [
   { id: 1, name: "super", text: "Суперцена" },
-  { id: 2, name: "installment", text: "Рассрочка 0-0-6" }
+  { id: 2, name: "installment", text: "Рассрочка 0-0-6" },
+  { id: 2, name: "installment", text: "Рассрочка 0-0-12" },
+  { id: 2, name: "installment", text: "Рассрочка 0-0-24" },
+  { id: 2, name: "bonus", text: "+200 бонусов" }
 ];
 
 const names = [
@@ -67,7 +70,11 @@ const prices = [
   91499,
   58999,
   81499,
-  49999
+  49999,
+  25890,
+  18990,
+  42990,
+  32990
 ];
 
 const reviewsData = [
