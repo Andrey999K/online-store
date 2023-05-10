@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../UI/icon/icon";
+import Icon from "../UI/Icon";
 
 const Catalog = () => {
   return (

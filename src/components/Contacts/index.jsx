@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Icon from "../UI/icon/icon";
+import Icon from "../UI/Icon";
 
-const Contacts = ({ city, phone }) => {
+const Contracts = ({ city, phone }) => {
   function formatPhone(phoneNumber) {
     const cleaned = phoneNumber.replace(/\D/g, "");
     const match = cleaned.match(/^(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})$/);
@@ -26,11 +26,11 @@ const Contacts = ({ city, phone }) => {
   );
 };
 
-Contacts.propTypes = {
+Contracts.propTypes = {
   city: PropTypes.string.isRequired,
   phone: PropTypes.string
 };
 
-Contacts.defaultProps = {};
+Contracts.defaultProps = {};
 
-export default Contacts;
+export default Contracts;

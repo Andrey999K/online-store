@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Icon from "../UI/icon/icon";
+import Icon from "../UI/Icon";
 
 const Bookmark = ({ status, onClick }) => {
   return (

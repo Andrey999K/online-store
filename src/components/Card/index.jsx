@@ -1,10 +1,10 @@
 import React from "react";
-import Badge from "../badge/badge";
-import ButtonBuy from "../UI/buttonBuy/buttonBuy";
+import Badge from "../Badge";
+import ButtonBuy from "../UI/ButtonBuy";
 import PropTypes from "prop-types";
-import Icon from "../UI/icon/icon";
-import Price from "../price/price";
-import Bookmark from "../bookmark/bookmark";
+import Icon from "../UI/Icon";
+import Price from "../Price";
+import Bookmark from "../Bookmark";
 
 const Card = ({ id, name, price, oldPrice, listBadges, reviewsNumber, rate }) => {
   return (

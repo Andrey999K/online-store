@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Card from "./components/card/card";
-import Header from "./components/header/header";
-import Pagination from "./components/pagination/pagination";
+import Card from "./components/Card";
+import Header from "./components/Header";
+import Pagination from "./components/Pagination";
 import { paginate } from "./utils/paginate";
-import Filters from "./components/filters/filters";
+import SortOptions from "./components/SortOptions";
 import { orderBy } from "lodash";
 import api from "./api";
 
@@ -12,7 +12,13 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 12;
   const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState({ iter: "price", order: "asc" });
+  const [sortBy, setSortBy] = useState({ iter: "rateProduct", order: "desc" });
+  const sortOptions = [
+    { field: "rateProduct", text: "По рейтингу" },
+    { field: "reviewsCount", text: "По отзывам" },
+    { field: "price", text: "По цене" },
+    { field: "name", text: "По названию" }
+  ];
 
   const handleSearchProduct = (productName) => {
     setSearch(productName);
@@ -28,10 +34,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(sortBy);
-  }, [sortBy]);
-
-  useEffect(() => {
     api.catalog.fetchAll()
       .then(response => {
         const data = response.map(item => {
@@ -41,7 +43,7 @@ function App() {
           item.reviews.forEach(review => {
             sumRate += review.rate;
           });
-          return { ...item, reviewsCount, rateProduct: (sumRate / reviewsCount).toFixed(1) };
+          return { ...item, reviewsCount, rateProduct: Number((sumRate / reviewsCount).toFixed(1)) };
         });
         setProducts(data);
       });
@@ -57,25 +59,26 @@ function App() {
     <div className="App">
       <Header search={search} onSearch={handleSearchProduct}/>
       <div className="w-full max-w-screen-lg mx-auto my-6 flex justify-between">
-        <Filters onSort={handleSort}/>
+        <SortOptions items={sortOptions} onSort={handleSort} selectedSort={sortBy} />
         <Pagination itemsCount={filteredProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
       </div>
       <div className="flex flex-wrap gap-y-5 justify-start max-w-screen-lg mx-auto">
         {productsCrop.map(item => (
           <div key={item.id} className="basis-1/4 flex justify-center">
-            <Card id={item.id}
-                  name={item.name}
-                  price={item.price}
-                  oldPrice={item.oldPrice}
-                  listBadges={item.badges}
-                  reviewsNumber={item.reviewsCount}
-                  rate={item.rateProduct}
+            <Card
+              id={item.id}
+              name={item.name}
+              price={item.price}
+              oldPrice={item.oldPrice}
+              listBadges={item.badges}
+              reviewsNumber={item.reviewsCount}
+              rate={item.rateProduct}
             />
           </div>
         ))}
       </div>
       <div className="w-full max-w-screen-lg mx-auto my-6 flex justify-end">
-        <Pagination itemsCount={products.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
+        <Pagination itemsCount={filteredProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
       </div>
     </div>
   );

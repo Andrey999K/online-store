@@ -1,10 +1,10 @@
 import React from "react";
-import Logo from "../logo/logo";
-import Contacts from "../contacts/contacts";
-import Navigation from "../navigation/navigation";
-import Search from "../search/search";
-import Catalog from "../catalog/catalog";
-import ControlButton from "../controlButton/controlButton";
+import Logo from "../Logo";
+import Contracts from "../Contacts";
+import Navigation from "../Navigation";
+import Search from "../Search";
+import Catalog from "../Catalog";
+import ControlButton from "../ControlButton";
 import PropTypes from "prop-types";
 
 const Header = ({ search, onSearch }) => {
@@ -22,7 +22,7 @@ const Header = ({ search, onSearch }) => {
         <div className="w-full max-w-screen-lg mx-auto">
           <div className="flex items-center justify-between py-5">
             <Logo />
-            <Contacts city="Павловский Посад" phone="+79998887766" />
+            <Contracts city="Павловский Посад" phone="+79998887766" />
             <Navigation items={navItems}/>
           </div>
         </div>
