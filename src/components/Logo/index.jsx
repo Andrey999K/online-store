@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Logo = ({ image }) => {
   return (
-    <div>
+    <a href="#">
       {image
         ? <img src={require(`../../img/${image}`)} alt="Logo" />
         : <div className="text-5xl font-bold">
@@ -12,7 +12,7 @@ const Logo = ({ image }) => {
           <span className="text-sky-500">g</span>
           <span className="text-sky-500">o</span>
           </div>}
-    </div>
+    </a>
   );
 };
 

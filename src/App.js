@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Card from "./components/Card";
 import Header from "./components/Header";
 import Pagination from "./components/Pagination";
 import { paginate } from "./utils/paginate";
 import SortOptions from "./components/SortOptions";
 import { orderBy } from "lodash";
 import api from "./api";
+import ProductList from "./components/ProductList";
+import ViewSwitch from "./components/ViewSwitch";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -13,6 +14,7 @@ function App() {
   const pageSize = 12;
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState({ iter: "rateProduct", order: "desc" });
+  const [gridOn, setGridOn] = useState(true);
   const sortOptions = [
     { field: "rateProduct", text: "По рейтингу" },
     { field: "reviewsCount", text: "По отзывам" },
@@ -31,6 +33,11 @@ function App() {
   const handleSort = (field) => {
     if (sortBy.iter === field) setSortBy(prevState => ({ ...prevState, order: prevState.order === "asc" ? "desc" : "asc" }));
     else setSortBy({ iter: field, order: "asc" });
+  };
+
+  const handleEditView = (grid) => {
+    if (grid) setGridOn(false);
+    else setGridOn(true);
   };
 
   useEffect(() => {
@@ -60,23 +67,12 @@ function App() {
       <Header search={search} onSearch={handleSearchProduct}/>
       <div className="w-full max-w-screen-lg mx-auto my-6 flex justify-between">
         <SortOptions items={sortOptions} onSort={handleSort} selectedSort={sortBy} />
-        <Pagination itemsCount={filteredProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
+        <div className="flex gap-5">
+          <ViewSwitch onClick={handleEditView} grid={gridOn} />
+          <Pagination itemsCount={filteredProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
+        </div>
       </div>
-      <div className="flex flex-wrap gap-y-5 justify-start max-w-screen-lg mx-auto">
-        {productsCrop.map(item => (
-          <div key={item.id} className="basis-1/4 flex justify-center">
-            <Card
-              id={item.id}
-              name={item.name}
-              price={item.price}
-              oldPrice={item.oldPrice}
-              listBadges={item.badges}
-              reviewsNumber={item.reviewsCount}
-              rate={item.rateProduct}
-            />
-          </div>
-        ))}
-      </div>
+      <ProductList products={productsCrop} grid={gridOn}/>
       <div className="w-full max-w-screen-lg mx-auto my-6 flex justify-end">
         <Pagination itemsCount={filteredProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
       </div>

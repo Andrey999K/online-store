@@ -1,14 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./price.scss";
 
 const Price = ({ price, oldPrice }) => {
   if (oldPrice === "") oldPrice = false;
   return (
-    <div className="text-2xl hover:text-sky-500">
+    <div className="price text-2xl flex flex-col leading-none">
       {oldPrice && (
-        <span className="line-through text-sm text-gray-400">{oldPrice}</span>
+        <span className="price__old line-through text-sm text-gray-400">{oldPrice}</span>
       )}
-      <div>
+      <div className="price__new inline">
         {price} <span className="text-gray-400">₽</span>
       </div>
     </div>
