@@ -7,6 +7,7 @@ import { orderBy } from "lodash";
 import api from "./api";
 import ProductList from "./components/ProductList";
 import ViewSwitch from "./components/ViewSwitch";
+import Filters from "./components/Filters";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -71,6 +72,9 @@ function App() {
           <ViewSwitch onClick={handleEditView} grid={gridOn} />
           <Pagination itemsCount={filteredProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
         </div>
+      </div>
+      <div className="max-w-screen-lg">
+        <Filters/>
       </div>
       <ProductList products={productsCrop} grid={gridOn}/>
       <div className="w-full max-w-screen-lg mx-auto my-6 flex justify-end">

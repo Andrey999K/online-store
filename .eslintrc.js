@@ -16,7 +16,8 @@ module.exports = {
     "public/",
     "build/",
     "*.min.js",
-    "src/dev/"
+    "src/dev/",
+    "src/components/RangeDouble/"
   ],
   rules: {
     semi: [2, "always"],

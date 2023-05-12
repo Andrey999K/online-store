@@ -31,6 +31,4 @@ Contracts.propTypes = {
   phone: PropTypes.string
 };
 
-Contracts.defaultProps = {};
-
 export default Contracts;
