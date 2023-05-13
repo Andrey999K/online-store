@@ -22,6 +22,7 @@ function App() {
     { field: "price", text: "По цене" },
     { field: "name", text: "По названию" }
   ];
+  const [filteredProducts, setFiltersProducts] = useState([]);
 
   const handleSearchProduct = (productName) => {
     setSearch(productName);
@@ -54,13 +55,14 @@ function App() {
           return { ...item, reviewsCount, rateProduct: Number((sumRate / reviewsCount).toFixed(1)) };
         });
         setProducts(data);
+        setFiltersProducts(data);
       });
   }, []);
 
-  const filteredProducts = products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
+  const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
   const sortedProducts = sortBy
-    ? orderBy(filteredProducts, [sortBy.iter], [sortBy.order])
-    : filteredProducts;
+    ? orderBy(searchProducts, [sortBy.iter], [sortBy.order])
+    : searchProducts;
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
 
   return (
@@ -74,7 +76,7 @@ function App() {
         </div>
       </div>
       <div className="max-w-screen-lg">
-        <Filters/>
+        {products.length && <Filters filtration={setFiltersProducts} products={products}/>}
       </div>
       <ProductList products={productsCrop} grid={gridOn}/>
       <div className="w-full max-w-screen-lg mx-auto my-6 flex justify-end">

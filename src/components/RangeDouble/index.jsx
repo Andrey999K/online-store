@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Range, getTrackBackground } from "react-range";
 import PropTypes from "prop-types";
 
-const RangeDouble = ({ MIN, MAX, STEP, currentValues, rtl, onChange }) => {
+const RangeDouble = ({ MIN, MAX, STEP, currentValues, rtl, onChange, onFinalChange }) => {
   const values = currentValues;
   return (
     <div>
@@ -13,6 +13,7 @@ const RangeDouble = ({ MIN, MAX, STEP, currentValues, rtl, onChange }) => {
         max={MAX}
         rtl={rtl}
         onChange={(currentValue) => onChange(currentValue)}
+        onFinalChange={() => onFinalChange("price", { min: values[0], max: values[1] })}
         renderTrack={({ props, children }) => (
           <div
             onMouseDown={props.onMouseDown}
@@ -75,7 +76,8 @@ RangeDouble.propTypes = {
     PropTypes.number.isRequired
   ),
   rtl: PropTypes.bool,
-  onChange: PropTypes.func
+  onChange: PropTypes.func.isRequired,
+  onFinalChange: PropTypes.func.isRequired
 };
 
 RangeDouble.defaultProps = {
