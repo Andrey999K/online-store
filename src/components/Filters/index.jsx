@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import RangeDouble from "../RangeDouble";
+import FilterInput from "../FilterInput";
 
 const Filters = () => {
   const prices = { min: 15000, max: 360000 };
@@ -13,18 +14,16 @@ const Filters = () => {
     <div className="p-5 max-w-[260px] bg-gray-200 flex flex-col gap-4">
       <h3 className="font-medium text-2xl">Фильтры</h3>
       <div className="flex justify-between">
-        <input
+        <FilterInput
           value={currentPrice.min}
-          type="text"
+          onBlur={event => setCurrentPrice({ ...currentPrice, min: Number(event.target.value) })}
           className="w-2/5 rounded"
-          onChange={event => setCurrentPrice({ ...currentPrice, min: Number(event.target.value) })}
         />
-        <div>—</div>
-        <input
+       <div>—</div>
+        <FilterInput
           value={currentPrice.max}
-          type="text"
+          onBlur={event => setCurrentPrice({ ...currentPrice, max: Number(event.target.value) })}
           className="w-2/5 rounded"
-          onChange={event => setCurrentPrice({ ...currentPrice, max: Number(event.target.value) })}
         />
       </div>
       <div>
