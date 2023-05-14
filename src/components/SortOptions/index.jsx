@@ -15,7 +15,7 @@ const SortOptions = ({ items, onSort, selectedSort }) => {
     return item.text;
   };
   return (
-    <div>
+    <div className="flex items-center">
       <ul className="flex text-base gap-3">
         {items.map(item =>
           <li

@@ -5,23 +5,15 @@ import PropTypes from "prop-types";
 
 const Filters = ({ filtration, products }) => {
   const minPrice = () => {
-    let min = Infinity;
-    products.forEach(product => {
-      if (product.price < min) {
-        min = product.price;
-      }
-    });
-    return min;
+    return products.reduce((min, product) => {
+      return product.price < min ? product.price : min;
+    }, Infinity);
   };
 
   const maxPrice = () => {
-    let max = 0;
-    products.forEach(product => {
-      if (product.price > max) {
-        max = product.price;
-      }
-    });
-    return max;
+    return products.reduce((max, product) => {
+      return product.price > max ? product.price : max;
+    }, 0);
   };
 
   const pricesRange = { min: minPrice(), max: maxPrice() };
@@ -37,14 +29,14 @@ const Filters = ({ filtration, products }) => {
   };
 
   const handleFinalEditPrice = (prices) => {
-    if (prices.min < pricesRange.min) prices = { ...prices, min: pricesRange.min };
-    if (prices.max > pricesRange.max) prices = { ...prices, max: pricesRange.max };
+    if (prices.min < pricesRange.min) prices.min = pricesRange.min;
+    if (prices.max > pricesRange.max) prices.max = pricesRange.max;
     setCurrentPrice(prices);
     filtrationProductList("price", prices);
   };
 
   return (
-    <div className="p-5 max-w-[260px] bg-gray-100 flex flex-col gap-4">
+    <div className="p-5 max-w-[260px] w-full bg-gray-100 flex flex-col gap-4">
       <h3 className="font-medium text-2xl">Фильтры</h3>
       <div className="flex justify-between">
         <FilterInput

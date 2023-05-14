@@ -19,7 +19,7 @@ const Header = ({ search, onSearch }) => {
   return (
     <>
       <header className="bg-white z-10">
-        <div className="w-full max-w-screen-lg mx-auto">
+        <div className="w-full max-w-screen-xl px-8 mx-auto">
           <div className="flex items-center justify-between py-5">
             <Logo />
             <Contracts city="Павловский Посад" phone="+79998887766" />
@@ -28,7 +28,7 @@ const Header = ({ search, onSearch }) => {
         </div>
       </header>
       <div className="sticky top-0 bg-white z-10">
-        <div className="w-full max-w-screen-lg mx-auto">
+        <div className="w-full max-w-screen-xl px-8 mx-auto">
           <div className="py-5 flex justify-between items-center">
             <Catalog />
             <Search search={search} onSearchItem={onSearch}/>
