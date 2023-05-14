@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./App.css";
 import Header from "./components/Header";
 import Pagination from "./components/Pagination";
 import { paginate } from "./utils/paginate";
@@ -74,7 +75,7 @@ function App() {
         <SortOptions items={sortOptions} onSort={handleSort} selectedSort={sortBy}/>
         <div className="flex gap-5">
           <ViewSwitch onClick={handleEditView} grid={gridOn}/>
-          <Pagination itemsCount={filteredProducts.length} pageSize={pageSize} onPageChange={handlePageChange}
+          <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange}
                       currentPage={currentPage}/>
         </div>
       </div>}
@@ -86,7 +87,7 @@ function App() {
         {products.length && <Filters filtration={setFiltersProducts} products={products}/>}
       </div>
       <div className="w-full max-w-screen-xl px-8 mx-auto my-6 flex justify-end">
-        <Pagination itemsCount={filteredProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
+        <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
       </div>
       <Footer/>
     </div>
