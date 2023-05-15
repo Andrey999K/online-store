@@ -13,7 +13,7 @@ const RangeDouble = ({ MIN, MAX, STEP, currentValues, rtl, onChange, onFinalChan
         max={MAX}
         rtl={rtl}
         onChange={(currentValue) => onChange(currentValue)}
-        onFinalChange={() => onFinalChange("price", { min: values[0], max: values[1] })}
+        onFinalChange={() => onFinalChange({ min: values[0], max: values[1] })}
         renderTrack={({ props, children }) => (
           <div
             onMouseDown={props.onMouseDown}
@@ -33,7 +33,7 @@ const RangeDouble = ({ MIN, MAX, STEP, currentValues, rtl, onChange, onFinalChan
                 borderRadius: "4px",
                 background: getTrackBackground({
                   values,
-                  colors: ["#ccc", "#5EB3FF", "#ccc"],
+                  colors: ["#ccc", "#0EA5E9", "#ccc"],
                   min: MIN,
                   max: MAX,
                   rtl
@@ -53,7 +53,7 @@ const RangeDouble = ({ MIN, MAX, STEP, currentValues, rtl, onChange, onFinalChan
               height: "16px",
               width: "16px",
               borderRadius: "100%",
-              backgroundColor: "#5EB3FF",
+              backgroundColor: "#0EA5E9",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",

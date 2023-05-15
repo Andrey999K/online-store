@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.after\:content-[check]:after {
+    content: "✓";
+    color: green;
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RangeDouble from "../RangeDouble";
 import FilterInput from "../FilterInput";
 import PropTypes from "prop-types";
+import CheckboxList from "../CheckboxList";
 
 const Filters = ({ filtration, products }) => {
   const minPrice = () => {
@@ -18,48 +19,80 @@ const Filters = ({ filtration, products }) => {
 
   const pricesRange = { min: minPrice(), max: maxPrice() };
 
-  const [currentPrice, setCurrentPrice] = useState(pricesRange);
+  const [price, setPrice] = useState(pricesRange);
+  const [statuses, setStatuses] = useState([]);
+
+  const filtersStatuses = [
+    { name: "Товары по акции", value: "super" },
+    { name: "Доступно в рассрочку", value: "installment" }
+  ];
 
   const handleEditCurrentPrice = (value) => {
-    setCurrentPrice({ min: value[0], max: value[1] });
+    setPrice({ min: value[0], max: value[1] });
   };
 
-  const filtrationProductList = (param, value) => {
+  const handleFiltrationByPrice = (value) => {
     filtration(products.filter(product => product.price >= value.min && product.price <= value.max));
+  };
+
+  const handleFiltrationByStatus = (values) => {
+    setStatuses(values);
+    if (values.length) {
+      filtration(
+        products.filter(product => {
+          if (product.badges.length > 0) {
+            for (let i = 0; i < product.badges.length; i++) {
+              if (values.includes(product.badges[i].name)) return product;
+            }
+          }
+          return false;
+        })
+      );
+    } else {
+      filtration(products);
+    }
   };
 
   const handleFinalEditPrice = (prices) => {
     if (prices.min < pricesRange.min) prices.min = pricesRange.min;
     if (prices.max > pricesRange.max) prices.max = pricesRange.max;
-    setCurrentPrice(prices);
-    filtrationProductList("price", prices);
+    if (prices.min > pricesRange.max) prices.min = prices.max;
+    if (prices.max < pricesRange.min) prices.max = prices.min;
+    setPrice(prices);
+    handleFiltrationByPrice("price", prices);
   };
 
   return (
     <div className="p-5 max-w-[260px] w-full bg-gray-100 flex flex-col gap-4">
       <h3 className="font-medium text-2xl">Фильтры</h3>
-      <div className="flex justify-between">
-        <FilterInput
-          value={currentPrice.min}
-          onBlur={event => handleFinalEditPrice({ ...currentPrice, min: Number(event.target.value) })}
-          className="w-5/12 rounded"
-        />
-       <div>—</div>
-        <FilterInput
-          value={currentPrice.max}
-          onBlur={event => handleFinalEditPrice({ ...currentPrice, max: Number(event.target.value) })}
-          className="w-5/12 rounded"
-        />
-      </div>
-      <div>
-        <RangeDouble
-          MIN={pricesRange.min}
-          MAX={pricesRange.max}
-          STEP={1}
-          currentValues={[currentPrice.min, currentPrice.max]}
-          onChange={handleEditCurrentPrice}
-          onFinalChange={filtrationProductList}
-        />
+      <div className="flex flex-col gap-3">
+        <div>
+          <h4 className="font-medium text-lg">Цена, ₽</h4>
+          <div className="flex justify-between">
+            <FilterInput
+              value={price.min}
+              onBlur={event => handleFinalEditPrice({ ...price, min: Number(event.target.value) })}
+              className="w-5/12 rounded"
+            />
+            <div>—</div>
+            <FilterInput
+              value={price.max}
+              onBlur={event => handleFinalEditPrice({ ...price, max: Number(event.target.value) })}
+              className="w-5/12 rounded"
+            />
+          </div>
+          <div>
+            <RangeDouble
+              MIN={pricesRange.min}
+              MAX={pricesRange.max}
+              STEP={1}
+              currentValues={[price.min, price.max]}
+              onChange={handleEditCurrentPrice}
+              onFinalChange={handleFiltrationByPrice}
+            />
+          </div>
+        </div>
+        <CheckboxList title="Статус товара" options={filtersStatuses} selectedItems={statuses} onChange={handleFiltrationByStatus} />
       </div>
     </div>
   );
