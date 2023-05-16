@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 
 const FilterInput = ({ value, onBlur, ...attr }) => {
   const [inputValue, setInputValue] = useState(value.toString());
+  const handleInput = (value) => {
+    value = value.replace(/\D/g, "");
+    setInputValue(value);
+  };
   useEffect(() => {
     setInputValue(value.toString());
   }, [value]);
@@ -10,7 +14,7 @@ const FilterInput = ({ value, onBlur, ...attr }) => {
     <input
       value={inputValue}
       type="text"
-      onChange={event => setInputValue(event.target.value)}
+      onChange={event => handleInput(event.target.value)}
       onBlur={onBlur}
       {...attr}
     />

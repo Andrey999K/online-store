@@ -18,7 +18,6 @@ const Filters = ({ filtration, products }) => {
   };
 
   const pricesRange = { min: minPrice(), max: maxPrice() };
-
   const [price, setPrice] = useState(pricesRange);
   const [statuses, setStatuses] = useState([]);
 
@@ -31,26 +30,51 @@ const Filters = ({ filtration, products }) => {
     setPrice({ min: value[0], max: value[1] });
   };
 
-  const handleFiltrationByPrice = (value) => {
-    filtration(products.filter(product => product.price >= value.min && product.price <= value.max));
-  };
-
   const handleFiltrationByStatus = (values) => {
     setStatuses(values);
-    if (values.length) {
-      filtration(
-        products.filter(product => {
-          if (product.badges.length > 0) {
-            for (let i = 0; i < product.badges.length; i++) {
-              if (values.includes(product.badges[i].name)) return product;
-            }
+    handleFiltration(price, values);
+    // if (values.length) {
+    //   filtration(
+    //     products.filter(product => {
+    //       if (product.badges.length > 0) {
+    //         for (let i = 0; i < product.badges.length; i++) {
+    //           if (values.includes(product.badges[i].name)) return product;
+    //         }
+    //       }
+    //       return false;
+    //     })
+    //   );
+    // } else {
+    //   filtration(products);
+    // }
+  };
+
+  const handleFiltration = (prices = price, statusesMass = statuses) => {
+    let filteredProducts = products.filter(product => product.price >= prices.min && product.price <= prices.max);
+    if (statusesMass.length) {
+      filteredProducts = filteredProducts.filter(product => {
+        if (product.badges.length > 0) {
+          for (let i = 0; i < product.badges.length; i++) {
+            if (statusesMass.includes(product.badges[i].name)) return product;
           }
-          return false;
-        })
-      );
-    } else {
-      filtration(products);
+        }
+        return false;
+      });
     }
+    filtration(filteredProducts);
+    // products.filter(product => product.price >= value.min && product.price <= value.max);
+    // if (values.length) {
+    //   filtration(
+    //     products.filter(product => {
+    //       if (product.badges.length > 0) {
+    //         for (let i = 0; i < product.badges.length; i++) {
+    //           if (values.includes(product.badges[i].name)) return product;
+    //         }
+    //       }
+    //       return false;
+    //     })
+    //   );
+    // }
   };
 
   const handleFinalEditPrice = (prices) => {
@@ -59,7 +83,7 @@ const Filters = ({ filtration, products }) => {
     if (prices.min > pricesRange.max) prices.min = prices.max;
     if (prices.max < pricesRange.min) prices.max = prices.min;
     setPrice(prices);
-    handleFiltrationByPrice("price", prices);
+    handleFiltration(prices, statuses);
   };
 
   return (
@@ -88,7 +112,7 @@ const Filters = ({ filtration, products }) => {
               STEP={1}
               currentValues={[price.min, price.max]}
               onChange={handleEditCurrentPrice}
-              onFinalChange={handleFiltrationByPrice}
+              onFinalChange={handleFiltration}
             />
           </div>
         </div>
