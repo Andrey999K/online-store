@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import RangeDouble from "../RangeDouble";
 import FilterInput from "../FilterInput";
 import PropTypes from "prop-types";
-import CheckboxList from "../CheckboxList";
+import SelectionBlock from "../SelectionBlock";
 
 const Filters = ({ filtration, products }) => {
   const minPrice = () => {
@@ -33,20 +33,6 @@ const Filters = ({ filtration, products }) => {
   const handleFiltrationByStatus = (values) => {
     setStatuses(values);
     handleFiltration(price, values);
-    // if (values.length) {
-    //   filtration(
-    //     products.filter(product => {
-    //       if (product.badges.length > 0) {
-    //         for (let i = 0; i < product.badges.length; i++) {
-    //           if (values.includes(product.badges[i].name)) return product;
-    //         }
-    //       }
-    //       return false;
-    //     })
-    //   );
-    // } else {
-    //   filtration(products);
-    // }
   };
 
   const handleFiltration = (prices = price, statusesMass = statuses) => {
@@ -62,19 +48,6 @@ const Filters = ({ filtration, products }) => {
       });
     }
     filtration(filteredProducts);
-    // products.filter(product => product.price >= value.min && product.price <= value.max);
-    // if (values.length) {
-    //   filtration(
-    //     products.filter(product => {
-    //       if (product.badges.length > 0) {
-    //         for (let i = 0; i < product.badges.length; i++) {
-    //           if (values.includes(product.badges[i].name)) return product;
-    //         }
-    //       }
-    //       return false;
-    //     })
-    //   );
-    // }
   };
 
   const handleFinalEditPrice = (prices) => {
@@ -116,7 +89,13 @@ const Filters = ({ filtration, products }) => {
             />
           </div>
         </div>
-        <CheckboxList title="Статус товара" options={filtersStatuses} selectedItems={statuses} onChange={handleFiltrationByStatus} />
+        <SelectionBlock
+          title="Cтатус товара"
+          options={filtersStatuses}
+          selectedItems={statuses}
+          onChange={handleFiltrationByStatus}
+          type="checkbox"
+        />
       </div>
     </div>
   );

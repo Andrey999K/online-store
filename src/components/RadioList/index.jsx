@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Checkbox from "../Checkbox";
+import Radio from "../Radio";
 
-const CheckboxList = ({ title, options, selectedItems, onChange }) => {
+const RadioList = ({ title, options, selectedItems, onChange }) => {
   const handleInputChange = (event) => {
     const isChecked = event.target.checked;
     const value = event.target.value;
@@ -15,9 +15,9 @@ const CheckboxList = ({ title, options, selectedItems, onChange }) => {
   return (
     <div>
       <h4 className="font-medium text-lg">{title}</h4>
-      <div className="flex flex-col mt-3 gap-1">
+      <div className="flex flex-col mt-3 gap-2">
         {options.map(option =>
-          <Checkbox
+          <Radio
             key={option.value}
             name={option.name}
             value={option.value}
@@ -30,11 +30,11 @@ const CheckboxList = ({ title, options, selectedItems, onChange }) => {
   );
 };
 
-CheckboxList.propTypes = {
+RadioList.propTypes = {
   title: PropTypes.string,
-  options: PropTypes.array.isRequired,
-  selectedItems: PropTypes.array.isRequired,
-  onChange: PropTypes.func.isRequired
+  options: PropTypes.array,
+  selectedItems: PropTypes.array,
+  onChange: PropTypes.func
 };
 
-export default CheckboxList;
+export default RadioList;
