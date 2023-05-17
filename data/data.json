@@ -169,7 +169,7 @@
     "id": 2,
     "name": "16\" Ноутбук ASUS VivoBook 16X M1603QA-MB071 синий [1920x1200, IPS, AMD Ryzen 5 5600H, ядра: 6 х 3.3 ГГц, RAM 16 ГБ, SSD 512 ГБ, AMD Radeon Graphics , без ОС]",
     "price": 134990,
-    "oldPrice": 135000,
+    "oldPrice": 134990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -229,7 +229,7 @@
     "id": 3,
     "name": "17.3\" Ноутбук MSI Katana GF76 12UC-265XRU черный [Full HD (1920x1080), IPS, Intel Core i5-12450H, ядра: 4 + 4, RAM 16 ГБ, SSD 512 ГБ, GeForce RTX 3050 для ноутбуков 4 ГБ, без ОС]",
     "price": 149990,
-    "oldPrice": 150000,
+    "oldPrice": 149990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -364,7 +364,7 @@
     "id": 4,
     "name": "Ноутбук игровой MSI Vector GP66 12UGSO-671RU, 15.6\", IPS, Intel Core i7 12700H 2.3ГГц, 14-ядерный, 16ГБ DDR5, 1ТБ SSD, NVIDIA GeForce RTX 3070 Ti для ноутбуков - 8 ГБ, Windows 11 Home, черный",
     "price": 79990,
-    "oldPrice": 80000,
+    "oldPrice": 79990,
     "discount": 0,
     "badges": [
       {
@@ -379,7 +379,7 @@
     "id": 5,
     "name": "Ноутбук игровой MSI Pulse GL66 12UGSZOK-1032XRU, 15.6\", IPS, Intel Core i7 12700H 2.3ГГц, 14-ядерный, 16ГБ DDR5, 1ТБ SSD, NVIDIA GeForce RTX 3070 Ti для ноутбуков - 8 ГБ, Free DOS, серый",
     "price": 160990,
-    "oldPrice": 161000,
+    "oldPrice": 160990,
     "discount": 0,
     "badges": [
       {
@@ -575,7 +575,7 @@
     "id": 6,
     "name": "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
     "price": 139990,
-    "oldPrice": 140000,
+    "oldPrice": 139990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -615,7 +615,7 @@
     "id": 7,
     "name": "15.6\" Ноутбук ASUS VivoBook PRO 15 M6500QC-HN058 синий [Full HD (1920x1080), IPS, AMD Ryzen 5 5600H, ядра: 6 х 3.3 ГГц, RAM 16 ГБ, SSD 512 ГБ, GeForce RTX 3050 для ноутбуков 4 ГБ, без ОС]",
     "price": 363990,
-    "oldPrice": 364000,
+    "oldPrice": 363990,
     "discount": 0,
     "badges": [
       {
@@ -881,7 +881,7 @@
     "id": 8,
     "name": "15.6\" Ноутбук MSI Modern 15 B12M-211RU черный [Full HD (1920x1080), IPS, Intel Core i3-1215U, ядра: 2 + 4, RAM 8 ГБ, SSD 256 ГБ, Intel UHD Graphics , Windows 11 Home Single Language]",
     "price": 343990,
-    "oldPrice": 344000,
+    "oldPrice": 343990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -1082,7 +1082,7 @@
     "id": 10,
     "name": "17.3\" Ноутбук MSI Katana GF76 12UC-257XRU черный [Full HD (1920x1080), IPS, Intel Core i7-12650H, ядра: 6 + 4, RAM 16 ГБ, SSD 512 ГБ, GeForce RTX 3050 для ноутбуков 4 ГБ, без ОС]",
     "price": 273990,
-    "oldPrice": 274000,
+    "oldPrice": 273990,
     "discount": 0,
     "badges": [
       {
@@ -1429,7 +1429,7 @@
     "id": 12,
     "name": "Ноутбук игровой MSI Pulse GL76 12UEK-088XRU, 17.3\", IPS, Intel Core i5 12500H 2.5ГГц, 12-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3060 для ноутбуков - 6 ГБ, Free DOS, серый",
     "price": 140990,
-    "oldPrice": 141000,
+    "oldPrice": 140990,
     "discount": 0,
     "badges": [
       {
@@ -1911,7 +1911,7 @@
     "id": 14,
     "name": "15.6\" Ультрабук MSI Modern 15 B12M-215XRU черный [Full HD (1920x1080), IPS, Intel Core i3-1215U, ядра: 2 + 4, RAM 8 ГБ, SSD 256 ГБ, Intel UHD Graphics , без ОС]",
     "price": 181990,
-    "oldPrice": 182000,
+    "oldPrice": 181990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -2311,7 +2311,7 @@
     "id": 16,
     "name": "15.6\" Ноутбук GIGABYTE G5 GE черный [Full HD (1920x1080), IPS, Intel Core i5-12500H, ядра: 4 + 8 х 2.5 ГГц, RAM 16 ГБ, SSD 512 ГБ, GeForce RTX 3050 для ноутбуков 4 ГБ, без ОС]",
     "price": 296990,
-    "oldPrice": 297000,
+    "oldPrice": 296990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -2452,7 +2452,7 @@
     "id": 18,
     "name": "14\" Ультрабук MSI Modern 14 C12M-229RU черный [Full HD (1920x1080), IPS, Intel Core i5-1235U, ядра: 2 + 8, RAM 16 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home Single Language]",
     "price": 232990,
-    "oldPrice": 233000,
+    "oldPrice": 232990,
     "discount": 0,
     "badges": [
       {
@@ -2728,7 +2728,7 @@
     "id": 20,
     "name": "Ноутбук Huawei MateBook 16S CREF-X, 16\", IPS, Intel Core i7 12700H 2.3ГГц, 14-ядерный, 16ГБ LPDDR5, 1ТБ SSD, Intel Iris Xe graphics , Windows 11 Home, серый",
     "price": 372990,
-    "oldPrice": 373000,
+    "oldPrice": 372990,
     "discount": 0,
     "badges": [
       {
@@ -3095,7 +3095,7 @@
     "id": 22,
     "name": "Ноутбук игровой MSI Pulse GL76 12UEK-088XRU, 17.3\", IPS, Intel Core i5 12500H 2.5ГГц, 12-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3060 для ноутбуков - 6 ГБ, Free DOS, серый",
     "price": 367990,
-    "oldPrice": 368000,
+    "oldPrice": 367990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -3350,7 +3350,7 @@
     "id": 24,
     "name": "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
     "price": 238990,
-    "oldPrice": 239000,
+    "oldPrice": 238990,
     "discount": 0,
     "badges": [
       {
@@ -3637,7 +3637,7 @@
     "id": 26,
     "name": "17.3\" Ноутбук MSI Katana GF76 12UC-265XRU черный [Full HD (1920x1080), IPS, Intel Core i5-12450H, ядра: 4 + 4, RAM 16 ГБ, SSD 512 ГБ, GeForce RTX 3050 для ноутбуков 4 ГБ, без ОС]",
     "price": 378990,
-    "oldPrice": 379000,
+    "oldPrice": 378990,
     "discount": 0,
     "badges": [
       {
@@ -3999,7 +3999,7 @@
     "id": 28,
     "name": "17.3\" Ноутбук MSI Katana GF76 11SC-853XRU черный [Full HD (1920x1080), IPS, Intel Core i5-11400H, ядра: 6 х 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, GeForce GTX 1650 4 ГБ, без ОС]",
     "price": 249990,
-    "oldPrice": 250000,
+    "oldPrice": 249990,
     "discount": 0,
     "badges": [
       {
@@ -4086,7 +4086,7 @@
     "id": 30,
     "name": "Ноутбук Huawei MateBook 16S CREF-X, 16\", IPS, Intel Core i7 12700H 2.3ГГц, 14-ядерный, 16ГБ LPDDR5, 1ТБ SSD, Intel Iris Xe graphics , Windows 11 Home, серый",
     "price": 145990,
-    "oldPrice": 146000,
+    "oldPrice": 145990,
     "discount": 0,
     "badges": [
       {
@@ -4313,7 +4313,7 @@
     "id": 32,
     "name": "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
     "price": 59990,
-    "oldPrice": 60000,
+    "oldPrice": 59990,
     "discount": 0,
     "badges": [
       {
@@ -4530,7 +4530,7 @@
     "id": 34,
     "name": "15.6\" Ноутбук Honor MagicBook 15 BMH-WFQ9HN серый [Full HD (1920x1080), IPS, AMD Ryzen 5 5500U, ядра: 6 х 2.1 ГГц, RAM 16 ГБ, SSD 512 ГБ, AMD Radeon Graphics , без ОС]",
     "price": 78990,
-    "oldPrice": 79000,
+    "oldPrice": 78990,
     "discount": 0,
     "badges": [
       {
@@ -4742,7 +4742,7 @@
     "id": 36,
     "name": "15.6\" Ноутбук Honor MagicBook 15 BMH-WFQ9HN серый [Full HD (1920x1080), IPS, AMD Ryzen 5 5500U, ядра: 6 х 2.1 ГГц, RAM 16 ГБ, SSD 512 ГБ, AMD Radeon Graphics , без ОС]",
     "price": 200990,
-    "oldPrice": 201000,
+    "oldPrice": 200990,
     "discount": 0,
     "badges": [
       {
@@ -4883,7 +4883,7 @@
     "id": 38,
     "name": "17.3\" Ноутбук MSI Katana GF76 11SC-853XRU черный [Full HD (1920x1080), IPS, Intel Core i5-11400H, ядра: 6 х 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, GeForce GTX 1650 4 ГБ, без ОС]",
     "price": 256990,
-    "oldPrice": 257000,
+    "oldPrice": 256990,
     "discount": 0,
     "badges": [
       {
@@ -5200,7 +5200,7 @@
     "id": 40,
     "name": "14\" Ультрабук MSI Modern 14 C12M-229RU черный [Full HD (1920x1080), IPS, Intel Core i5-1235U, ядра: 2 + 8, RAM 16 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home Single Language]",
     "price": 174990,
-    "oldPrice": 175000,
+    "oldPrice": 174990,
     "discount": 0,
     "badges": [
       {
@@ -5636,7 +5636,7 @@
     "id": 42,
     "name": "Ноутбук игровой MSI GP66 Leopard 11UG-699XRU, 15.6\", IPS, Intel Core i7 11800H 2.3ГГц, 8-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3070 для ноутбуков - 8 ГБ, Free DOS, черный",
     "price": 294990,
-    "oldPrice": 295000,
+    "oldPrice": 294990,
     "discount": 0,
     "badges": [
       {
@@ -5828,7 +5828,7 @@
     "id": 44,
     "name": "Ноутбук игровой MSI GF63 Thin 11UC-207XRU, 15.6\", IPS, Intel Core i5 11400H 2.7ГГц, 6-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3050 для ноутбуков - 4 ГБ, Free DOS, черный",
     "price": 307990,
-    "oldPrice": 308000,
+    "oldPrice": 307990,
     "discount": 0,
     "badges": [
       {
@@ -6200,7 +6200,7 @@
     "id": 46,
     "name": "Ноутбук Huawei MateBook 16S CREF-X, 16\", IPS, Intel Core i7 12700H 2.3ГГц, 14-ядерный, 16ГБ LPDDR5, 1ТБ SSD, Intel Iris Xe graphics , Windows 11 Home, серый",
     "price": 327990,
-    "oldPrice": 328000,
+    "oldPrice": 327990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -6351,7 +6351,7 @@
     "id": 48,
     "name": "15.6\" Ноутбук Honor MagicBook 15 BMH-WFQ9HN серый [Full HD (1920x1080), IPS, AMD Ryzen 5 5500U, ядра: 6 х 2.1 ГГц, RAM 16 ГБ, SSD 512 ГБ, AMD Radeon Graphics , без ОС]",
     "price": 333990,
-    "oldPrice": 334000,
+    "oldPrice": 333990,
     "discount": 0,
     "badges": [
       {
@@ -6598,7 +6598,7 @@
     "id": 50,
     "name": "Ноутбук игровой MSI Titan GT77 12UHS-208RU, 17.3\", IPS, Intel Core i9 12900HX 2.3ГГц, 16-ядерный, 64ГБ DDR5, 3ТБ SSD, NVIDIA GeForce RTX 3080 Ti для ноутбуков - 16 ГБ, Windows 11 Home, черный",
     "price": 35990,
-    "oldPrice": 36000,
+    "oldPrice": 35990,
     "discount": 0,
     "badges": [
       {
@@ -6714,7 +6714,7 @@
     "id": 52,
     "name": "Ноутбук Huawei MateBook D 15 BoD-WDH9, 15.6\", IPS, Intel Core i5 1135G7 2.4ГГц, 4-ядерный, 8ГБ DDR4, 256ГБ SSD, Intel Iris Xe graphics , Windows 11 Home, серебристый",
     "price": 133990,
-    "oldPrice": 134000,
+    "oldPrice": 133990,
     "discount": 0,
     "badges": [
       {
@@ -6946,7 +6946,7 @@
     "id": 54,
     "name": "Ноутбук игровой MSI Vector GP66 12UGSO-671RU, 15.6\", IPS, Intel Core i7 12700H 2.3ГГц, 14-ядерный, 16ГБ DDR5, 1ТБ SSD, NVIDIA GeForce RTX 3070 Ti для ноутбуков - 8 ГБ, Windows 11 Home, черный",
     "price": 380990,
-    "oldPrice": 381000,
+    "oldPrice": 380990,
     "discount": 0,
     "badges": [
       {
@@ -7203,7 +7203,7 @@
     "id": 56,
     "name": "Ноутбук игровой MSI GF63 Thin 11UC-207XRU, 15.6\", IPS, Intel Core i5 11400H 2.7ГГц, 6-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3050 для ноутбуков - 4 ГБ, Free DOS, черный",
     "price": 20990,
-    "oldPrice": 21000,
+    "oldPrice": 20990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -7604,7 +7604,7 @@
     "id": 58,
     "name": "Ноутбук игровой MSI Sword 17 A11UD-809XRU, 17.3\", IPS, Intel Core i5 11400H 2.7ГГц, 6-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3050 Ti для ноутбуков - 4 ГБ, Free DOS, белый",
     "price": 382990,
-    "oldPrice": 383000,
+    "oldPrice": 382990,
     "discount": 0,
     "badges": [
       {
@@ -7675,7 +7675,7 @@
     "id": 59,
     "name": "Ноутбук игровой MSI Sword 15 A12UE-487XRU, 15.6\", IPS, Intel Core i7 12700H 2.3ГГц, 14-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3060 для ноутбуков - 6 ГБ, Free DOS, белый",
     "price": 357990,
-    "oldPrice": 358000,
+    "oldPrice": 357990,
     "discount": 0,
     "badges": [
       {
@@ -7856,7 +7856,7 @@
     "id": 60,
     "name": "17.3\" Ноутбук MSI Katana GF76 12UC-258RU черный [Full HD (1920x1080), IPS, Intel Core i5-12450H, ядра: 4 + 4, RAM 16 ГБ, SSD 512 ГБ, GeForce RTX 3050 для ноутбуков 4 ГБ, Windows 11 Home Single",
     "price": 60990,
-    "oldPrice": 61000,
+    "oldPrice": 60990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -7876,7 +7876,7 @@
     "id": 61,
     "name": "Ноутбук игровой MSI Sword 17 A11UD-809XRU, 17.3\", IPS, Intel Core i5 11400H 2.7ГГц, 6-ядерный, 16ГБ DDR4, 512ГБ SSD, NVIDIA GeForce RTX 3050 Ti для ноутбуков - 4 ГБ, Free DOS, белый",
     "price": 290990,
-    "oldPrice": 291000,
+    "oldPrice": 290990,
     "discount": 0,
     "badges": [
       {
@@ -8132,7 +8132,7 @@
     "id": 62,
     "name": "14\" Ультрабук MSI Modern 14 C12M-229RU черный [Full HD (1920x1080), IPS, Intel Core i5-1235U, ядра: 2 + 8, RAM 16 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home Single Language]",
     "price": 323990,
-    "oldPrice": 324000,
+    "oldPrice": 323990,
     "discount": 0,
     "badges": [],
     "reviews": [
@@ -8468,7 +8468,7 @@
     "id": 64,
     "name": "15.6\" Ноутбук GIGABYTE G5 GE черный [Full HD (1920x1080), IPS, Intel Core i5-12500H, ядра: 4 + 8 х 2.5 ГГц, RAM 16 ГБ, SSD 512 ГБ, GeForce RTX 3050 для ноутбуков 4 ГБ, без ОС]",
     "price": 311990,
-    "oldPrice": 312000,
+    "oldPrice": 311990,
     "discount": 0,
     "badges": [
       {
