@@ -2,8 +2,9 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Catalog from "./pages/Catalog";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
       <Header/>
       <div className="my-auto">
         <Switch>
-          <Route path="/" component={Catalog}/>
+          <Route path={process.env.PUBLIC_URL} exact component={Catalog}/>
+          <Route path={`${process.env.PUBLIC_URL}/404`} component={NotFound} />
+          <Redirect to={`${process.env.PUBLIC_URL}/404`} />
         </Switch>
       </div>
       <Footer/>
