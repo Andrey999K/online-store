@@ -23,7 +23,8 @@ function App() {
     { field: "reviewsCount", text: "По отзывам" },
     { field: "price", text: "По цене" },
     { field: "name", text: "По названию" },
-    { field: "discount", text: "По скидке" }
+    { field: "discount", text: "По скидке" },
+    { field: "benefit", text: "По выгоде" }
   ];
   const [filteredProducts, setFiltersProducts] = useState([]);
 
@@ -38,6 +39,7 @@ function App() {
   const handleSort = (field) => {
     if (sortBy.iter === field) setSortBy(prevState => ({ ...prevState, order: prevState.order === "asc" ? "desc" : "asc" }));
     else setSortBy({ iter: field, order: "asc" });
+    setCurrentPage(1);
   };
 
   const handleEditView = (grid) => {
@@ -53,26 +55,33 @@ function App() {
   useEffect(() => {
     api.catalog.fetchAll()
       .then(response => {
+        console.log(response);
         const data = response.map(item => {
           const reviewsCount = item.reviews.length;
-          if (!reviewsCount) return { ...item, reviewsCount, ratingProduct: 0 };
           let sumRating = 0;
           item.reviews.forEach(review => {
             sumRating += review.rating;
           });
-          return { ...item, reviewsCount, ratingProduct: Number((sumRating / reviewsCount).toFixed(1)) };
+          return {
+            ...item,
+            benefit: item.oldPrice - item.price,
+            reviewsCount,
+            ratingProduct: reviewsCount ? (Number((sumRating / reviewsCount).toFixed(1))) : 0
+          };
         });
+        console.log(data);
         setProducts(data);
         setFiltersProducts(data);
       });
   }, []);
 
   const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
+  console.log(sortBy);
+  console.log(orderBy(searchProducts, [sortBy.iter], [sortBy.order]));
   const sortedProducts = sortBy
     ? orderBy(searchProducts, [sortBy.iter], [sortBy.order])
     : searchProducts;
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
-
   return (
     <div className="App">
       <Header search={search} onSearch={handleSearchProduct}/>

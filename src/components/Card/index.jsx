@@ -9,7 +9,7 @@ import "./card.scss";
 
 const Card = ({ id, name, price, discount, oldPrice, listBadges, reviewsNumber, rating }) => {
   return (
-    <a href="#" className="relative pt-2 px-4 pb-4 rounded flex flex-col gap-3 max-w-[230px] hover:shadow-2xl ease-out duration-300 card">
+    <a href="#" className="group relative pt-2 px-4 pb-4 rounded flex flex-col gap-3 max-w-[230px] hover:shadow-2xl ease-out duration-300 card">
       <div className="min-w-[200px] relative pt-8">
         <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
           {
