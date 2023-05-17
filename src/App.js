@@ -75,6 +75,7 @@ function App() {
   return (
     <div className="App">
       <Header search={search} onSearch={handleSearchProduct}/>
+      <div className="w-full max-w-screen-xl px-8 mx-auto text-3xl mt-5">{`Найдено ${sortedProducts.length} товаров.`}</div>
       {!!productsCrop.length &&
       <div className="w-full max-w-screen-xl px-8 mx-auto my-6 flex justify-between">
         <SortOptions items={sortOptions} onSort={handleSort} selectedSort={sortBy}/>
@@ -84,7 +85,7 @@ function App() {
                       currentPage={currentPage}/>
         </div>
       </div>}
-      <div className="max-w-screen-xl px-8 flex justify-between">
+      <div className="max-w-screen-xl px-8 flex justify-between mx-auto">
         {productsCrop.length
           ? <ProductList products={productsCrop} grid={gridOn}/>
           : <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>

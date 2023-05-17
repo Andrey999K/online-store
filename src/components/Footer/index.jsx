@@ -3,8 +3,8 @@ import Icon from "../UI/Icon";
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="max-w-screen-xl bg-sky-500 text-white p-8 w-full">
+    <footer className="bg-sky-500 text-white py-8">
+      <div className="max-w-screen-xl w-full mx-auto px-8">
         <div className="flex justify-center gap-10 w-full">
           <nav className="flex gap-10 w-full">
             <ul className="flex flex-col max-h-32 flex-wrap gap-x-40">
