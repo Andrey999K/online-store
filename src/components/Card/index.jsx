@@ -49,7 +49,7 @@ const Card = ({ id, name, price, discount, oldPrice, listBadges, reviewsNumber, 
           Операционная система: Windows 11 Home;<br/>
           Клавиатура: с русскими буквами
         </div>
-        <div className="mt-auto flex flex-col gap-1">
+        <div className={"mt-auto flex flex-col gap-1" + (discount ? "" : " pt-4")}>
           <div className="card__info-bottom flex justify-between relative">
             <div className="card__info-price">
               <Price price={price} oldPrice={oldPrice} discount={discount}/>

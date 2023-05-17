@@ -22,7 +22,8 @@ function App() {
     { field: "ratingProduct", text: "По рейтингу" },
     { field: "reviewsCount", text: "По отзывам" },
     { field: "price", text: "По цене" },
-    { field: "name", text: "По названию" }
+    { field: "name", text: "По названию" },
+    { field: "discount", text: "По скидке" }
   ];
   const [filteredProducts, setFiltersProducts] = useState([]);
 
