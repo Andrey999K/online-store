@@ -13,7 +13,7 @@ function App() {
     <div className="App flex flex-col">
       {/* <Header search={search} onSearch={handleSearchProduct}/> */}
       <Header/>
-      <div className="w-full mb-auto">
+      <div className="w-full m-auto h-full">
         <Switch>
           <Route path={homepage} exact component={Catalog}/>
           <Route path={`${homepage}/product/:productId`} component={ProductPage}/>

@@ -7,6 +7,7 @@ import Price from "../Price";
 import Bookmark from "../Bookmark";
 import "./card.scss";
 import { Link } from "react-router-dom";
+import Rating from "../Rating";
 
 const Card = ({ id, name, price, discount, oldPrice, listBadges, reviewsNumber, rating, inGrid }) => {
   return (
@@ -30,10 +31,7 @@ const Card = ({ id, name, price, discount, oldPrice, listBadges, reviewsNumber, 
           <div className="flex items-center gap-3">
             {!!reviewsNumber && (
               <>
-                <div className="flex items-center gap-1">
-                  <Icon name="star" className="text-sky-500 w-[16px] h-[16px]" />
-                  <span>{rating}</span>
-                </div>
+                <Rating rating={rating} />
                 <div className="flex items-center gap-1">
                   <Icon name="review" className="text-gray-400 w-[16px] h-[16px]" />
                   <span>{reviewsNumber}</span>
