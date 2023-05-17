@@ -14,6 +14,16 @@
       "withTest": false,
       "withStory": false,
       "withLazy": false
+    },
+    "page": {
+      "customTemplates": {
+        "component": "templates/Pages/index.jsx"
+      },
+      "path": "src/pages",
+      "withStyle": false,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
     }
   }
 }

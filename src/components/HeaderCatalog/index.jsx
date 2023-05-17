@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "../UI/Icon";
 
-const Catalog = () => {
+const HeaderCatalog = () => {
   return (
     <div>
       <button className="flex border-[1px] border-solid border-sky-500 rounded py-2 pl-3 pr-1 text-sky-500
@@ -13,8 +13,8 @@ const Catalog = () => {
   );
 };
 
-Catalog.propTypes = {};
+HeaderCatalog.propTypes = {};
 
-Catalog.defaultProps = {};
+HeaderCatalog.defaultProps = {};
 
-export default Catalog;
+export default HeaderCatalog;

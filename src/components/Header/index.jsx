@@ -2,8 +2,7 @@ import React from "react";
 import Logo from "../Logo";
 import Contracts from "../Contacts";
 import Navigation from "../Navigation";
-import Search from "../Search";
-import Catalog from "../Catalog";
+import HeaderCatalog from "../HeaderCatalog";
 import ControlButton from "../ControlButton";
 import PropTypes from "prop-types";
 
@@ -30,8 +29,8 @@ const Header = ({ search, onSearch }) => {
       <div className="sticky top-0 bg-white z-10">
         <div className="w-full max-w-screen-xl px-8 mx-auto">
           <div className="py-5 flex justify-between items-center">
-            <Catalog />
-            <Search search={search} onSearchItem={onSearch}/>
+            <HeaderCatalog />
+            {/* <Search search={search} onSearchItem={onSearch}/> */}
             <div className="flex gap-6">
               <ControlButton icon="user" text="Войти" />
               <ControlButton icon="bookmark" text="Избранное" />
