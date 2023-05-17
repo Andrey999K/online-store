@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Radio = ({ name, value, checked, onChange }) => {
+const Radio = ({ name, label, value, checked, onChange }) => {
   return (
     <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
       <input
@@ -9,13 +9,14 @@ const Radio = ({ name, value, checked, onChange }) => {
         type="radio"
         id={value}
         value={value}
+        name={name}
         checked={checked}
         onChange={onChange}
       />
       <label
         className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer ml-2"
         htmlFor={value}>
-        {name}
+        {label}
       </label>
     </div>
   );
@@ -23,7 +24,11 @@ const Radio = ({ name, value, checked, onChange }) => {
 
 Radio.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired
 };

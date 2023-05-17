@@ -20,22 +20,54 @@ const Filters = ({ filtration, products }) => {
   const pricesRange = { min: minPrice(), max: maxPrice() };
   const [price, setPrice] = useState(pricesRange);
   const [statuses, setStatuses] = useState([]);
+  const [discount, setDiscount] = useState(null);
+  const [rating, setRating] = useState(null);
 
   const filtersStatuses = [
     { name: "Товары по акции", value: "super" },
     { name: "Доступно в рассрочку", value: "installment" }
   ];
 
+  const filtersDiscount = [
+    { name: "Любой", value: 0 },
+    { name: "5% и больше", value: 5 },
+    { name: "10% и больше", value: 10 },
+    { name: "15% и больше", value: 15 }
+  ];
+
+  const filtersRating = [
+    { name: "Любой", value: 0 },
+    { name: "4,5 и выше", value: 4.5 },
+    { name: "4 и выше", value: 4 },
+    { name: "3,5 и выше", value: 3.5 },
+    { name: "3 и выше", value: 3 }
+  ];
+
   const handleEditCurrentPrice = (value) => {
     setPrice({ min: value[0], max: value[1] });
   };
 
-  const handleFiltrationByStatus = (values) => {
-    setStatuses(values);
-    handleFiltration(price, values);
+  const handleFiltrationByStatus = (statusMass) => {
+    setStatuses(statusMass);
+    handleFiltration(price, statusMass);
   };
 
-  const handleFiltration = (prices = price, statusesMass = statuses) => {
+  const handleFiltrationByDiscount = (discountValue) => {
+    setDiscount(discountValue);
+    handleFiltration(price, statuses, discountValue);
+  };
+
+  const handleFiltrationByRating = (ratingValue) => {
+    setRating(ratingValue);
+    handleFiltration(price, statuses, discount, ratingValue);
+  };
+
+  const handleFiltration = (
+    prices = price,
+    statusesMass = statuses,
+    discountValue = discount,
+    ratingValue = rating
+  ) => {
     let filteredProducts = products.filter(product => product.price >= prices.min && product.price <= prices.max);
     if (statusesMass.length) {
       filteredProducts = filteredProducts.filter(product => {
@@ -47,6 +79,8 @@ const Filters = ({ filtration, products }) => {
         return false;
       });
     }
+    filteredProducts = filteredProducts.filter(product => product.discount >= Number(discountValue));
+    filteredProducts = filteredProducts.filter(product => product.ratingProduct >= Number(ratingValue));
     filtration(filteredProducts);
   };
 
@@ -95,6 +129,20 @@ const Filters = ({ filtration, products }) => {
           selectedItems={statuses}
           onChange={handleFiltrationByStatus}
           type="checkbox"
+        />
+        <SelectionBlock
+          title="Со скидкой"
+          options={filtersDiscount}
+          selectedItems={discount}
+          onChange={handleFiltrationByDiscount}
+          type="radio"
+        />
+        <SelectionBlock
+          title="Оценка"
+          options={filtersRating}
+          selectedItems={rating}
+          onChange={handleFiltrationByRating}
+          type="radio"
         />
       </div>
     </div>

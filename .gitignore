@@ -22,7 +22,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /.idea/
-/src/api/addFieldCatalog.js
-/src/api/catalog2.js
-/src/api/fake.api/catalog.api1.js
-/src/api/fake.api/data.json
+/public/data/data.json

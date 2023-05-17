@@ -16,10 +16,10 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 12;
   const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState({ iter: "rateProduct", order: "desc" });
+  const [sortBy, setSortBy] = useState({ iter: "ratingProduct", order: "desc" });
   const [gridOn, setGridOn] = useState(true);
   const sortOptions = [
-    { field: "rateProduct", text: "По рейтингу" },
+    { field: "ratingProduct", text: "По рейтингу" },
     { field: "reviewsCount", text: "По отзывам" },
     { field: "price", text: "По цене" },
     { field: "name", text: "По названию" }
@@ -44,17 +44,22 @@ function App() {
     else setGridOn(true);
   };
 
+  const handleFiltration = (value) => {
+    setFiltersProducts(value);
+    setCurrentPage(1);
+  };
+
   useEffect(() => {
     api.catalog.fetchAll()
       .then(response => {
         const data = response.map(item => {
           const reviewsCount = item.reviews.length;
-          if (!reviewsCount) return { ...item, reviewsCount, rateProduct: 0 };
-          let sumRate = 0;
+          if (!reviewsCount) return { ...item, reviewsCount, ratingProduct: 0 };
+          let sumRating = 0;
           item.reviews.forEach(review => {
-            sumRate += review.rate;
+            sumRating += review.rating;
           });
-          return { ...item, reviewsCount, rateProduct: Number((sumRate / reviewsCount).toFixed(1)) };
+          return { ...item, reviewsCount, ratingProduct: Number((sumRating / reviewsCount).toFixed(1)) };
         });
         setProducts(data);
         setFiltersProducts(data);
@@ -84,7 +89,7 @@ function App() {
           ? <ProductList products={productsCrop} grid={gridOn}/>
           : <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>
         }
-        {products.length && <Filters filtration={setFiltersProducts} products={products}/>}
+        {products.length && <Filters filtration={handleFiltration} products={products}/>}
       </div>
       <div className="w-full max-w-screen-xl px-8 mx-auto my-6 flex justify-end">
         <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>

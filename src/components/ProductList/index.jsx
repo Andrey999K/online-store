@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const ProductList = ({ products, grid }) => {
   return (
     <div className={
-      "flex flex-wrap w-full gap-y-5 justify-start max-w-screen-lg mx-auto" + (grid ? "" : " list-layout flex-col")
+      "flex flex-wrap w-full gap-y-5 justify-start max-w-screen-lg mx-auto" + (grid ? " items-start" : " list-layout flex-col")
     }>
       {products.map(item => (
         <div key={item.id} className="flex justify-center">
@@ -13,9 +13,10 @@ const ProductList = ({ products, grid }) => {
             name={item.name}
             price={item.price}
             oldPrice={item.oldPrice}
+            discount={item.discount}
             listBadges={item.badges}
             reviewsNumber={item.reviewsCount}
-            rate={item.rateProduct}
+            rating={item.ratingProduct}
           />
         </div>
       ))}
@@ -31,7 +32,7 @@ ProductList.propTypes = {
     oldPrice: PropTypes.number,
     badges: PropTypes.array,
     reviewsCount: PropTypes.number.isRequired,
-    rateProduct: PropTypes.number.isRequired
+    ratingProduct: PropTypes.number.isRequired
   })).isRequired,
   grid: PropTypes.bool.isRequired
 };

@@ -19,7 +19,7 @@ const CheckboxList = ({ title, options, selectedItems, onChange }) => {
         {options.map(option =>
           <Checkbox
             key={option.value}
-            name={option.name}
+            label={option.name}
             value={option.value}
             checked={selectedItems.includes(option.value)}
             onChange={handleInputChange}

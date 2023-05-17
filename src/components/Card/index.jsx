@@ -7,7 +7,7 @@ import Price from "../Price";
 import Bookmark from "../Bookmark";
 import "./card.scss";
 
-const Card = ({ id, name, price, oldPrice, listBadges, reviewsNumber, rate }) => {
+const Card = ({ id, name, price, discount, oldPrice, listBadges, reviewsNumber, rating }) => {
   return (
     <a href="#" className="relative pt-2 px-4 pb-4 rounded flex flex-col gap-3 max-w-[230px] hover:shadow-2xl ease-out duration-300 card">
       <div className="min-w-[200px] relative pt-8">
@@ -30,7 +30,7 @@ const Card = ({ id, name, price, oldPrice, listBadges, reviewsNumber, rate }) =>
             <>
               <div className="flex items-center gap-1">
                 <Icon name="star" className="text-sky-500 w-[16px] h-[16px]" />
-                <span>{rate}</span>
+                <span>{rating}</span>
               </div>
               <div className="flex items-center gap-1">
                 <Icon name="review" className="text-gray-400 w-[16px] h-[16px]" />
@@ -52,7 +52,7 @@ const Card = ({ id, name, price, oldPrice, listBadges, reviewsNumber, rate }) =>
         <div className="mt-auto flex flex-col gap-1">
           <div className="card__info-bottom flex justify-between relative">
             <div className="card__info-price">
-              <Price price={price} oldPrice={oldPrice}/>
+              <Price price={price} oldPrice={oldPrice} discount={discount}/>
             </div>
             <div>
               <div className="card__bookmark absolute right-0 top-[-286px] cursor-pointer text-gray-400 hover:text-sky-500">
@@ -78,6 +78,7 @@ Card.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   oldPrice: PropTypes.number,
+  discount: PropTypes.number,
   listBadges: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -86,7 +87,7 @@ Card.propTypes = {
     })
   ),
   reviewsNumber: PropTypes.number,
-  rate: PropTypes.number
+  rating: PropTypes.number
 };
 
 export default Card;

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Checkbox = ({ name, value, checked, onChange }) => {
+const Checkbox = ({ label, value, checked, onChange }) => {
   return (
     <div className="inline-flex items-center ml-[-12px] mt-[-12px]">
       <label
@@ -39,14 +39,14 @@ const Checkbox = ({ name, value, checked, onChange }) => {
         className="mt-px cursor-pointer select-none font-light text-gray-700 ml-1"
         htmlFor={value}
       >
-        {name}
+        {label}
       </label>
     </div>
   );
 };
 
 Checkbox.propTypes = {
-  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired
