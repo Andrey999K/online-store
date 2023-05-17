@@ -17,6 +17,7 @@ const ProductList = ({ products, grid }) => {
             listBadges={item.badges}
             reviewsNumber={item.reviewsCount}
             rating={item.ratingProduct}
+            inGrid={grid}
           />
         </div>
       ))}

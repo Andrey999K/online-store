@@ -49,39 +49,52 @@ const Catalog = () => {
     setCurrentPage(1);
   };
 
+  const showProductList = (productsList, gridOn) => {
+    if (products.length) {
+      return productsList.length
+        ? <ProductList products={productsList} grid={gridOn}/>
+        : <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>;
+    }
+    return <div className="mx-auto text-3xl">Loading...</div>;
+  };
+
+  const showFoundProductsCount = () => {
+    if (products.length) return <div className="w-full max-w-screen-xl px-8 mx-auto text-3xl mt-5">{`Найдено ${sortedProducts.length} товаров.`}</div>;
+  };
+
   useEffect(() => {
-    api.catalog.fetchAll()
-      .then(response => {
-        console.log(response);
-        const data = response.map(item => {
-          const reviewsCount = item.reviews.length;
-          let sumRating = 0;
-          item.reviews.forEach(review => {
-            sumRating += review.rating;
+    setTimeout(() => {
+      api.catalog.fetchAll()
+        .then(response => {
+          console.log(response);
+          const data = response.map(item => {
+            const reviewsCount = item.reviews.length;
+            let sumRating = 0;
+            item.reviews.forEach(review => {
+              sumRating += review.rating;
+            });
+            return {
+              ...item,
+              benefit: item.oldPrice - item.price,
+              reviewsCount,
+              ratingProduct: reviewsCount ? (Number((sumRating / reviewsCount).toFixed(1))) : 0
+            };
           });
-          return {
-            ...item,
-            benefit: item.oldPrice - item.price,
-            reviewsCount,
-            ratingProduct: reviewsCount ? (Number((sumRating / reviewsCount).toFixed(1))) : 0
-          };
+          console.log(data);
+          setProducts(data);
+          setFiltersProducts(data);
         });
-        console.log(data);
-        setProducts(data);
-        setFiltersProducts(data);
-      });
+    }, 1000);
   }, []);
 
   // const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
-  console.log(sortBy);
-  console.log(orderBy(filteredProducts, [sortBy.iter], [sortBy.order]));
   const sortedProducts = sortBy
     ? orderBy(filteredProducts, [sortBy.iter], [sortBy.order])
     : filteredProducts;
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
   return (
     <div>
-      <div className="w-full max-w-screen-xl px-8 mx-auto text-3xl mt-5">{`Найдено ${sortedProducts.length} товаров.`}</div>
+      {showFoundProductsCount()}
       {!!productsCrop.length &&
         <div className="w-full max-w-screen-xl px-8 mx-auto my-6 flex justify-between">
           <SortOptions items={sortOptions} onSort={handleSort} selectedSort={sortBy}/>
@@ -92,11 +105,8 @@ const Catalog = () => {
           </div>
         </div>}
       <div className="max-w-screen-xl px-8 flex justify-between mx-auto">
-        {productsCrop.length
-          ? <ProductList products={productsCrop} grid={gridOn}/>
-          : <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>
-        }
-        {products.length && <Filters filtration={handleFiltration} products={products}/>}
+        {showProductList(productsCrop, gridOn)}
+        {!!products.length && <Filters filtration={handleFiltration} products={products}/>}
       </div>
       <div className="w-full max-w-screen-xl px-8 mx-auto my-6 flex justify-end">
         <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>

@@ -123,6 +123,7 @@ function getRandomNumber(min, max) {
 // Parse the JSON data into a JavaScript object
 // let mass = JSON.parse(data);
 const mass = [];
+let reviewId = 0;
 for (let i = 1; i <= 65; i++) {
   const nameValue = names[getRandomNumber(0, names.length - 1)];
 
@@ -140,7 +141,7 @@ for (let i = 1; i <= 65; i++) {
   const massReview = [];
   randomNumber = getRandomNumber(0, 50);
   for (let j = 1; j <= randomNumber; j++) {
-    massReview.push(reviewsData[getRandomNumber(0, reviewsData.length - 1)]);
+    massReview.push({ reviewId: reviewId++, ...reviewsData[getRandomNumber(0, reviewsData.length - 1)] });
   }
 
   mass.push(

@@ -605,6 +605,17 @@ const fetchAll = async() => {
   }
 };
 
+const getById = async(productid) => {
+  try {
+    const response = await axios.get("../data/data.json");
+    return response.data.find(product => product.id === Number(productid));
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
 export default {
-  fetchAll
+  fetchAll,
+  getById
 };
