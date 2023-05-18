@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import api from "../../api";
 import Price from "../../components/Price";
 import ButtonBuy from "../../components/UI/ButtonBuy";
-import Rating from "../../components/Rating";
 import Loader from "../../components/Loader";
+import Review from "../../components/Review";
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -44,16 +44,7 @@ const ProductPage = () => {
             <ul className="flex flex-col gap-16 items-center mt-10">
               {product.reviews.map(review =>
                 <li key={review.reviewId}>
-                  <div className="flex flex-col gap-3">
-                    <div className="flex gap-3">
-                      <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
-                      <span>{review.name}</span>
-                      <div>
-                        <Rating rating={review.rating} />
-                      </div>
-                    </div>
-                    <div className="max-w-3xl">{review.text}</div>
-                  </div>
+                  <Review data={review} />
                 </li>
               )}
             </ul>
