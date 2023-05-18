@@ -7,6 +7,7 @@ import Filters from "../../components/Filters";
 import api from "../../api";
 import { orderBy } from "lodash";
 import { paginate } from "../../utils/paginate";
+import Loader from "../../components/Loader";
 
 const Catalog = () => {
   const [products, setProducts] = useState([]);
@@ -55,7 +56,11 @@ const Catalog = () => {
         ? <ProductList products={productsList} grid={gridOn}/>
         : <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>;
     }
-    return <div className="mx-auto text-3xl">Loading...</div>;
+    return (
+      <div className="mx-auto text-3xl">
+        <Loader />
+      </div>
+    );
   };
 
   const showFoundProductsCount = () => {
@@ -84,7 +89,7 @@ const Catalog = () => {
           setProducts(data);
           setFiltersProducts(data);
         });
-    }, 1000);
+    }, 2000);
   }, []);
 
   // const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));

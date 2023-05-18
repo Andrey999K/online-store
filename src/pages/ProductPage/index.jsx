@@ -4,6 +4,7 @@ import api from "../../api";
 import Price from "../../components/Price";
 import ButtonBuy from "../../components/UI/ButtonBuy";
 import Rating from "../../components/Rating";
+import Loader from "../../components/Loader";
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -42,15 +43,17 @@ const ProductPage = () => {
             <h3 className="text-3xl max-w-3xl mx-auto">Отзывы {product.reviews.length}</h3>
             <ul className="flex flex-col gap-16 items-center mt-10">
               {product.reviews.map(review =>
-                <li key={review.reviewId} className="flex flex-col gap-3">
-                  <div className="flex gap-3">
-                    <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
-                    <span>{review.name}</span>
-                    <div>
-                      <Rating rating={review.rating} />
+                <li key={review.reviewId}>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex gap-3">
+                      <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
+                      <span>{review.name}</span>
+                      <div>
+                        <Rating rating={review.rating} />
+                      </div>
                     </div>
+                    <div className="max-w-3xl">{review.text}</div>
                   </div>
-                  <div className="max-w-3xl">{review.text}</div>
                 </li>
               )}
             </ul>
@@ -58,7 +61,11 @@ const ProductPage = () => {
         </div>
       );
     }
-    return <div className="flex justify-center text-3xl">Loading...</div>;
+    return (
+      <div className="flex justify-center text-3xl text-sky-500">
+        <Loader />
+      </div>
+    );
   };
 
   useEffect(() => {
@@ -67,7 +74,7 @@ const ProductPage = () => {
         .then(response => {
           setProduct(response);
         });
-    }, 1000);
+    }, 2000);
   }, []);
 
   return (
