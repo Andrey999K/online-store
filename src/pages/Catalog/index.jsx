@@ -34,9 +34,8 @@ const Catalog = () => {
     setCurrentPage(pageNumber);
   };
 
-  const handleSort = (field) => {
-    if (sortBy.iter === field) setSortBy(prevState => ({ ...prevState, order: prevState.order === "asc" ? "desc" : "asc" }));
-    else setSortBy({ iter: field, order: "asc" });
+  const handleSort = (value) => {
+    setSortBy(value);
     setCurrentPage(1);
   };
 

@@ -5,11 +5,48 @@ import Price from "../../components/Price";
 import ButtonBuy from "../../components/UI/ButtonBuy";
 import Loader from "../../components/Loader";
 import Review from "../../components/Review";
+import { paginate } from "../../utils/paginate";
+import Pagination from "../../components/Pagination";
+import SortOptions from "../../components/SortOptions";
+import { orderBy } from "lodash";
 
 const ProductPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+  const [currentPageReview, setCurrentPageReview] = useState(1);
+  const [sortReviewBy, setSortReviewBy] = useState({ iter: "rating", order: "desc" });
+  const reviewOnPage = 5;
+  let reviews = [];
+  if (product) reviews = product.reviews;
 
+  const sortReviewsOptions = [
+    { field: "rating", text: "По рейтингу" },
+    { field: "date", text: "По дате" }
+  ];
+
+  const handleSortReviews = (value) => {
+    setSortReviewBy(value);
+    setCurrentPageReview(1);
+  };
+
+  const handlePageReviewChange = (pageNumber) => {
+    setCurrentPageReview(pageNumber);
+  };
+
+  const sortByDate = (items) => {
+    return orderBy(items, [item => {
+      const [day, month, year] = item.date.split(".");
+      return new Date(`${year}-${month}-${day}`);
+    }], [sortReviewBy.order]);
+  };
+
+  let sortedReviews = reviews;
+  if (sortReviewBy) {
+    sortedReviews = sortReviewBy.iter === "date"
+      ? sortByDate(reviews)
+      : orderBy(reviews, [sortReviewBy.iter], [sortReviewBy.order]);
+  }
+  const reviewsCrop = paginate(sortedReviews, reviewOnPage, currentPageReview);
   const showProduct = () => {
     if (product) {
       return (
@@ -39,15 +76,36 @@ const ProductPage = () => {
               </div>
             </div>
           </div>
-          <div className="mt">
-            <h3 className="text-3xl max-w-3xl mx-auto">Отзывы {product.reviews.length}</h3>
-            <ul className="flex flex-col gap-16 items-center mt-10">
-              {product.reviews.map(review =>
+          <div className="max-w-3xl mx-auto flex flex-col gap-10">
+            <div className="flex justify-between">
+              <h3 className="text-3xl">Отзывы {product.reviews.length}</h3>
+              <div>
+                <SortOptions onSort={handleSortReviews} selectedSort={sortReviewBy} items={sortReviewsOptions} />
+              </div>
+              <div>
+                <Pagination
+                  pageSize={reviewOnPage}
+                  onPageChange={handlePageReviewChange}
+                  currentPage={currentPageReview}
+                  itemsCount={reviews.length}
+                />
+              </div>
+            </div>
+            <ul className="flex flex-col gap-8 items-center">
+              {reviewsCrop.map(review =>
                 <li key={review.reviewId}>
                   <Review data={review} />
                 </li>
               )}
             </ul>
+            <div>
+              <Pagination
+                pageSize={reviewOnPage}
+                onPageChange={handlePageReviewChange}
+                currentPage={currentPageReview}
+                itemsCount={reviews.length}
+              />
+            </div>
           </div>
         </div>
       );

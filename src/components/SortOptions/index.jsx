@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import Icon from "../UI/Icon";
 
 const SortOptions = ({ items, onSort, selectedSort }) => {
+  const handleSort = (field) => {
+    if (selectedSort.iter === field) onSort(prevState => ({ ...prevState, order: prevState.order === "asc" ? "desc" : "asc" }));
+    else onSort({ iter: field, order: "asc" });
+  };
   const showSort = (item) => {
     if (item.field === selectedSort.iter) {
       return (
@@ -20,7 +24,7 @@ const SortOptions = ({ items, onSort, selectedSort }) => {
         {items.map(item =>
           <li
             key={item.field}
-            onClick={() => onSort(item.field)}
+            onClick={() => handleSort(item.field)}
             role="button"
             className="flex items-end gap-1"
           >
