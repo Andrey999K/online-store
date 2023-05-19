@@ -21,6 +21,4 @@ Logo.propTypes = {
   image: PropTypes.string
 };
 
-Logo.defaultProps = {};
-
 export default Logo;
