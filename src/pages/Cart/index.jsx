@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import productsWord from "../../utils/productsWord";
+import Price from "../../components/Price";
+import Bookmark from "../../components/Bookmark";
+import Icon from "../../components/UI/Icon";
 
 const Cart = () => {
   const productList = useSelector(state => state.cart);
@@ -15,19 +18,49 @@ const Cart = () => {
   const showProducts = () => {
     if (productsCount) {
       return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-12 pb-16 pt-12 w-full">
           <h2 className="text-3xl">Корзина</h2>
           <div className="flex gap-5 justify-between">
-            <ul className="flex flex-col gap-3 basis-3/4">
+            <ul className="flex flex-col gap-10 basis-3/4">
               {productList.map(product => (
-                <div key={product.id}>{product.name}</div>
+                <div
+                  key={product.id}
+                  className="flex gap-8 justify-between w-full p-6 hover:shadow-2xl duration-300"
+                >
+                  <div className="flex gap-5 justify-between">
+                    <div className="max-w-[12rem] w-full">
+                      <img
+                        className="w-full"
+                        src={`https://thumb.cloud.mail.ru/weblink/thumb/xw1/9Q7k/wEByutoNc/${product.id}.jpg`}
+                        alt="Ноутбук"
+                      />
+                    </div>
+                    <h4 className="text-base max-w-[26rem] w-full">{product.name}</h4>
+                  </div>
+                  <div className="flex gap-3">
+                    <Price price={product.price} oldPrice={product.oldPrice} discount={product.discount} />
+                    <div className="flex flex-col gap-2">
+                      <Bookmark status={false} />
+                      <button className="cursor-pointer text-gray-400 hover:text-sky-500">
+                        <Icon
+                          className="w-[22px] h-[22px]"
+                          name="delete"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
               ))}
             </ul>
-            <div className="p-6 flex flex-col gap-2 bg-gray-100">
-              <h3 className="text-2xl">В корзине</h3>
-              <span>{productsCount} {productsWord(productsCount)}</span>
-              <span>{sumPrices()} ₽</span>
-              <button className="p-3 bg-sky-500 text-white rounded">Перейти к оформлению</button>
+            <div>
+              <div className="p-6 flex flex-col gap-2 bg-gray-100">
+                <h3 className="text-2xl">Итого</h3>
+                <div className="flex justify-between">
+                  <span>{productsCount} {productsWord(productsCount)}</span>
+                  <span>{sumPrices()} ₽</span>
+                </div>
+                <button className="p-3 bg-sky-500 text-white rounded hover:bg-sky-400 duration-200">Перейти к оформлению</button>
+              </div>
             </div>
           </div>
         </div>);

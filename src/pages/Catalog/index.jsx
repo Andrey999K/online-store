@@ -8,6 +8,7 @@ import api from "../../api";
 import { orderBy } from "lodash";
 import paginate from "../../utils/paginate";
 import Loader from "../../components/Loader";
+import productsWord from "../../utils/productsWord";
 
 const Catalog = () => {
   const [products, setProducts] = useState([]);
@@ -63,7 +64,7 @@ const Catalog = () => {
   };
 
   const showFoundProductsCount = () => {
-    if (products.length) return <div className="w-full max-w-screen-xl px-8 mx-auto text-3xl mt-5">{`Найдено ${sortedProducts.length} товаров.`}</div>;
+    if (products.length) return <div className="w-full max-w-screen-xl px-8 mx-auto text-3xl mt-5">{`Найдено ${sortedProducts.length} ${productsWord(sortedProducts.length)}.`}</div>;
   };
 
   useEffect(() => {

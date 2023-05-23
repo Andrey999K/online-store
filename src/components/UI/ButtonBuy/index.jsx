@@ -16,7 +16,7 @@ const ButtonBuy = ({ min, product }) => {
     <button
       className={
         (min ? "rounded-full w-[40px]" : " w-full py-0 px-5 rounded-3xl ") +
-        " h-[40px] bg-sky-500 flex justify-center gap-2 items-center hover:bg-sky-400"
+        " h-[40px] bg-sky-500 flex justify-center gap-2 items-center hover:bg-sky-400 duration-200"
       }
       onClick={handleClick}
       >

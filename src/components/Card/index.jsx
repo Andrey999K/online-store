@@ -57,7 +57,7 @@ const Card = ({ product, inGrid }) => {
                 <Price price={price} oldPrice={oldPrice} discount={discount} hover={true}/>
               </div>
               <div>
-                <div className="card__bookmark absolute right-0 top-[-286px] cursor-pointer text-gray-400 hover:text-sky-500">
+                <div className="card__bookmark absolute right-0 top-[-286px]">
                   <Bookmark status={false}/>
                 </div>
                 <div className="card__button-buy absolute right-0 bottom-0">

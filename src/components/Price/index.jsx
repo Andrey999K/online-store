@@ -8,8 +8,8 @@ const Price = ({ price, oldPrice, discount, hover }) => {
       {!!discount && (
         <div className="flex gap-2 items-center">
           <span className="price__old line-through text-sm text-gray-400">{oldPrice}</span>
-          <div className="text-sm py-1 px-2 text-white bg-red-600 rounded-full">
-            <span className={hover ? "group-hover:hidden" : ""}>{`- ${discount} %`}</span>
+          <div className="text-sm py-1 px-2 text-white bg-red-500 rounded-full whitespace-nowrap">
+            <span className={hover ? "group-hover:hidden" : "" + " block"}>{`- ${discount} %`}</span>
             {!!hover && <span className="hidden group-hover:block">{`- ${oldPrice - price} ₽`}</span>}
           </div>
         </div>
