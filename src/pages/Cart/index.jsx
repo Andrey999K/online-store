@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import productsWord from "../../utils/productsWord";
 import Price from "../../components/Price";
 import Bookmark from "../../components/Bookmark";
@@ -9,11 +9,18 @@ import Icon from "../../components/UI/Icon";
 const Cart = () => {
   const productList = useSelector(state => state.cart);
   const productsCount = productList.length;
+  const dispatch = useDispatch();
 
   const sumPrices = () => {
     let sum = 0;
     for (let i = 0; i < productsCount; i++) sum += productList[i].price;
     return sum;
+  };
+  const handleClearData = () => {
+    if (localStorage.getItem("products_in_cart")) {
+      localStorage.removeItem("products_in_cart");
+      dispatch({ type: "CLEAR_BASKET" });
+    }
   };
   const showProducts = () => {
     if (productsCount) {
@@ -60,6 +67,12 @@ const Cart = () => {
                   <span>{sumPrices()} ₽</span>
                 </div>
                 <button className="p-3 bg-sky-500 text-white rounded hover:bg-sky-400 duration-200">Перейти к оформлению</button>
+                <button
+                  onClick={handleClearData}
+                  className="p-3 border-solid border-[1px] border-sky-500 text-sky-500 rounded hover:bg-sky-500 hover:text-white duration-200"
+                >
+                  Очистить корзину
+                </button>
               </div>
             </div>
           </div>
