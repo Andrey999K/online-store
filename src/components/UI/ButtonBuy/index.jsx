@@ -10,6 +10,11 @@ const ButtonBuy = ({ min, product }) => {
   const handleClick = (e) => {
     e.preventDefault();
     dispatch({ type: "ADD_IN_CART", payload: product });
+    if (localStorage.getItem("products_in_cart")) {
+      const massProduct = JSON.parse(localStorage.getItem("products_in_cart"));
+      massProduct.push(product);
+      localStorage.setItem("products_in_cart", JSON.stringify(massProduct));
+    } else localStorage.setItem("products_in_cart", JSON.stringify([product]));
   };
 
   return (

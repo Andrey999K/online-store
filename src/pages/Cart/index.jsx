@@ -25,7 +25,7 @@ const Cart = () => {
               {productList.map(product => (
                 <div
                   key={product.id}
-                  className="flex gap-8 justify-between w-full p-6 hover:shadow-2xl duration-300"
+                  className="flex gap-8 justify-between w-full p-6"
                 >
                   <div className="flex gap-5 justify-between">
                     <div className="max-w-[12rem] w-full">
@@ -70,7 +70,7 @@ const Cart = () => {
         <span className="text-2xl">В корзине нет товаров</span>
         <Link
           to={`${process.env.PUBLIC_URL}`}
-          className="text-xl py-4 px-8 hover:bg-sky-500 hover:text-white duration-300 border-solid border-2 border-sky-500 rounded"
+          className="text-xl py-4 px-8 hover:bg-sky-500 hover:text-white duration-300 border-solid border-[1px] border-sky-500 rounded"
         >
           В каталог
         </Link>

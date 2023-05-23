@@ -9,8 +9,15 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
+const getProductsFromStorage = () => {
+  if (localStorage.getItem("products_in_cart")) {
+    return JSON.parse(localStorage.getItem("products_in_cart"));
+  }
+  return false;
+};
+
 const initialState = {
-  cart: []
+  cart: getProductsFromStorage() || []
 };
 
 const reducer = (state = initialState, action) => {
