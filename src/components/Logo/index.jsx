@@ -7,7 +7,7 @@ const Logo = ({ image }) => {
     <Link to={process.env.PUBLIC_URL}>
       {image
         ? <img src={require(`../../img/${image}`)} alt="Logo" />
-        : <div className="text-5xl font-bold">
+        : <div className="text-5xl font-extrabold">
           <span>L</span>
           <span>o</span>
           <span className="text-sky-500">g</span>

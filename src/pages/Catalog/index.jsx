@@ -70,7 +70,6 @@ const Catalog = () => {
     setTimeout(() => {
       api.catalog.fetchAll()
         .then(response => {
-          console.log(response);
           const data = response.map(item => {
             const reviewsCount = item.reviews.length;
             let sumRating = 0;
@@ -84,7 +83,6 @@ const Catalog = () => {
               ratingProduct: reviewsCount ? (Number((sumRating / reviewsCount).toFixed(1))) : 0
             };
           });
-          console.log(data);
           setProducts(data);
           setFiltersProducts(data);
         });

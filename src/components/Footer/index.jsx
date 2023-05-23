@@ -52,18 +52,18 @@ const Footer = () => {
           <div>
             <ul className="flex gap-8 items-center">
               <li>
-                <a href="#">
-                   <Icon name="telegram" className="w-[40px] h-[40px] text-sky-800 hover:text-sky-300 duration-200 ease-out" />
+                <a href="https://t.me/Andrey_Kutuzovv" target="_blank" rel="noopener noreferrer">
+                   <Icon name="telegram" className="w-[40px] h-[40px] text-sky-800 hover:text-white duration-200 ease-out" />
                 </a>
               </li>
               <li>
-                <a href="#">
-                   <Icon name="vk" className="w-[40px] h-[40px] text-sky-800 hover:text-sky-300 duration-200 ease-out" />
+                <a href="https://vk.com/andrey999k" target="_blank" rel="noopener noreferrer">
+                   <Icon name="vk" className="w-[40px] h-[40px] text-sky-800 hover:text-white duration-200 ease-out" />
                 </a>
               </li>
               <li>
-                <a href="#">
-                  <Icon name="youtube" className="w-[40px] h-[40px] text-sky-800 hover:text-sky-300 duration-200 ease-out" />
+                <a href="https://www.youtube.com/channel/UCyJBQMheyhWfoUIDvPn9bhg" target="_blank" rel="noopener noreferrer">
+                  <Icon name="youtube" className="w-[40px] h-[40px] text-sky-800 hover:text-white duration-200 ease-out" />
                 </a>
               </li>
             </ul>

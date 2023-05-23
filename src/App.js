@@ -6,6 +6,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Catalog from "./pages/Catalog";
 import NotFound from "./pages/NotFound";
 import ProductPage from "./pages/ProductPage";
+import Cart from "./pages/Cart";
 
 function App() {
   const homepage = process.env.PUBLIC_URL;
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route path={homepage} exact component={Catalog}/>
           <Route path={`${homepage}/product/:productId`} component={ProductPage}/>
+          <Route path={`${homepage}/cart`} component={Cart} />
           <Route path={`${homepage}/404`} component={NotFound} />
           <Redirect to={`${homepage}/404`} />
         </Switch>

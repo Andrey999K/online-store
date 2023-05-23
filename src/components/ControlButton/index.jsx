@@ -1,23 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../UI/Icon";
+import { Link } from "react-router-dom";
 
-const ControlButton = ({ icon, text }) => {
+const ControlButton = ({ icon, text, url }) => {
   return (
-    <button className="flex flex-col justify-center items-center text-gray-400 hover:text-sky-500 text-sm">
+    <Link
+      to={url}
+      className="flex flex-col justify-center items-center text-gray-400 hover:text-sky-500 text-sm"
+    >
       {icon && (
         <Icon name={icon} className="w-[24px] h-[24px]" />
       )}
       <span>{text}</span>
-    </button>
+    </Link>
   );
 };
 
 ControlButton.propTypes = {
   icon: PropTypes.string,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  url: PropTypes.string
 };
 
-ControlButton.defaultProps = {};
+ControlButton.defaultProps = {
+  url: `${process.env.PUBLIC_URL}`
+};
 
 export default ControlButton;

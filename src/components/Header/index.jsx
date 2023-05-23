@@ -35,7 +35,7 @@ const Header = ({ search, onSearch }) => {
               <ControlButton icon="user" text="Войти" />
               <ControlButton icon="bookmark" text="Избранное" />
               <ControlButton icon="bar-chart" text="Сравнение" />
-              <ControlButton icon="basket" text="Корзина" />
+              <ControlButton icon="basket" text="Корзина" url={`${process.env.PUBLIC_URL}/cart`} />
             </div>
           </div>
         </div>
