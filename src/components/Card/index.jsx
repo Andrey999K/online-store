@@ -9,14 +9,16 @@ import "./card.scss";
 import { Link } from "react-router-dom";
 import Rating from "../Rating";
 
-const Card = ({ id, name, price, discount, oldPrice, listBadges, reviewsNumber, rating, inGrid }) => {
+const Card = ({ product, inGrid }) => {
+  const { id, name, price, discount, oldPrice, badges, reviews, ratingProduct: rating } = product;
+  const reviewsNumber = reviews.length;
   return (
     <div className="w-full hover:shadow-2xl duration-300">
       <Link to={`${process.env.PUBLIC_URL}/product/${id}`} className="group relative pt-2 px-4 pb-4 rounded flex flex-col gap-3 max-w-[230px] card">
         <div className="min-w-[200px] relative pt-8">
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
             {
-              listBadges.map(badge =>
+              !!badges.length && badges.map(badge =>
                 <Badge key={badge.id} text={badge.text} type={badge.name} />
               )
             }
@@ -59,7 +61,7 @@ const Card = ({ id, name, price, discount, oldPrice, listBadges, reviewsNumber, 
                   <Bookmark status={false}/>
                 </div>
                 <div className="card__button-buy absolute right-0 bottom-0">
-                  <ButtonBuy min={inGrid} />
+                  <ButtonBuy min={inGrid} product={product} />
                 </div>
               </div>
             </div>
@@ -75,20 +77,21 @@ const Card = ({ id, name, price, discount, oldPrice, listBadges, reviewsNumber, 
 };
 
 Card.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  oldPrice: PropTypes.number,
-  discount: PropTypes.number,
-  listBadges: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
-    })
-  ),
-  reviewsNumber: PropTypes.number,
-  rating: PropTypes.number,
+  product: PropTypes.object.isRequired,
+  // id: PropTypes.number,
+  // name: PropTypes.string.isRequired,
+  // price: PropTypes.number.isRequired,
+  // oldPrice: PropTypes.number,
+  // discount: PropTypes.number,
+  // listBadges: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     id: PropTypes.number.isRequired,
+  //     text: PropTypes.string.isRequired,
+  //     name: PropTypes.string.isRequired
+  //   })
+  // ),
+  // reviewsNumber: PropTypes.number,
+  // rating: PropTypes.number,
   inGrid: PropTypes.bool
 };
 

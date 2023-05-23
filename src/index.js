@@ -6,19 +6,41 @@ import reportWebVitals from "./reportWebVitals";
 import { DevSupport } from "@react-buddy/ide-toolbox";
 import { ComponentPreviews, useInitial } from "./dev";
 import { BrowserRouter } from "react-router-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
+const initialState = {
+  cart: []
+};
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "ADD_IN_CART":
+      console.log(action);
+      return { ...state, cart: [...state.cart, action.payload] };
+    case "DELETE_FROM_CART":
+      return { ...state, cart: [...state.cart].filter(product => product.id !== action.payload.id) };
+    default:
+      return state;
+  }
+};
+
+const store = createStore(reducer);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <DevSupport
-        ComponentPreviews={ComponentPreviews}
-        useInitialHook={useInitial}
-      >
-        <App />
-      </DevSupport>
-    </React.StrictMode>
-  </BrowserRouter>
+  <Provider store={store} >
+    <BrowserRouter>
+      <React.StrictMode>
+        <DevSupport
+          ComponentPreviews={ComponentPreviews}
+          useInitialHook={useInitial}
+        >
+          <App />
+        </DevSupport>
+      </React.StrictMode>
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

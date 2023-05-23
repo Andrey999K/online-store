@@ -6,7 +6,7 @@ import ProductList from "../../components/ProductList";
 import Filters from "../../components/Filters";
 import api from "../../api";
 import { orderBy } from "lodash";
-import { paginate } from "../../utils/paginate";
+import paginate from "../../utils/paginate";
 import Loader from "../../components/Loader";
 
 const Catalog = () => {

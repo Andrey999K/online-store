@@ -5,7 +5,7 @@ import Price from "../../components/Price";
 import ButtonBuy from "../../components/UI/ButtonBuy";
 import Loader from "../../components/Loader";
 import Review from "../../components/Review";
-import { paginate } from "../../utils/paginate";
+import paginate from "../../utils/paginate";
 import Pagination from "../../components/Pagination";
 import SortOptions from "../../components/SortOptions";
 import { orderBy } from "lodash";
@@ -71,7 +71,7 @@ const ProductPage = () => {
                   <Price price={product.price} oldPrice={product.oldPrice} discount={product.discount} />
                 </div>
                 <div className="max-w-xs">
-                  <ButtonBuy />
+                  <ButtonBuy product={product} />
                 </div>
               </div>
             </div>
