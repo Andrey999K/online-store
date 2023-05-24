@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 
 const Header = ({ search, onSearch }) => {
-  const countCart = useSelector(state => state.cart.length);
+  const countCart = useSelector(state => state.cartReducer.cart.length);
   const navItems = [
     { id: 1, text: "Журнал" },
     { id: 2, text: "Акции" },
@@ -37,7 +37,7 @@ const Header = ({ search, onSearch }) => {
               <ControlButton icon="user" text="Войти" />
               <ControlButton icon="bookmark" text="Избранное" />
               <ControlButton icon="bar-chart" text="Сравнение" />
-              <ControlButton icon="basket" text="Корзина" url={`${process.env.PUBLIC_URL}/cart`} count={countCart}/>
+              <ControlButton icon="cart" text="Корзина" url={`${process.env.PUBLIC_URL}/cart`} count={countCart}/>
             </div>
           </div>
         </div>

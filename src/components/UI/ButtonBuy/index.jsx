@@ -7,14 +7,8 @@ const ButtonBuy = ({ min, product }) => {
   const dispatch = useDispatch();
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch({ type: "ADD_IN_BASKET", payload: product });
-    if (localStorage.getItem("products_in_cart")) {
-      const massProduct = JSON.parse(localStorage.getItem("products_in_cart"));
-      massProduct.push(product);
-      localStorage.setItem("products_in_cart", JSON.stringify(massProduct));
-    } else localStorage.setItem("products_in_cart", JSON.stringify([product]));
+    dispatch({ type: "ADD_IN_CART", payload: product });
   };
-
   return (
     <button
       className={
@@ -23,7 +17,7 @@ const ButtonBuy = ({ min, product }) => {
       }
       onClick={handleClick}
       >
-      <Icon name="basket" className="w-[24px] h-[24px] text-white" />
+      <Icon name="cart" className="w-[24px] h-[24px] text-white" />
       <span
         className={
           (min ? "hidden" : " block") +

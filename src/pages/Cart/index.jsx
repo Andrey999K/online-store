@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import productsWord from "../../utils/productsWord";
-import ListBasket from "../../components/ListBasket";
+import ListCart from "../../components/ListCart";
 
 const Cart = () => {
-  const productList = useSelector(state => state.cart);
+  const productList = useSelector(state => state.cartReducer.cart);
   const productsCount = productList.length;
   const dispatch = useDispatch();
   const sumPrices = () => {
@@ -14,10 +14,7 @@ const Cart = () => {
     return sum;
   };
   const handleClearData = () => {
-    if (localStorage.getItem("products_in_cart")) {
-      localStorage.removeItem("products_in_cart");
-      dispatch({ type: "CLEAR_BASKET" });
-    }
+    dispatch({ type: "CLEAR_CART" });
   };
   const showProducts = () => {
     if (productsCount) {
@@ -25,7 +22,7 @@ const Cart = () => {
         <div className="flex flex-col gap-12 pb-16 pt-12 w-full">
           <h2 className="text-3xl">Корзина</h2>
           <div className="flex gap-5 justify-between">
-            <ListBasket data={productList} />
+            <ListCart data={productList} />
             <div>
               <div className="p-6 flex flex-col gap-2 bg-gray-100">
                 <h3 className="text-2xl">Итого</h3>

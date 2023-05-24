@@ -6,35 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 import { DevSupport } from "@react-buddy/ide-toolbox";
 import { ComponentPreviews, useInitial } from "./dev";
 import { BrowserRouter } from "react-router-dom";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
+import { store } from "./store";
 
-const getProductsFromStorage = () => {
-  if (localStorage.getItem("products_in_cart")) {
-    return JSON.parse(localStorage.getItem("products_in_cart"));
-  }
-  return false;
-};
 
-const initialState = {
-  cart: getProductsFromStorage() || []
-};
-
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "ADD_IN_BASKET":
-      console.log(action);
-      return { ...state, cart: [...state.cart, action.payload] };
-    case "DELETE_FROM_BASKET":
-      return { ...state, cart: [...state.cart].filter(product => product.id !== action.payload.id) };
-    case "CLEAR_BASKET":
-      return { ...state, cart: [] };
-    default:
-      return state;
-  }
-};
-
-const store = createStore(reducer);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

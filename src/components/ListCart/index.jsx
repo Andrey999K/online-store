@@ -5,15 +5,10 @@ import Icon from "../UI/Icon";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 
-const ListBasket = ({ data }) => {
+const ListCart = ({ data }) => {
   const dispatch = useDispatch();
   const handleDelete = (product) => {
-    dispatch({ type: "DELETE_FROM_BASKET", payload: product });
-    if (localStorage.getItem("products_in_cart")) {
-      let massProducts = JSON.parse(localStorage.getItem("products_in_cart"));
-      massProducts = massProducts.filter(item => item.id !== product.id);
-      localStorage.setItem("products_in_cart", JSON.stringify(massProducts));
-    }
+    dispatch({ type: "DELETE_FROM_CART", payload: product });
   };
   return (
     <ul className="flex flex-col gap-10 basis-3/4">
@@ -53,8 +48,8 @@ const ListBasket = ({ data }) => {
   );
 };
 
-ListBasket.propTypes = {
+ListCart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default ListBasket;
+export default ListCart;
