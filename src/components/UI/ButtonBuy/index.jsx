@@ -1,15 +1,13 @@
 import React from "react";
 import Icon from "../Icon";
 import PropTypes from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const ButtonBuy = ({ min, product }) => {
   const dispatch = useDispatch();
-  const data = useSelector(state => state.cart);
-  console.log(data);
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch({ type: "ADD_IN_CART", payload: product });
+    dispatch({ type: "ADD_IN_BASKET", payload: product });
     if (localStorage.getItem("products_in_cart")) {
       const massProduct = JSON.parse(localStorage.getItem("products_in_cart"));
       massProduct.push(product);

@@ -22,10 +22,10 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_IN_CART":
+    case "ADD_IN_BASKET":
       console.log(action);
       return { ...state, cart: [...state.cart, action.payload] };
-    case "DELETE_FROM_CART":
+    case "DELETE_FROM_BASKET":
       return { ...state, cart: [...state.cart].filter(product => product.id !== action.payload.id) };
     case "CLEAR_BASKET":
       return { ...state, cart: [] };

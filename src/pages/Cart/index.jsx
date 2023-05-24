@@ -2,15 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import productsWord from "../../utils/productsWord";
-import Price from "../../components/Price";
-import Bookmark from "../../components/Bookmark";
-import Icon from "../../components/UI/Icon";
+import ListBasket from "../../components/ListBasket";
 
 const Cart = () => {
   const productList = useSelector(state => state.cart);
   const productsCount = productList.length;
   const dispatch = useDispatch();
-
   const sumPrices = () => {
     let sum = 0;
     for (let i = 0; i < productsCount; i++) sum += productList[i].price;
@@ -28,37 +25,7 @@ const Cart = () => {
         <div className="flex flex-col gap-12 pb-16 pt-12 w-full">
           <h2 className="text-3xl">Корзина</h2>
           <div className="flex gap-5 justify-between">
-            <ul className="flex flex-col gap-10 basis-3/4">
-              {productList.map(product => (
-                <div
-                  key={product.id}
-                  className="flex gap-8 justify-between w-full p-6"
-                >
-                  <div className="flex gap-5 justify-between">
-                    <div className="max-w-[12rem] w-full">
-                      <img
-                        className="w-full"
-                        src={`https://thumb.cloud.mail.ru/weblink/thumb/xw1/9Q7k/wEByutoNc/${product.id}.jpg`}
-                        alt="Ноутбук"
-                      />
-                    </div>
-                    <h4 className="text-base max-w-[26rem] w-full">{product.name}</h4>
-                  </div>
-                  <div className="flex gap-3">
-                    <Price price={product.price} oldPrice={product.oldPrice} discount={product.discount} />
-                    <div className="flex flex-col gap-2">
-                      <Bookmark status={false} />
-                      <button className="cursor-pointer text-gray-400 hover:text-sky-500">
-                        <Icon
-                          className="w-[22px] h-[22px]"
-                          name="delete"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </ul>
+            <ListBasket data={productList} />
             <div>
               <div className="p-6 flex flex-col gap-2 bg-gray-100">
                 <h3 className="text-2xl">Итого</h3>
