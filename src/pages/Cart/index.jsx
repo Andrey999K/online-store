@@ -55,7 +55,7 @@ const Cart = () => {
     );
   };
   return (
-    <div className="mx-auto max-w-screen-xl px-8 flex justify-center items-center flex-col gap-5">
+    <div className="mx-auto max-w-screen-xl px-8 flex justify-center items-center flex-col gap-5 w-full">
       {showProducts()}
     </div>
   );
