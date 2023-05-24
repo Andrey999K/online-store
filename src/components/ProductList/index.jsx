@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const ProductList = ({ products, grid }) => {
   return (
     <div className={
-      "flex flex-wrap w-full gap-y-5 justify-start max-w-screen-lg mx-auto" + (grid ? " items-start" : " list-layout flex-col")
+      "flex flex-wrap h-full w-full gap-y-5 justify-start max-w-screen-lg mx-auto items-stretch" + (grid ? " items-start" : " list-layout flex-col")
     }>
       {products.map(product => (
         <div key={product.id} className="flex justify-center">

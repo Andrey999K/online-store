@@ -6,15 +6,21 @@ import Icon from "../UI/Icon";
 import Price from "../Price";
 import Bookmark from "../Bookmark";
 import "./card.scss";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Rating from "../Rating";
+import {useSelector} from "react-redux";
 
 const Card = ({ product, inGrid }) => {
+  const massFavorites = useSelector(state => state.favoritesReducer.favorites);
   const { id, name, price, discount, oldPrice, badges, reviews, ratingProduct: rating } = product;
+  const favorite = massFavorites.some(favorite => favorite.id === product.id);
   const reviewsNumber = reviews.length;
   return (
     <div className="w-full hover:shadow-2xl duration-300">
-      <Link to={`${process.env.PUBLIC_URL}/product/${id}`} className="group relative pt-2 px-4 pb-4 rounded flex flex-col gap-3 max-w-[230px] card">
+      <Link
+        to={`${process.env.PUBLIC_URL}/product/${id}`}
+        className="group relative pt-2 px-4 pb-4 rounded flex flex-col gap-3 max-w-[230px] card h-full"
+      >
         <div className="min-w-[200px] relative pt-8">
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
             {
@@ -52,15 +58,15 @@ const Card = ({ product, inGrid }) => {
             Клавиатура: с русскими буквами
           </div>
           <div className={"mt-auto flex flex-col gap-1" + (discount ? "" : " pt-4")}>
-            <div className="card__info-bottom flex justify-between relative">
+            <div className="card__info-bottom flex justify-between">
               <div className="card__info-price">
                 <Price price={price} oldPrice={oldPrice} discount={discount} hover={true}/>
               </div>
               <div>
-                <div className="card__bookmark absolute right-0 top-[-286px]">
-                  <Bookmark status={false}/>
+                <div className="card__bookmark absolute right-4 top-4">
+                  <Bookmark status={favorite} product={product} />
                 </div>
-                <div className="card__button-buy absolute right-0 bottom-0">
+                <div className="card__button-buy absolute right-4 bottom-[56px]">
                   <ButtonBuy min={inGrid} product={product} />
                 </div>
               </div>

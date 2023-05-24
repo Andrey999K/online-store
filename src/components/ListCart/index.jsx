@@ -1,9 +1,7 @@
 import React from "react";
-import Price from "../Price";
-import Bookmark from "../Bookmark";
-import Icon from "../UI/Icon";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
+import CartCard from "../CartCard";
 
 const ListCart = ({ data }) => {
   const dispatch = useDispatch();
@@ -13,36 +11,11 @@ const ListCart = ({ data }) => {
   return (
     <ul className="flex flex-col gap-10 basis-3/4">
       {data.map(product => (
-        <div
+        <CartCard
           key={product.id}
-          className="flex gap-8 justify-between w-full p-6"
-        >
-          <div className="flex gap-5 justify-between">
-            <div className="max-w-[12rem] w-full">
-              <img
-                className="w-full"
-                src={`https://thumb.cloud.mail.ru/weblink/thumb/xw1/9Q7k/wEByutoNc/${product.id}.jpg`}
-                alt="Ноутбук"
-              />
-            </div>
-            <h4 className="text-base max-w-[26rem] w-full">{product.name}</h4>
-          </div>
-          <div className="flex gap-3">
-            <Price price={product.price} oldPrice={product.oldPrice} discount={product.discount} />
-            <div className="flex flex-col gap-2">
-              <Bookmark status={false} />
-              <button
-                onClick={() => handleDelete(product)}
-                className="cursor-pointer text-gray-400 hover:text-sky-500"
-              >
-                <Icon
-                  className="w-[22px] h-[22px]"
-                  name="delete"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
+          product={product}
+          onDelete={handleDelete}
+        />
       ))}
     </ul>
   );

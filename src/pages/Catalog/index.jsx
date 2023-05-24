@@ -57,7 +57,7 @@ const Catalog = () => {
         : <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>;
     }
     return (
-      <div className="mx-auto text-3xl">
+      <div className="m-auto text-3xl h-full">
         <Loader />
       </div>
     );
@@ -96,7 +96,7 @@ const Catalog = () => {
     : filteredProducts;
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
   return (
-    <div>
+    <div className="h-full w-full">
       {showFoundProductsCount()}
       {!!productsCrop.length &&
         <div className="w-full max-w-screen-xl px-8 mx-auto my-6 flex justify-between">
@@ -111,9 +111,10 @@ const Catalog = () => {
         {showProductList(productsCrop, gridOn)}
         {!!products.length && <Filters filtration={handleFiltration} products={products}/>}
       </div>
-      <div className="w-full max-w-screen-xl px-8 mx-auto my-6 flex justify-end">
-        <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
-      </div>
+      {!!sortedProducts.length && <div className="w-full max-w-screen-xl px-8 mx-auto my-6 flex justify-end">
+        <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange}
+                    currentPage={currentPage}/>
+      </div>}
     </div>
   );
 };
