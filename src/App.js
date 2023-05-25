@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 import ProductPage from "./pages/ProductPage";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const homepage = process.env.PUBLIC_URL;
@@ -15,6 +17,7 @@ function App() {
     <div className="App flex flex-col justify-between">
       {/* <Header search={search} onSearch={handleSearchProduct}/> */}
       <Header/>
+      <ToastContainer />
       <div className="w-full m-auto h-full grow flex justify-center items-center">
         <Switch>
           <Route path={homepage} exact component={Catalog}/>

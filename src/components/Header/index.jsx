@@ -6,9 +6,10 @@ import HeaderCatalog from "../HeaderCatalog";
 import ControlButton from "../ControlButton";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
+import {store} from "../../store";
 
 const Header = ({ search, onSearch }) => {
-  const countCart = useSelector(state => state.cartReducer.cart.length);
+  const productsCart = useSelector(state => state.cartReducer.cart);
   const countFavorites = useSelector(state => state.favoritesReducer.favorites.length);
   const navItems = [
     { id: 1, text: "Журнал" },
@@ -18,6 +19,13 @@ const Header = ({ search, onSearch }) => {
     { id: 5, text: "Доставка" },
     { id: 6, text: "Магазины" },
     { id: 7, text: "Обратная связь" }];
+  let countCart = 0;
+  for (let i = 0; i < productsCart.length; i++) {
+    countCart += productsCart[i].count;
+  }
+  store.subscribe(() => {
+    console.log(store.getState());
+  });
   return (
     <>
       <header className="bg-white z-10">

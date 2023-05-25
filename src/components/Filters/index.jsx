@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RangeDouble from "../RangeDouble";
-import FilterInput from "../FilterInput";
+import Input from "../UI/Input";
 import PropTypes from "prop-types";
 import SelectionBlock from "../SelectionBlock";
 
@@ -100,13 +100,13 @@ const Filters = ({ filtration, products }) => {
         <div>
           <h4 className="font-medium text-lg">Цена, ₽</h4>
           <div className="flex justify-between">
-            <FilterInput
+            <Input
               value={price.min}
               onBlur={event => handleFinalEditPrice({ ...price, min: Number(event.target.value) })}
               className="w-5/12 rounded"
             />
             <div>—</div>
-            <FilterInput
+            <Input
               value={price.max}
               onBlur={event => handleFinalEditPrice({ ...price, max: Number(event.target.value) })}
               className="w-5/12 rounded"

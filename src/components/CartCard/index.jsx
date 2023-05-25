@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Price from "../Price";
 import Bookmark from "../Bookmark";
 import Icon from "../UI/Icon";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Input from "../UI/Input";
 
 const CartCard = ({ product, onDelete }) => {
   const massFavorites = useSelector(state => state.favoritesReducer.favorites);
   const { id, name, price, oldPrice, discount } = product;
   const favorite = massFavorites.some(favorite => favorite.id === product.id);
+  const [count, setCount] = useState(product.count.toString());
+  const dispatch = useDispatch();
+
+  const handleDecrement = () => {
+    if (Number(count) !== 1) {
+      setCount(prevState => (Number(prevState) - 1).toString());
+      dispatch({ type: "EDIT_COUNT_IN_CART", payload: product });
+    }
+  };
+  const handleIncrement = () => {
+    setCount(prevState => (Number(prevState) + 1).toString());
+    dispatch({ type: "ADD_IN_CART", payload: product });
+  };
+
+  const handleBlur = ({ target }) => {
+    const value = Number(target.value);
+    if (value === 0) {
+      setCount("1");
+    } else setCount(value);
+  };
+
+  useEffect(() => {
+    console.log(count);
+  }, [count]);
+
   return (
     <div
       key={product.id}
@@ -23,6 +49,24 @@ const CartCard = ({ product, onDelete }) => {
           />
         </div>
         <h4 className="text-base max-w-[26rem] w-full">{name}</h4>
+      </div>
+      <div>
+        <div className="max-w-10 flex justify-center gap-3 font-medium">
+          <button
+            disabled={count === "1"}
+            onClick={handleDecrement}
+            className="disabled:text-gray-400 font-bold"
+          >&ndash;</button>
+          <Input
+            className="max-w-[2rem] border-b-[1px] border-solid border-gray-400 text-center outline-none focus:border-sky-500"
+            value={count}
+            onBlur={event => handleBlur(event)}
+          />
+          <button
+            onClick={handleIncrement}
+            className="font-bold"
+          >+</button>
+        </div>
       </div>
       <div className="flex gap-3">
         <Price price={price} oldPrice={oldPrice} discount={discount} />

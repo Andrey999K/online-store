@@ -10,7 +10,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const sumPrices = () => {
     let sum = 0;
-    for (let i = 0; i < productsCount; i++) sum += productList[i].price;
+    for (let i = 0; i < productsCount; i++) sum += productList[i].price * productList[i].count;
     return sum;
   };
   const handleClearData = () => {

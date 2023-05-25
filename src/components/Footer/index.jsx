@@ -71,7 +71,7 @@ const Footer = () => {
         </div>
         <div className="mt-5 text-xs flex flex-col items-center">
           <p>Компания Logo © 2023</p>
-          <p className="hover:underline"><a href="/privacy-policy">Политика конфиденциальности</a></p>
+          <p className="hover:underline"><a href="#">Политика конфиденциальности</a></p>
         </div>
       </div>
     </footer>
