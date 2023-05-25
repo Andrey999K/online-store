@@ -5,11 +5,10 @@ import Navigation from "../Navigation";
 import HeaderCatalog from "../HeaderCatalog";
 import ControlButton from "../ControlButton";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
 import LinkCart from "../LinkCart";
+import LinkWishlist from "../LinkWishlist";
 
 const Header = ({ search, onSearch }) => {
-  const countFavorites = useSelector(state => state.favoritesReducer.favorites.length);
   const navItems = [
     { id: 1, text: "Журнал" },
     { id: 2, text: "Акции" },
@@ -39,12 +38,7 @@ const Header = ({ search, onSearch }) => {
                 icon="user"
                 text="Войти"
               />
-              <ControlButton
-                icon="bookmark"
-                text="Избранное"
-                url={`${process.env.PUBLIC_URL}/profile/wishlist`}
-                count={countFavorites}
-              />
+              <LinkWishlist />
               <ControlButton
                 icon="bar-chart"
                 text="Сравнение"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Price from "../Price";
 import Bookmark from "../Bookmark";
 import Icon from "../UI/Icon";
@@ -30,10 +30,6 @@ const CartCard = ({ product, onDelete }) => {
       setCount("1");
     } else setCount(value);
   };
-
-  useEffect(() => {
-    console.log(count);
-  }, [count]);
 
   return (
     <div
