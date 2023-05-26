@@ -25,9 +25,14 @@ export const cartReducer = (state = initialState, action) => {
       products = products.filter(item => item.id !== action.payload.id);
       updateCartInLocalStorage(products);
       return { ...state, cart: products };
-    case "EDIT_COUNT_IN_CART":
+    case "DEC_PRODUCT_IN_CART":
       foundItemIndex = products.findIndex(item => item.id === product.id);
       if (foundItemIndex > -1) products[foundItemIndex].count -= 1;
+      updateCartInLocalStorage(products);
+      return { ...state, cart: products };
+    case "EDIT_COUNT_IN_CART":
+      foundItemIndex = products.findIndex(item => item.id === product.id);
+      if (foundItemIndex > -1) products[foundItemIndex].count = product.count;
       updateCartInLocalStorage(products);
       return { ...state, cart: products };
     case "CLEAR_CART":

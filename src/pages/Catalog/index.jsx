@@ -87,7 +87,7 @@ const Catalog = () => {
           setProducts(data);
           setFiltersProducts(data);
         });
-    }, 2000);
+    }, 0);
   }, []);
 
   // const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));

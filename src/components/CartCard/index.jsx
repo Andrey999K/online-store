@@ -16,7 +16,7 @@ const CartCard = ({ product, onDelete }) => {
   const handleDecrement = () => {
     if (Number(count) !== 1) {
       setCount(prevState => (Number(prevState) - 1).toString());
-      dispatch({ type: "EDIT_COUNT_IN_CART", payload: product });
+      dispatch({ type: "DEC_PRODUCT_IN_CART", payload: product });
     }
   };
   const handleIncrement = () => {
@@ -25,10 +25,10 @@ const CartCard = ({ product, onDelete }) => {
   };
 
   const handleBlur = ({ target }) => {
-    const value = Number(target.value);
-    if (value === 0) {
-      setCount("1");
-    } else setCount(value);
+    let value = Number(target.value);
+    value = value === 0 ? 1 : value;
+    setCount(value);
+    dispatch({ type: "EDIT_COUNT_IN_CART", payload: { ...product, count: value } });
   };
 
   return (
@@ -49,7 +49,7 @@ const CartCard = ({ product, onDelete }) => {
       <div>
         <div className="max-w-10 flex justify-center gap-3 font-medium">
           <button
-            disabled={count === "1"}
+            disabled={Number(count) === 1}
             onClick={handleDecrement}
             className="disabled:text-gray-400 font-bold"
           >&ndash;</button>

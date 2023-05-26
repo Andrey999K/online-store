@@ -4,15 +4,15 @@ import { useSelector } from "react-redux";
 import { store } from "../../store";
 
 const LinkCart = () => {
-  const fetchCart = () => {
-    return productsCart.reduce((acc, product) => acc + product.count, 0);
+  let productsCart = useSelector(state => state.cartReducer.cart);
+  const productsSum = (productsList) => {
+    return productsList.reduce((count, product) => count + product.count, 0);
   };
-  const productsCart = useSelector(state => state.cartReducer.cart);
-  const [count, setCount] = useState(fetchCart());
-
+  const [sumProducts, setSumProducts] = useState(productsSum(productsCart));
   useEffect(() => {
     const unsubscribe = store.subscribe(() => {
-      setCount(fetchCart());
+      productsCart = store.getState().cartReducer.cart;
+      setSumProducts(productsSum(productsCart));
     });
     return () => unsubscribe();
   }, []);
@@ -21,7 +21,7 @@ const LinkCart = () => {
       icon="cart"
       text="Корзина"
       url={`${process.env.PUBLIC_URL}/cart`}
-      count={count}
+      count={sumProducts}
     />
   );
 };
