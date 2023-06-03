@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../UI/Icon";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const Bookmark = ({ status, product }) => {
+const Bookmark = ({ product }) => {
+  const massFavorites = useSelector(state => state.favoritesReducer.favorites);
+  const status = massFavorites.some(favorite => favorite.id === product.id);
   const dispatch = useDispatch();
   const handleClick = (e) => {
     e.preventDefault();
@@ -22,7 +24,6 @@ const Bookmark = ({ status, product }) => {
 };
 
 Bookmark.propTypes = {
-  status: PropTypes.bool.isRequired,
   product: PropTypes.object.isRequired
 };
 

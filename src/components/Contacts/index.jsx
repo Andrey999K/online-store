@@ -12,7 +12,7 @@ const Contracts = ({ city, phone }) => {
     return phoneNumber;
   }
   return (
-    <div className="text-sm">
+    <div className="flex justify-between lg:block lg:text-sm">
       <div className="flex items-center">
         <span>{city}</span>
         <button>
@@ -20,7 +20,12 @@ const Contracts = ({ city, phone }) => {
         </button>
       </div>
       <div className="hover:text-sky-500">
-        <a href={"tel:" + phone}>{formatPhone(phone)}</a>
+        <a href={"tel:" + phone}>
+          <span className="hidden lg:block">{formatPhone(phone)}</span>
+          <div className="block lg:hidden">
+            <Icon name="phone" />
+          </div>
+        </a>
       </div>
     </div>
   );

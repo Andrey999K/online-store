@@ -1,14 +1,11 @@
 import React from "react";
-import Logo from "../Logo";
-import Contracts from "../Contacts";
-import Navigation from "../Navigation";
-import HeaderCatalog from "../HeaderCatalog";
-import ControlButton from "../ControlButton";
 import PropTypes from "prop-types";
-import LinkCart from "../LinkCart";
-import LinkWishlist from "../LinkWishlist";
+import HeaderDesktop from "../HeaderDesktop";
+import HeaderMobile from "../HeaderMobile";
 
 const Header = ({ search, onSearch }) => {
+  const isMobile = window.innerWidth <= 1024;
+  console.log(isMobile);
   const navItems = [
     { id: 1, text: "Журнал" },
     { id: 2, text: "Акции" },
@@ -18,37 +15,9 @@ const Header = ({ search, onSearch }) => {
     { id: 6, text: "Магазины" },
     { id: 7, text: "Обратная связь" }];
   return (
-    <>
-      <header className="bg-white z-10">
-        <div className="w-full max-w-screen-xl px-8 mx-auto">
-          <div className="flex items-center justify-between py-5">
-            <Logo />
-            <Contracts city="Павловский Посад" phone="+79998887766" />
-            <Navigation items={navItems}/>
-          </div>
-        </div>
-      </header>
-      <div className="sticky top-0 bg-white z-10">
-        <div className="w-full max-w-screen-xl px-8 mx-auto">
-          <div className="py-5 flex justify-between items-center">
-            <HeaderCatalog />
-            {/* <Search search={search} onSearchItem={onSearch}/> */}
-            <div className="flex gap-6">
-              <ControlButton
-                icon="user"
-                text="Войти"
-              />
-              <LinkWishlist />
-              <ControlButton
-                icon="bar-chart"
-                text="Сравнение"
-              />
-              <LinkCart />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    isMobile
+      ? <HeaderMobile navItems={navItems} city="Павловский Посад" phone="+79998887766" />
+      : <HeaderDesktop navItems={navItems} city="Павловский Посад" phone="+79998887766" />
   );
 };
 

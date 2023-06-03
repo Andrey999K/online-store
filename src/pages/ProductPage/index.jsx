@@ -9,6 +9,7 @@ import paginate from "../../utils/paginate";
 import Pagination from "../../components/Pagination";
 import SortOptions from "../../components/SortOptions";
 import { orderBy } from "lodash";
+import Bookmark from "../../components/Bookmark";
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -53,7 +54,7 @@ const ProductPage = () => {
         <div className="pt-8 pb-20 flex flex-col gap-20">
           <div>
             <h2 className="text-2xl">{product.name}</h2>
-            <div className="flex gap-10 w-full mt-6">
+            <div className="flex gap-10 w-full mt-6 flex-col md:flex-row">
               <div className="basis-1/2">
                 <img className="w-full h-full object-contain mx-auto" src={`https://thumb.cloud.mail.ru/weblink/thumb/xw1/9Q7k/wEByutoNc/${productId}.jpg`} alt="Ноутбук" />
               </div>
@@ -67,10 +68,11 @@ const ProductPage = () => {
                   Операционная система: Windows 11 Home;<br/>
                   Клавиатура: с русскими буквами
                 </div>
-                <div>
+                <div className="flex gap-3">
                   <Price price={product.price} oldPrice={product.oldPrice} discount={product.discount} />
+                  <Bookmark product={product} />
                 </div>
-                <div className="max-w-xs">
+                <div className="sm:max-w-xs">
                   <ButtonBuy product={product} />
                 </div>
               </div>
@@ -82,7 +84,7 @@ const ProductPage = () => {
               <div>
                 <SortOptions onSort={handleSortReviews} selectedSort={sortReviewBy} items={sortReviewsOptions} />
               </div>
-              <div>
+              <div className="hidden md:block">
                 <Pagination
                   pageSize={reviewOnPage}
                   onPageChange={handlePageReviewChange}
@@ -98,7 +100,7 @@ const ProductPage = () => {
                 </li>
               )}
             </ul>
-            <div>
+            <div className="flex justify-center md:justify-start">
               <Pagination
                 pageSize={reviewOnPage}
                 onPageChange={handlePageReviewChange}
@@ -127,7 +129,7 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-screen-xl mx-auto px-8">
+    <div className="w-full max-w-screen-xl mx-auto px-5 lg:px-8">
       {showProduct()}
     </div>
   );

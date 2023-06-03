@@ -6,14 +6,11 @@ import Icon from "../UI/Icon";
 import Price from "../Price";
 import Bookmark from "../Bookmark";
 import "./card.scss";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Rating from "../Rating";
-import {useSelector} from "react-redux";
 
 const Card = ({ product, inGrid }) => {
-  const massFavorites = useSelector(state => state.favoritesReducer.favorites);
   const { id, name, price, discount, oldPrice, badges, reviews, ratingProduct: rating } = product;
-  const favorite = massFavorites.some(favorite => favorite.id === product.id);
   const reviewsNumber = reviews.length;
   return (
     <div className="w-full hover:shadow-2xl duration-300">
@@ -21,7 +18,7 @@ const Card = ({ product, inGrid }) => {
         to={`${process.env.PUBLIC_URL}/product/${id}`}
         className="group relative pt-2 px-4 pb-4 rounded flex flex-col gap-3 max-w-[230px] card h-full"
       >
-        <div className="min-w-[200px] relative pt-8">
+        <div className="lg:min-w-[200px] relative pt-8">
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
             {
               !!badges.length && badges.map(badge =>
@@ -29,7 +26,7 @@ const Card = ({ product, inGrid }) => {
               )
             }
           </div>
-          <div className="h-[150px]">
+          <div className="lg:h-[150px]">
             {id && (
               <img className="w-full h-full object-contain mx-auto" src={`https://thumb.cloud.mail.ru/weblink/thumb/xw1/9Q7k/wEByutoNc/${id}.jpg`} alt="Ноутбук" />
             )}
@@ -64,7 +61,7 @@ const Card = ({ product, inGrid }) => {
               </div>
               <div>
                 <div className="card__bookmark absolute right-4 top-4">
-                  <Bookmark status={favorite} product={product} />
+                  <Bookmark product={product} />
                 </div>
                 <div className="card__button-buy absolute right-4 bottom-[56px]">
                   <ButtonBuy min={inGrid} product={product} />

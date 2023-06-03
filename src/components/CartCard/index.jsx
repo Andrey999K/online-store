@@ -3,13 +3,13 @@ import Price from "../Price";
 import Bookmark from "../Bookmark";
 import Icon from "../UI/Icon";
 import PropTypes from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Input from "../UI/Input";
+import { Link } from "react-router-dom";
 
 const CartCard = ({ product, onDelete }) => {
-  const massFavorites = useSelector(state => state.favoritesReducer.favorites);
+  const homepage = process.env.PUBLIC_URL;
   const { id, name, price, oldPrice, discount } = product;
-  const favorite = massFavorites.some(favorite => favorite.id === product.id);
   const [count, setCount] = useState(product.count.toString());
   const dispatch = useDispatch();
 
@@ -44,7 +44,9 @@ const CartCard = ({ product, onDelete }) => {
             alt="Ноутбук"
           />
         </div>
-        <h4 className="text-base max-w-[26rem] w-full">{name}</h4>
+        <Link to={`${homepage}/product/${id}`}>
+          <h4 className="text-base max-w-[26rem] w-full">{name}</h4>
+        </Link>
       </div>
       <div>
         <div className="max-w-10 flex justify-center gap-3 font-medium">
@@ -67,7 +69,7 @@ const CartCard = ({ product, onDelete }) => {
       <div className="flex gap-3">
         <Price price={price} oldPrice={oldPrice} discount={discount} />
         <div className="flex flex-col gap-2">
-          <Bookmark status={favorite} product={product} />
+          <Bookmark product={product} />
           <button
             onClick={() => onDelete(product)}
             className="cursor-pointer text-gray-400 hover:text-sky-500"

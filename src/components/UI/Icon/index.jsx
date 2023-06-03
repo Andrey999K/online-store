@@ -13,6 +13,8 @@ Icon.propTypes = {
   className: PropTypes.string
 };
 
-Icon.defaultProps = {};
+Icon.defaultProps = {
+  className: "w-[24px] h-[24px]"
+};
 
 export default Icon;

@@ -64,7 +64,7 @@ const Catalog = () => {
   };
 
   const showFoundProductsCount = () => {
-    if (products.length) return <div className="w-full max-w-screen-xl px-8 mx-auto text-3xl mt-5">{`Найдено ${sortedProducts.length} ${productsWord(sortedProducts.length)}.`}</div>;
+    if (products.length) return <div className="w-full max-w-screen-xl px-5 lg:px-8 mx-auto text-3xl mt-5">{`Найдено ${sortedProducts.length} ${productsWord(sortedProducts.length)}.`}</div>;
   };
 
   useEffect(() => {
@@ -87,7 +87,7 @@ const Catalog = () => {
           setProducts(data);
           setFiltersProducts(data);
         });
-    }, 0);
+    }, 2000);
   }, []);
 
   // const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
@@ -99,22 +99,32 @@ const Catalog = () => {
     <div className="h-full w-full">
       {showFoundProductsCount()}
       {!!productsCrop.length &&
-        <div className="w-full max-w-screen-xl px-8 mx-auto my-6 flex justify-between">
-          <SortOptions items={sortOptions} onSort={handleSort} selectedSort={sortBy}/>
-          <div className="flex gap-5">
-            <ViewSwitch onClick={handleEditView} grid={gridOn}/>
+        <div className="w-full max-w-screen-xl px-5 lg:px-8 mx-auto my-6 flex justify-center lg:justify-between">
+          <div className="hidden lg:block">
+            <SortOptions items={sortOptions} onSort={handleSort} selectedSort={sortBy}/>
+          </div>
+          <div className="flex gap-5 items-center justify-between w-full lg:w-fit">
+            <div className="order-1 lg:order-none">
+              <ViewSwitch onClick={handleEditView} grid={gridOn}/>
+            </div>
             <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange}
                         currentPage={currentPage}/>
           </div>
         </div>}
-      <div className="max-w-screen-xl px-8 flex justify-between mx-auto">
+      <div className="max-w-screen-xl px-5 lg:px-8 flex justify-between mx-auto">
         {showProductList(productsCrop, gridOn)}
-        {!!products.length && <Filters filtration={handleFiltration} products={products}/>}
+        {!!products.length && (
+          <div className="hidden lg:block">
+            <Filters filtration={handleFiltration} products={products}/>
+          </div>
+        )}
       </div>
-      {!!sortedProducts.length && <div className="w-full max-w-screen-xl px-8 mx-auto my-6 flex justify-end">
-        <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange}
+      {!!sortedProducts.length && (
+        <div className="w-full max-w-screen-xl px-5 lg:px-8 mx-auto my-6 flex justify-center lg:justify-end">
+          <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange}
                     currentPage={currentPage}/>
-      </div>}
+        </div>
+      )}
     </div>
   );
 };
