@@ -1,4 +1,22 @@
+Pet-проект интернет магазина. Аналог Ситилинка  
+  
 Demo: https://andrey999k.github.io/online-store/
+
+***
+
+Используемые технологии:<br>
+* React<br>
+* React-router<br>
+* Redux<br>
+* Tailwind CSS<br>
+* Axios<br>
+* Lodash<br>
+* Prop-types<br>
+* React-range<br>
+* React-spinners<br>
+* React-toastify<br>
+
+***
 
 # Getting Started with Create React App
 
