@@ -1,4 +1,24 @@
+Pet-проект интернет магазина. Аналог [Ситилинка](https://www.citilink.ru/)  
+  
 Demo: https://andrey999k.github.io/online-store/
+  
+Большая часть названий, картинок, характеристик, отзывов товаров, расположений элементов, а так же фильтры и навигация взяты с сервиса [Ситилинк](https://www.citilink.ru/).
+
+***
+
+Используемые технологии:<br>
+* React<br>
+* React-router<br>
+* Redux<br>
+* Tailwind CSS<br>
+* Axios<br>
+* Lodash<br>
+* Prop-types<br>
+* React-range<br>
+* React-spinners<br>
+* React-toastify<br>
+
+***
 
 # Getting Started with Create React App
 
