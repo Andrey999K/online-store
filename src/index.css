@@ -8,10 +8,13 @@
 }
 
 :root {
+    --theme-color: #0EA5E9;
+    --gray-100: rgb(243 244 246);
+
     --toastify-color-light: #fff;
     --toastify-color-dark: #121212;
     --toastify-color-info: #3498db;
-    --toastify-color-success: #0EA5E9;
+    --toastify-color-success: var(--theme-color);
     --toastify-color-warning: #f1c40f;
     --toastify-color-error: #e74c3c;
     --toastify-color-transparent: rgba(255, 255, 255, 0.7);
@@ -45,4 +48,25 @@
     --toastify-color-progress-success: var(--toastify-color-success);
     --toastify-color-progress-warning: var(--toastify-color-warning);
     --toastify-color-progress-error: var(--toastify-color-error);
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;               /* ширина всей полосы прокрутки */
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--gray-100);        /* цвет зоны отслеживания */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--theme-color);    /* цвет бегунка */
+    border-radius: 5px;
+    /*border: 3px solid orange;  !* отступ вокруг бегунка *!*/
+    border-left: 1px solid var(--gray-100);
+    border-right: 1px solid var(--gray-100);
+    margin: 0 auto;
 }

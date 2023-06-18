@@ -54,11 +54,13 @@ const Catalog = () => {
   const showProductList = (productsList, gridOn) => {
     if (products.length) {
       return productsList.length
-        ? <ProductList products={productsList} grid={gridOn}/>
+        ? (<div className="lg:w-3/4 xl:w-4/5">
+            <ProductList products={productsList} grid={gridOn}/>
+          </div>)
         : <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>;
     }
     return (
-      <div className="m-auto text-3xl h-full">
+      <div className="mx-auto text-3xl h-full">
         <Loader />
       </div>
     );
@@ -114,9 +116,7 @@ const Catalog = () => {
             </div>
           </div>}
         <div className="flex justify-between mx-auto">
-          <div className="lg:w-3/4 xl:w-4/5">
-            {showProductList(productsCrop, gridOn)}
-          </div>
+          {showProductList(productsCrop, gridOn)}
           {!!products.length && (
             <div className="hidden lg:block w-1/4 xl:w-1/5">
               <Filters filtration={handleFiltration} products={products}/>
