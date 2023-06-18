@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProductList from "../../components/ProductList";
 import { Link } from "react-router-dom";
+import Wrapper from "../../components/Wrapper";
 
 const Wishlist = () => {
   const listProducts = useSelector(state => state.favoritesReducer.favorites);
@@ -41,9 +42,11 @@ const Wishlist = () => {
     );
   };
   return (
-    <div className="pt-8 pb-12 mx-auto max-w-screen-xl px-5 lg:px-8 flex justify-center items-center flex-col gap-5 w-full">
-      {showProducts()}
-    </div>
+    <Wrapper>
+      <div className="flex justify-center items-center flex-col gap-5 w-full">
+        {showProducts()}
+      </div>
+    </Wrapper>
   );
 };
 

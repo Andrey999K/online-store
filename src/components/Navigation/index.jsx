@@ -7,7 +7,7 @@ const Navigation = ({ items }) => {
       {items && (
         <ul className="inline-flex flex-col lg:flex-row lg:gap-3 lg:text-sm text-gray-400">
           {items.map(item =>
-            <li key={item.id} className="hover:text-sky-500 py-3 border-b-solid border-b-[1px] border-gray-100 lg:p-2">
+            <li key={item.id} className="hover:text-sky-500 py-3 lg:py-3 border-b-solid border-b-[1px] border-gray-100 lg:p-2">
               <a href="#">{item.text}</a>
             </li>
           )}

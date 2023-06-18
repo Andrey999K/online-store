@@ -13,10 +13,10 @@ const Card = ({ product, inGrid }) => {
   const { id, name, price, discount, oldPrice, badges, reviews, ratingProduct: rating } = product;
   const reviewsNumber = reviews.length;
   return (
-    <div className="w-full hover:shadow-2xl duration-300">
+    <div className="w-full hover:shadow-2xl duration-300 z-1 max-w-[50%] md:max-w-[33%] xl:max-w-[25%]">
       <Link
         to={`${process.env.PUBLIC_URL}/product/${id}`}
-        className="group relative pt-2 px-4 pb-4 rounded flex flex-col gap-3 max-w-[230px] card h-full"
+        className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3 card h-full"
       >
         <div className="lg:min-w-[200px] relative pt-8">
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
@@ -63,7 +63,7 @@ const Card = ({ product, inGrid }) => {
                 <div className="card__bookmark absolute right-4 top-4">
                   <Bookmark product={product} />
                 </div>
-                <div className="card__button-buy absolute right-4 bottom-[56px]">
+                <div className="card__button-buy absolute right-4 lg:bottom-[56px]">
                   <ButtonBuy min={inGrid} product={product} />
                 </div>
               </div>

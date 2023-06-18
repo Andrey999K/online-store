@@ -10,6 +10,7 @@ import Pagination from "../../components/Pagination";
 import SortOptions from "../../components/SortOptions";
 import { orderBy } from "lodash";
 import Bookmark from "../../components/Bookmark";
+import Wrapper from "../../components/Wrapper";
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -78,7 +79,7 @@ const ProductPage = () => {
               </div>
             </div>
           </div>
-          <div className="max-w-3xl mx-auto flex flex-col gap-10">
+          <div className="max-w-3xl flex flex-col gap-10">
             <div className="flex justify-between">
               <h3 className="text-3xl">Отзывы {product.reviews.length}</h3>
               <div>
@@ -129,9 +130,9 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-screen-xl mx-auto px-5 lg:px-8">
+    <Wrapper>
       {showProduct()}
-    </div>
+    </Wrapper>
   );
 };
 

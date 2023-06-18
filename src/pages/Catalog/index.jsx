@@ -9,6 +9,7 @@ import { orderBy } from "lodash";
 import paginate from "../../utils/paginate";
 import Loader from "../../components/Loader";
 import productsWord from "../../utils/productsWord";
+import Wrapper from "../../components/Wrapper";
 
 const Catalog = () => {
   const [products, setProducts] = useState([]);
@@ -64,7 +65,7 @@ const Catalog = () => {
   };
 
   const showFoundProductsCount = () => {
-    if (products.length) return <div className="w-full max-w-screen-xl px-5 lg:px-8 mx-auto text-3xl mt-5">{`Найдено ${sortedProducts.length} ${productsWord(sortedProducts.length)}.`}</div>;
+    if (products.length) return <div className="w-full text-3xl mt-5">{`Найдено ${sortedProducts.length} ${productsWord(sortedProducts.length)}.`}</div>;
   };
 
   useEffect(() => {
@@ -97,34 +98,38 @@ const Catalog = () => {
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
   return (
     <div className="h-full w-full">
-      {showFoundProductsCount()}
-      {!!productsCrop.length &&
-        <div className="w-full max-w-screen-xl px-5 lg:px-8 mx-auto my-6 flex justify-center lg:justify-between">
-          <div className="hidden lg:block">
-            <SortOptions items={sortOptions} onSort={handleSort} selectedSort={sortBy}/>
-          </div>
-          <div className="flex gap-5 items-center justify-between w-full lg:w-fit">
-            <div className="order-1 lg:order-none">
-              <ViewSwitch onClick={handleEditView} grid={gridOn}/>
+      <Wrapper>
+        {showFoundProductsCount()}
+        {!!productsCrop.length &&
+          <div className="w-full my-6 flex justify-center lg:justify-between">
+            <div className="hidden lg:block">
+              <SortOptions items={sortOptions} onSort={handleSort} selectedSort={sortBy}/>
             </div>
-            <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange}
-                        currentPage={currentPage}/>
+            <div className="flex gap-5 items-center justify-between w-full lg:w-fit">
+              <div className="order-1 lg:order-none">
+                <ViewSwitch onClick={handleEditView} grid={gridOn}/>
+              </div>
+              <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange}
+                          currentPage={currentPage}/>
+            </div>
+          </div>}
+        <div className="flex justify-between mx-auto">
+          <div className="lg:w-3/4 xl:w-4/5">
+            {showProductList(productsCrop, gridOn)}
           </div>
-        </div>}
-      <div className="max-w-screen-xl px-5 lg:px-8 flex justify-between mx-auto">
-        {showProductList(productsCrop, gridOn)}
-        {!!products.length && (
-          <div className="hidden lg:block">
-            <Filters filtration={handleFiltration} products={products}/>
+          {!!products.length && (
+            <div className="hidden lg:block w-1/4 xl:w-1/5">
+              <Filters filtration={handleFiltration} products={products}/>
+            </div>
+          )}
+        </div>
+        {!!sortedProducts.length && (
+          <div className="w-full my-6 flex justify-center lg:justify-end">
+            <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange}
+                      currentPage={currentPage}/>
           </div>
         )}
-      </div>
-      {!!sortedProducts.length && (
-        <div className="w-full max-w-screen-xl px-5 lg:px-8 mx-auto my-6 flex justify-center lg:justify-end">
-          <Pagination itemsCount={sortedProducts.length} pageSize={pageSize} onPageChange={handlePageChange}
-                    currentPage={currentPage}/>
-        </div>
-      )}
+      </Wrapper>
     </div>
   );
 };

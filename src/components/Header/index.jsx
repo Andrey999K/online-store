@@ -5,7 +5,6 @@ import HeaderMobile from "../HeaderMobile";
 
 const Header = ({ search, onSearch }) => {
   const isMobile = window.innerWidth <= 1024;
-  console.log(isMobile);
   const navItems = [
     { id: 1, text: "Журнал" },
     { id: 2, text: "Акции" },

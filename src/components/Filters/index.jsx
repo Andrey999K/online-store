@@ -94,7 +94,7 @@ const Filters = ({ filtration, products }) => {
   };
 
   return (
-    <div className="p-6 max-w-[260px] w-full bg-gray-100 flex flex-col gap-4">
+    <div className="p-6 max-w-[300px] w-full bg-gray-100 flex flex-col gap-4">
       <h3 className="font-medium text-2xl">Фильтры</h3>
       <div className="flex flex-col gap-3">
         <div>

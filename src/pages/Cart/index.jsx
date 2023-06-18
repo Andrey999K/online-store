@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import productsWord from "../../utils/productsWord";
 import ListCart from "../../components/ListCart";
 import { store } from "../../store";
+import Wrapper from "../../components/Wrapper";
 
 const Cart = () => {
   let productsCart = useSelector(state => state.cartReducer.cart);
@@ -62,9 +63,11 @@ const Cart = () => {
     );
   };
   return (
-    <div className="mx-auto max-w-screen-xl px-5 lg:px-8 flex justify-center items-center flex-col gap-5 w-full">
-      {showProducts()}
-    </div>
+    <Wrapper>
+      <div className="flex justify-center items-center flex-col gap-5">
+        {showProducts()}
+      </div>
+    </Wrapper>
   );
 };
 

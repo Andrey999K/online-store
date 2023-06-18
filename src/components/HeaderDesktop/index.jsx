@@ -7,13 +7,13 @@ import ControlButton from "../ControlButton";
 import LinkWishlist from "../LinkWishlist";
 import LinkCart from "../LinkCart";
 import PropTypes from "prop-types";
+import Wrapper from "../Wrapper";
 
 const HeaderDesktop = ({ navItems, city, phone }) => {
-  console.log(navItems);
   return (
     <>
       <header className="bg-white z-10">
-        <div className="w-full max-w-screen-xl px-5 lg:px-8 mx-auto">
+        <Wrapper>
           <div className="flex items-center justify-between py-5">
             <Logo />
             <Contracts city={city} phone={phone} />
@@ -21,10 +21,10 @@ const HeaderDesktop = ({ navItems, city, phone }) => {
               <Navigation items={navItems} />
             </div>
           </div>
-        </div>
+        </Wrapper>
       </header>
       <div className="hidden lg:block sticky top-0 bg-white z-10">
-        <div className="w-full max-w-screen-xl px-5 lg:px-8 mx-auto">
+        <Wrapper>
           <div className="py-5 flex justify-between items-center">
             <HeaderCatalog />
             {/* <Search search={search} onSearchItem={onSearch}/> */}
@@ -41,7 +41,7 @@ const HeaderDesktop = ({ navItems, city, phone }) => {
               <LinkCart />
             </div>
           </div>
-        </div>
+        </Wrapper>
       </div>
     </>
   );
