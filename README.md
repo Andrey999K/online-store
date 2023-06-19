@@ -20,6 +20,26 @@ Demo: https://andrey999k.github.io/online-store/
 
 ***
 
+Страницы:
+
+Главная
+
+![Главная](https://github.com/andrey999k/online-store/raw/demo/main.jpg)
+
+Страница товара
+
+![Главная](https://github.com/andrey999k/online-store/raw/demo/product_page.jpg)
+
+Корзина
+
+![Главная](https://github.com/andrey999k/online-store/raw/demo/cart.jpg)
+
+Избранное
+
+![Главная](https://github.com/andrey999k/online-store/raw/demo/wishlist.jpg)
+
+***
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
