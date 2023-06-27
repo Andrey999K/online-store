@@ -12,6 +12,7 @@ import Rating from "../Rating";
 const Card = ({ product, inGrid }) => {
   const { id, name, price, discount, oldPrice, badges, reviews, ratingProduct: rating } = product;
   const reviewsNumber = reviews.length;
+  console.log(id);
   return (
     <div className="self-start w-full hover:shadow-2xl duration-300 z-10 max-w-[50%] md:max-w-[33%] xl:max-w-[25%]">
       <Link
@@ -98,4 +99,4 @@ Card.propTypes = {
   inGrid: PropTypes.bool
 };
 
-export default Card;
+export default React.memo(Card);

@@ -50,4 +50,4 @@ SortOptions.propTypes = {
 
 SortOptions.defaultProps = {};
 
-export default SortOptions;
+export default React.memo(SortOptions);

@@ -89,4 +89,4 @@ CartCard.propTypes = {
   product: PropTypes.object.isRequired,
   onDelete: PropTypes.func.isRequired
 };
-export default CartCard;
+export default React.memo(CartCard);

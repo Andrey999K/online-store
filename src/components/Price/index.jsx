@@ -30,4 +30,4 @@ Price.propTypes = {
 
 Price.defaultProps = {};
 
-export default Price;
+export default React.memo(Price);

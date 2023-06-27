@@ -58,4 +58,4 @@ SelectionBlock.propTypes = {
   type: PropTypes.string
 };
 
-export default SelectionBlock;
+export default React.memo(SelectionBlock);

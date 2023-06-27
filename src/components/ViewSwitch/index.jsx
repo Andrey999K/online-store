@@ -26,4 +26,4 @@ ViewSwitch.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
-export default ViewSwitch;
+export default React.memo(ViewSwitch);

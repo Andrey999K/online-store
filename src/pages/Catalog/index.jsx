@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import SortOptions from "../../components/SortOptions";
 import ViewSwitch from "../../components/ViewSwitch";
 import Pagination from "../../components/Pagination";
@@ -18,14 +18,14 @@ const Catalog = () => {
   // const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState({ iter: "ratingProduct", order: "desc" });
   const [gridOn, setGridOn] = useState(true);
-  const sortOptions = [
+  const sortOptions = useRef([
     { field: "ratingProduct", text: "По рейтингу" },
     { field: "reviewsCount", text: "По отзывам" },
     { field: "price", text: "По цене" },
     { field: "name", text: "По названию" },
     { field: "discount", text: "По скидке" },
     { field: "benefit", text: "По выгоде" }
-  ];
+  ]);
   const [filteredProducts, setFiltersProducts] = useState([]);
 
   // const handleSearchProduct = (productName) => {
@@ -36,10 +36,10 @@ const Catalog = () => {
     setCurrentPage(pageNumber);
   };
 
-  const handleSort = (value) => {
+  const handleSort = useCallback((value) => {
     setSortBy(value);
     setCurrentPage(1);
-  };
+  }, []);
 
   const handleEditView = (grid) => {
     if (grid) setGridOn(false);
@@ -105,7 +105,7 @@ const Catalog = () => {
         {!!productsCrop.length &&
           <div className="w-full my-6 flex justify-center lg:justify-between">
             <div className="hidden lg:block">
-              <SortOptions items={sortOptions} onSort={handleSort} selectedSort={sortBy}/>
+              <SortOptions items={sortOptions.current} onSort={handleSort} selectedSort={sortBy}/>
             </div>
             <div className="flex gap-5 items-center justify-between w-full lg:w-fit">
               <div className="order-1 lg:order-none">
