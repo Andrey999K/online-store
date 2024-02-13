@@ -14,7 +14,7 @@ const Card = ({ product, inGrid }) => {
   const reviewsNumber = reviews.length;
   console.log(id);
   return (
-    <div className="self-start w-full hover:shadow-2xl duration-300 z-10 max-w-[50%] md:max-w-[33%] xl:max-w-[25%]">
+    <div className={`self-start w-full hover:shadow-2xl duration-300 z-10 max-w-[50%] md:max-w-[33%] ${inGrid ? "xl:max-w-[25%]" : "xl:max-w-full"}`}>
       <Link
         to={`${process.env.PUBLIC_URL}/product/${id}`}
         className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3 card"

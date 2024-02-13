@@ -7,7 +7,7 @@ import Filters from "../../components/Filters";
 import api from "../../api";
 import { orderBy } from "lodash";
 import paginate from "../../utils/paginate";
-import Loader from "../../components/Loader";
+import ScreenLoader from "../../components/ScreenLoader";
 import productsWord from "../../utils/productsWord";
 import Wrapper from "../../components/Wrapper";
 
@@ -18,6 +18,7 @@ const Catalog = () => {
   // const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState({ iter: "ratingProduct", order: "desc" });
   const [gridOn, setGridOn] = useState(true);
+  const [loading, setLoading] = useState(true);
   const sortOptions = useRef([
     { field: "ratingProduct", text: "По рейтингу" },
     { field: "reviewsCount", text: "По отзывам" },
@@ -27,6 +28,7 @@ const Catalog = () => {
     { field: "benefit", text: "По выгоде" }
   ]);
   const [filteredProducts, setFiltersProducts] = useState([]);
+  const timer = useRef(null);
 
   // const handleSearchProduct = (productName) => {
   //   setSearch(productName);
@@ -52,18 +54,12 @@ const Catalog = () => {
   };
 
   const showProductList = (productsList, gridOn) => {
-    if (products.length) {
-      return productsList.length
-        ? (<div className="lg:w-3/4 xl:w-4/5">
-            <ProductList products={productsList} grid={gridOn}/>
-          </div>)
-        : <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>;
-    }
-    return (
-      <div className="mx-auto text-3xl h-full">
-        <Loader />
-      </div>
-    );
+    if (!products.length || loading) return <ScreenLoader />;
+    return productsList.length
+      ? (<div className="lg:w-3/4 xl:w-4/5">
+        <ProductList products={productsList} grid={gridOn}/>
+      </div>)
+      : <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>;
   };
 
   const showFoundProductsCount = () => {
@@ -89,9 +85,20 @@ const Catalog = () => {
           });
           setProducts(data);
           setFiltersProducts(data);
+          setLoading(false);
         });
     }, 2000);
+    return () => {
+      clearInterval(timer.current);
+    };
   }, []);
+
+  useEffect(() => {
+    setLoading(true);
+    timer.current = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, [gridOn]);
 
   // const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
   const sortedProducts = sortBy
@@ -118,7 +125,7 @@ const Catalog = () => {
         <div className="flex justify-between mx-auto">
           {showProductList(productsCrop, gridOn)}
           {!!products.length && (
-            <div className="hidden lg:block w-1/4 xl:w-1/5">
+            <div className="ml-auto hidden lg:block w-1/4 xl:w-1/5">
               <Filters filtration={handleFiltration} products={products}/>
             </div>
           )}

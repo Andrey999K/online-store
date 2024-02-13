@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import api from "../../api";
 import Price from "../../components/Price";
 import ButtonBuy from "../../components/UI/ButtonBuy";
-import Loader from "../../components/Loader";
+import ScreenLoader from "../../components/ScreenLoader";
 import Review from "../../components/Review";
 import paginate from "../../utils/paginate";
 import Pagination from "../../components/Pagination";
@@ -115,7 +115,7 @@ const ProductPage = () => {
     }
     return (
       <div className="flex justify-center text-3xl text-sky-500">
-        <Loader />
+        <ScreenLoader />
       </div>
     );
   };
