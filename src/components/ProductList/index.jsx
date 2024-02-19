@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const ProductList = ({ products, grid }) => {
   return (
     <div className={
-      "flex flex-wrap h-full w-full gap-y-5 justify-center lg:justify-start items-stretch" + (grid ? " items-start" : " list-layout flex-col")
+      "flex flex-wrap h-full w-full gap-y-5 lg:justify-start items-stretch" + (grid ? " items-start" : " list-layout flex-col")
     }>
       {products.map(product => (
         <Card

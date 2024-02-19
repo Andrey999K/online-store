@@ -56,7 +56,7 @@ const Catalog = () => {
   const showProductList = (productsList, gridOn) => {
     if (!products.length || loading) return <ScreenLoader />;
     return productsList.length
-      ? (<div className="lg:w-3/4 xl:w-4/5">
+      ? (<div className="w-full lg:w-3/4 xl:w-4/5">
         <ProductList products={productsList} grid={gridOn}/>
       </div>)
       : <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>;
@@ -106,7 +106,7 @@ const Catalog = () => {
     : filteredProducts;
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
   return (
-    <div className="h-full w-full">
+    <div className="w-full flex">
       <Wrapper>
         {showFoundProductsCount()}
         {!!productsCrop.length &&
@@ -122,7 +122,7 @@ const Catalog = () => {
                           currentPage={currentPage}/>
             </div>
           </div>}
-        <div className="flex justify-between mx-auto">
+        <div className={`flex justify-between mx-auto h-full${gridOn ? "" : " w-full"}`}>
           {showProductList(productsCrop, gridOn)}
           {!!products.length && (
             <div className="ml-auto hidden lg:block w-1/4 xl:w-1/5">

@@ -12,14 +12,13 @@ import Rating from "../Rating";
 const Card = ({ product, inGrid }) => {
   const { id, name, price, discount, oldPrice, badges, reviews, ratingProduct: rating } = product;
   const reviewsNumber = reviews.length;
-  console.log(id);
   return (
-    <div className={`self-start w-full hover:shadow-2xl duration-300 z-10 max-w-[50%] md:max-w-[33%] ${inGrid ? "xl:max-w-[25%]" : "xl:max-w-full"}`}>
+    <div className={`self-start w-full hover:shadow-2xl duration-300 z-10 max-w-[50%] md:max-w-[33%] ${inGrid ? "xl:max-w-[25%]" : "md:max-w-full xl:max-w-full"}`}>
       <Link
         to={`${process.env.PUBLIC_URL}/product/${id}`}
         className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3 card"
       >
-        <div className="lg:min-w-[200px] relative pt-8">
+        <div className={`lg:min-w-[200px] relative pt-8${inGrid ? "" : " min-w-[200px]"}`}>
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
             {
               !!badges.length && badges.map(badge =>
@@ -27,9 +26,9 @@ const Card = ({ product, inGrid }) => {
               )
             }
           </div>
-          <div className="lg:h-[150px]">
+          <div className="h-[150px] lg:h-[150px] w-auto">
             {id && (
-              <img className="w-full h-full object-contain mx-auto" src={`https://thumb.cloud.mail.ru/weblink/thumb/xw1/9Q7k/wEByutoNc/${id}.jpg`} alt="Ноутбук" />
+              <img className="w-full h-full object-contain mx-auto bg-black/5 rounded-2xl" src={`https://thumb.cloud.mail.ru/weblink/thumb/xw1/9Q7k/wEByutoNc/${id}.jpg`} alt="Ноутбук" />
             )}
           </div>
         </div>

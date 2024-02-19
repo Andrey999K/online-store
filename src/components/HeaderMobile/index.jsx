@@ -17,7 +17,7 @@ const HeaderMobile = ({ navItems, city, phone }) => {
     setMenuOpen(false);
   };
   return (
-    <header className="bg-white z-10 relative">
+    <header className="bg-white z-80 relative">
       <Wrapper>
         <div className="flex items-center justify-between py-5">
           <button
@@ -33,7 +33,7 @@ const HeaderMobile = ({ navItems, city, phone }) => {
         </div>
       </Wrapper>
       <div className={
-        (menuOpen ? "translate-x-[425px] " : "translate-x-0 ") + "duration-300 px-5 py-8 absolute top-0 left-[-425px] w-full h-screen max-w-[425px] border-solid border-2 bg-white h-screen"
+        (menuOpen ? "translate-x-[425px] " : "translate-x-0 ") + "duration-300 px-5 py-8 absolute top-0 left-[-425px] w-full h-screen max-w-[425px] border-solid border-2 bg-white z-50"
       }>
         <button
           className="mx-[-2px] my-[-7px] hover:text-sky-500"

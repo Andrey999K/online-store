@@ -18,7 +18,7 @@ function App() {
       {/* <Header search={search} onSearch={handleSearchProduct}/> */}
       <Header/>
       <ToastContainer />
-      <div className="w-full m-auto h-full grow flex justify-center items-center">
+      <div className="w-full m-auto h-full grow flex justify-center">
         <Switch>
           <Route path={homepage} exact component={Catalog}/>
           <Route path={`${homepage}/product/:productId`} component={ProductPage}/>
