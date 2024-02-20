@@ -131,7 +131,7 @@ const Catalog = () => {
             </div>
           </div>
         )}
-        <div className={`flex justify-between mx-auto h-full${gridOn ? "" : " w-full"}`}>
+        <div className="flex justify-between mx-auto w-full h-full">
           {showProductList(productsCrop, gridOn)}
           {!!products.length && (
             <div className="ml-auto hidden lg:block w-1/4 xl:w-1/5">
