@@ -43,7 +43,7 @@ const Wishlist = () => {
   };
   return (
     <Wrapper>
-      <div className="flex justify-center items-center flex-col gap-5 w-full">
+      <div className="flex justify-center items-center flex-col gap-5 w-full h-full">
         {showProducts()}
       </div>
     </Wrapper>
