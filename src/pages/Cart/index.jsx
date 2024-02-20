@@ -27,7 +27,7 @@ const Cart = () => {
   const showProducts = () => {
     if (productsCount) {
       return (
-        <div className="flex flex-col gap-12 pb-16 pt-12 w-full">
+        <div className="flex flex-col gap-12 pb-16 pt-12 w-full h-full">
           <h2 className="text-3xl">Корзина</h2>
           <div className="flex gap-5 justify-between">
             <ListCart data={productsCart} />
@@ -69,7 +69,7 @@ const Cart = () => {
   };
   return (
     <Wrapper>
-      <div className="flex justify-center items-center flex-col gap-5">{showProducts()}</div>
+      <div className="flex justify-center items-center flex-col gap-5 h-full">{showProducts()}</div>
     </Wrapper>
   );
 };
