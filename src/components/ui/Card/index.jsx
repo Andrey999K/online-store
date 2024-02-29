@@ -18,8 +18,8 @@ const Card = ({ product, inGrid }) => {
   };
   return (
     <div
-      className={`self-start w-full hover:shadow-2xl duration-300 z-10 max-w-[50%] md:max-w-[33%] ${
-        inGrid ? "xl:max-w-[25%]" : "md:max-w-full xl:max-w-full"
+      className={`self-start w-full hover:shadow-2xl duration-300 z-10 ${
+        inGrid ? "xl:max-w-[25%] md:max-w-[33%]" : "md:max-w-full xl:max-w-full"
       }`}
     >
       <Link
