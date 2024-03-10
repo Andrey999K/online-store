@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../Logo";
 import PropTypes from "prop-types";
 import Icon from "../Icon";
@@ -16,6 +16,36 @@ const HeaderMobile = ({ navItems, city, phone }) => {
     document.body.style.overflow = "auto";
     setMenuOpen(false);
   };
+
+  useEffect(() => {
+    let startTouchX = 0;
+    let endTouchX = 0;
+    let startTouchY = 0;
+    let endTouchY = 0;
+
+    document.addEventListener("touchstart", event => {
+      startTouchX = event.changedTouches[0].pageX;
+      startTouchY = event.changedTouches[0].pageY;
+    });
+
+    document.addEventListener("touchend", event => {
+      endTouchX = event.changedTouches[0].pageX;
+      endTouchY = event.changedTouches[0].pageY;
+      if (
+        startTouchX < Math.floor(window.innerWidth / 2) &&
+        Math.abs(endTouchY - startTouchY) < 40 &&
+        endTouchX > startTouchX
+      )
+        setMenuOpen(true);
+      if (
+        startTouchX > Math.floor(window.innerWidth / 2) &&
+        Math.abs(endTouchY - startTouchY) < 40 &&
+        endTouchX < startTouchX
+      )
+        setMenuOpen(false);
+    });
+  }, []);
+
   return (
     <header className="bg-white z-[9999] sticky top-0 shadow">
       <Wrapper>
