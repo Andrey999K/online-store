@@ -13,7 +13,7 @@ const HeaderMobile = ({ navItems, city, phone }) => {
     setMenuOpen(true);
   };
   const closeMenu = () => {
-    document.body.style.overflow = "scroll";
+    document.body.style.overflow = "auto";
     setMenuOpen(false);
   };
   return (
@@ -30,12 +30,16 @@ const HeaderMobile = ({ navItems, city, phone }) => {
         </div>
       </Wrapper>
       <div
+        className={`${menuOpen ? "fixed inset-0 bg-white/50" : ""} duration-300 background-menu`}
+        onClick={closeMenu}
+      ></div>
+      <div
         className={
           (menuOpen ? "translate-x-[425px] " : "translate-x-0 ") +
-          "duration-300 px-5 py-8 absolute top-0 left-[-425px] w-full h-[100dvh] max-w-[425px] border-solid border-2 bg-white z-50"
+          "duration-300 px-5 py-8 absolute top-0 left-[-425px] w-full h-[100dvh] max-w-[425px] border-solid border-2 bg-white z-50 menu"
         }
       >
-        <button className="mx-[-2px] my-[-7px] hover:text-sky-500" onClick={closeMenu}>
+        <button className="mx-[-2px] my-[-7px] hover:text-sky-500 close-menu" onClick={closeMenu}>
           <Icon name="close" />
         </button>
         <div className="mt-10 flex flex-col gap-3">
