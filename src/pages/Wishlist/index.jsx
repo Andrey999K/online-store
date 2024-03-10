@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ProductList from "../../components/ProductList";
+import ProductList from "../../components/ui/ProductList";
 import { Link } from "react-router-dom";
-import Wrapper from "../../components/Wrapper";
+import Wrapper from "../../components/common/Wrapper";
 
 const Wishlist = () => {
   const listProducts = useSelector(state => state.favoritesReducer.favorites);
@@ -15,7 +15,7 @@ const Wishlist = () => {
       return (
         <>
           <h2 className="text-3xl w-full">Избранное</h2>
-          <div className="w-full h-full block flex justify-between">
+          <div className="w-full h-full flex justify-between">
             <ProductList grid={true} products={listProducts} />
             <div className="p-6 max-w-[260px] w-full bg-gray-100 flex flex-col gap-4">
               <button
@@ -43,9 +43,7 @@ const Wishlist = () => {
   };
   return (
     <Wrapper>
-      <div className="flex justify-center items-center flex-col gap-5 w-full">
-        {showProducts()}
-      </div>
+      <div className="flex justify-center items-center flex-col gap-5 w-full h-full">{showProducts()}</div>
     </Wrapper>
   );
 };

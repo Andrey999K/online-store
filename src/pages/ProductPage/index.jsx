@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../api";
-import Price from "../../components/Price";
-import ButtonBuy from "../../components/UI/ButtonBuy";
-import Loader from "../../components/Loader";
-import Review from "../../components/Review";
+import Price from "../../components/ui/Price";
+import ButtonBuy from "../../components/ui/ButtonBuy";
+import ScreenLoader from "../../components/ui/ScreenLoader";
+import Review from "../../components/ui/Review";
 import paginate from "../../utils/paginate";
-import Pagination from "../../components/Pagination";
-import SortOptions from "../../components/SortOptions";
+import Pagination from "../../components/ui/Pagination";
+import SortOptions from "../../components/ui/SortOptions";
 import { orderBy } from "lodash";
-import Bookmark from "../../components/Bookmark";
-import Wrapper from "../../components/Wrapper";
+import Bookmark from "../../components/ui/Bookmark";
+import Wrapper from "../../components/common/Wrapper";
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -26,27 +26,32 @@ const ProductPage = () => {
     { field: "date", text: "По дате" }
   ];
 
-  const handleSortReviews = (value) => {
+  const handleSortReviews = value => {
     setSortReviewBy(value);
     setCurrentPageReview(1);
   };
 
-  const handlePageReviewChange = (pageNumber) => {
+  const handlePageReviewChange = pageNumber => {
     setCurrentPageReview(pageNumber);
   };
 
-  const sortByDate = (items) => {
-    return orderBy(items, [item => {
-      const [day, month, year] = item.date.split(".");
-      return new Date(`${year}-${month}-${day}`);
-    }], [sortReviewBy.order]);
+  const sortByDate = items => {
+    return orderBy(
+      items,
+      [
+        item => {
+          const [day, month, year] = item.date.split(".");
+          return new Date(`${year}-${month}-${day}`);
+        }
+      ],
+      [sortReviewBy.order]
+    );
   };
 
   let sortedReviews = reviews;
   if (sortReviewBy) {
-    sortedReviews = sortReviewBy.iter === "date"
-      ? sortByDate(reviews)
-      : orderBy(reviews, [sortReviewBy.iter], [sortReviewBy.order]);
+    sortedReviews =
+      sortReviewBy.iter === "date" ? sortByDate(reviews) : orderBy(reviews, [sortReviewBy.iter], [sortReviewBy.order]);
   }
   const reviewsCrop = paginate(sortedReviews, reviewOnPage, currentPageReview);
   const showProduct = () => {
@@ -57,16 +62,25 @@ const ProductPage = () => {
             <h2 className="text-2xl">{product.name}</h2>
             <div className="flex gap-10 w-full mt-6 flex-col md:flex-row">
               <div className="basis-1/2">
-                <img className="w-full h-full object-contain mx-auto" src={`https://thumb.cloud.mail.ru/weblink/thumb/xw1/9Q7k/wEByutoNc/${productId}.jpg`} alt="Ноутбук" />
+                <img
+                  className="w-full h-full object-contain mx-auto"
+                  src={`https://thumb.cloud.mail.ru/weblink/thumb/xw1/9Q7k/wEByutoNc/${productId}.jpg`}
+                  alt="Ноутбук"
+                />
               </div>
               <div className="basis-1/2 flex flex-col gap-5">
                 <div>
-                  Экран: 16; 1920х1200; IPS;<br/>
-                  Процессор: Intel Core i7 12700H 2.3 ГГц (4.7 ГГц, в режиме Turbo)<br/>
-                  Графический процессор: Intel Iris Xe graphics ;<br/>
-                  Оперативная память 16 ГБ, LPDDR4x;<br/>
-                  Диск: SSD 512 ГБ;<br/>
-                  Операционная система: Windows 11 Home;<br/>
+                  Экран: 16; 1920х1200; IPS;
+                  <br />
+                  Процессор: Intel Core i7 12700H 2.3 ГГц (4.7 ГГц, в режиме Turbo)
+                  <br />
+                  Графический процессор: Intel Iris Xe graphics ;<br />
+                  Оперативная память 16 ГБ, LPDDR4x;
+                  <br />
+                  Диск: SSD 512 ГБ;
+                  <br />
+                  Операционная система: Windows 11 Home;
+                  <br />
                   Клавиатура: с русскими буквами
                 </div>
                 <div className="flex gap-3">
@@ -95,11 +109,11 @@ const ProductPage = () => {
               </div>
             </div>
             <ul className="flex flex-col gap-8 items-center">
-              {reviewsCrop.map(review =>
+              {reviewsCrop.map(review => (
                 <li key={review.reviewId}>
                   <Review data={review} />
                 </li>
-              )}
+              ))}
             </ul>
             <div className="flex justify-center md:justify-start">
               <Pagination
@@ -115,25 +129,20 @@ const ProductPage = () => {
     }
     return (
       <div className="flex justify-center text-3xl text-sky-500">
-        <Loader />
+        <ScreenLoader />
       </div>
     );
   };
 
   useEffect(() => {
     setTimeout(() => {
-      api.catalog.getById(productId)
-        .then(response => {
-          setProduct(response);
-        });
+      api.catalog.getById(productId).then(response => {
+        setProduct(response);
+      });
     }, 2000);
   }, []);
 
-  return (
-    <Wrapper>
-      {showProduct()}
-    </Wrapper>
-  );
+  return <Wrapper>{showProduct()}</Wrapper>;
 };
 
 export default ProductPage;
