@@ -36,13 +36,13 @@ const HeaderMobile = ({ navItems, city, phone }) => {
         Math.abs(endTouchY - startTouchY) < 40 &&
         endTouchX > startTouchX
       )
-        setMenuOpen(true);
+        openMenu();
       if (
         startTouchX > Math.floor(window.innerWidth / 2) &&
         Math.abs(endTouchY - startTouchY) < 40 &&
         endTouchX < startTouchX
       )
-        setMenuOpen(false);
+        closeMenu();
     });
   }, []);
 
