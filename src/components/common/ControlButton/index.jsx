@@ -32,7 +32,7 @@ ControlButton.propTypes = {
 };
 
 ControlButton.defaultProps = {
-  url: `${process.env.PUBLIC_URL}`
+  url: `/`
 };
 
 export default ControlButton;

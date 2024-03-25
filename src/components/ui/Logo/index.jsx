@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Logo = ({ image }) => {
   return (
-    <Link to={process.env.PUBLIC_URL}>
+    <Link to="/">
       {image ? (
         <img src={`../../img/${image}`} alt="Logo" />
       ) : (

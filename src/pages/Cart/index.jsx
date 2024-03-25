@@ -59,7 +59,7 @@ const Cart = () => {
       <>
         <span className="text-2xl">В корзине нет товаров</span>
         <Link
-          to={`${process.env.PUBLIC_URL}`}
+          to="/"
           className="text-xl py-4 px-5 lg:px-8 hover:bg-sky-500 hover:text-white duration-300 border-solid border-[1px] border-sky-500 rounded"
         >
           В каталог

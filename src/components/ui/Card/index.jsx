@@ -22,10 +22,7 @@ const Card = ({ product, inGrid }) => {
         inGrid ? "xl:max-w-[25%] md:max-w-[33%]" : "md:max-w-full xl:max-w-full"
       }`}
     >
-      <Link
-        to={`${process.env.PUBLIC_URL}/product/${id}`}
-        className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3 card"
-      >
+      <Link to={`/product/${id}`} className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3 card">
         <div className={`lg:min-w-[200px] relative pt-8${inGrid ? "" : " min-w-[200px]"}`}>
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
             {!!badges.length && badges.map(badge => <Badge key={badge.id} text={badge.text} type={badge.name} />)}
