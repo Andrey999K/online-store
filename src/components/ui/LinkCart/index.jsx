@@ -16,7 +16,7 @@ const LinkCart = () => {
     });
     return () => unsubscribe();
   }, []);
-  return <ControlButton icon="cart" text="Корзина" url={`${process.env.PUBLIC_URL}/cart`} count={sumProducts} />;
+  return <ControlButton icon="cart" text="Корзина" url="/cart" count={sumProducts} />;
 };
 
 export default LinkCart;

@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const fetchAll = async() => {
+const fetchAll = async () => {
   try {
-    const response = await axios.get(`${process.env.PUBLIC_URL}/data/data.json`);
+    const response = await axios.get(`${window.location.href}data.json`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -10,9 +10,9 @@ const fetchAll = async() => {
   }
 };
 
-const getById = async(productid) => {
+const getById = async productid => {
   try {
-    const response = await axios.get(`${process.env.PUBLIC_URL}/data/data.json`);
+    const response = await axios.get(`${window.location.href}data.json`);
     return response.data.find(product => product.id === Number(productid));
   } catch (error) {
     console.log(error);

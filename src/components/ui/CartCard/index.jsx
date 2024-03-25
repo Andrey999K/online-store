@@ -8,7 +8,6 @@ import Input from "../Input";
 import { Link } from "react-router-dom";
 
 const CartCard = ({ product, onDelete }) => {
-  const homepage = process.env.PUBLIC_URL;
   const { id, name, price, oldPrice, discount } = product;
   const [count, setCount] = useState(product.count.toString());
   const dispatch = useDispatch();
@@ -41,7 +40,7 @@ const CartCard = ({ product, onDelete }) => {
             alt="Ноутбук"
           />
         </div>
-        <Link to={`${homepage}/product/${id}`}>
+        <Link to={`/product/${id}`}>
           <h4 className="text-base max-w-[26rem] w-full">{name}</h4>
         </Link>
       </div>
