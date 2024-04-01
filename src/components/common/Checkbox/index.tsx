@@ -2,7 +2,7 @@ interface CheckboxProps {
   label: string;
   value: string;
   checked: boolean;
-  onChange: () => void;
+  onChange: (args: any) => void;
 }
 
 const Checkbox = ({ label, value, checked, onChange }: CheckboxProps) => {
