@@ -3,7 +3,7 @@ import Logo from "../Logo";
 import Contracts from "../Contacts";
 import Navigation from "../Navigation";
 import HeaderCatalog from "../HeaderCatalog";
-import ControlButton from "../../common/ControlButton";
+import ControlButton from "../../common/ControlButton/index.js";
 import LinkWishlist from "../LinkWishlist";
 import LinkCart from "../LinkCart";
 import PropTypes from "prop-types";

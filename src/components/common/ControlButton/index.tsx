@@ -1,9 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
 import Icon from "../../ui/Icon";
 import { Link } from "react-router-dom";
 
-const ControlButton = ({ icon, text, url, count }) => {
+interface ControlButtonProps {
+  icon?: string;
+  text: string;
+  url?: string;
+  count?: number;
+}
+
+const ControlButton = ({ icon, text, url = "/", count }: ControlButtonProps) => {
   return (
     <Link
       to={url}
@@ -22,17 +27,6 @@ const ControlButton = ({ icon, text, url, count }) => {
       <span className="mt-[2px]">{text}</span>
     </Link>
   );
-};
-
-ControlButton.propTypes = {
-  icon: PropTypes.string,
-  text: PropTypes.string.isRequired,
-  url: PropTypes.string,
-  count: PropTypes.number
-};
-
-ControlButton.defaultProps = {
-  url: `/`
 };
 
 export default ControlButton;

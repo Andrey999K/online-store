@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ControlButton from "../../common/ControlButton";
+import ControlButton from "../../common/ControlButton/index.js";
 import { useSelector } from "react-redux";
 import { store } from "../../../store";
 
