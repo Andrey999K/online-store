@@ -1,16 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+interface BadgeProps {
+  text: string;
+  type: string;
+  color?: string;
+}
 
-const Badge = ({ text, type, color }) => {
+const Badge = ({ text, type, color }: BadgeProps) => {
   let colorBadge = color ? `bg-[${color}]` : "bg-sky-500";
   if (type === "super") colorBadge = "bg-green-500";
   return <div className={colorBadge + " inline-block box-border text-white text-[12px] py-1 px-2 rounded"}>{text}</div>;
-};
-
-Badge.propTypes = {
-  text: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  color: PropTypes.string
 };
 
 Badge.defaultProps = {};
