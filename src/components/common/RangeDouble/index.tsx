@@ -1,8 +1,25 @@
-import React from "react";
 import { getTrackBackground, Range } from "react-range";
-import PropTypes from "prop-types";
+import React from "react";
 
-const RangeDouble = ({ MIN, MAX, STEP, currentValues, rtl, onChange, onFinalChange }) => {
+interface RangeDoubleProps {
+  MIN?: number;
+  MAX?: number;
+  STEP?: number;
+  currentValues: [number, number];
+  rtl: boolean;
+  onChange: (value: [number, number]) => void;
+  onFinalChange: (value: { min: number; max: number }) => void;
+}
+
+const RangeDouble: React.FC<RangeDoubleProps> = ({
+  MIN = 0,
+  MAX = 100,
+  STEP = 1,
+  currentValues = [0, 100],
+  rtl = false,
+  onChange,
+  onFinalChange
+}) => {
   const values = currentValues;
   return (
     <div>
@@ -12,7 +29,7 @@ const RangeDouble = ({ MIN, MAX, STEP, currentValues, rtl, onChange, onFinalChan
         min={MIN}
         max={MAX}
         rtl={rtl}
-        onChange={currentValue => onChange(currentValue)}
+        onChange={currentValue => onChange([currentValue[0], currentValue[1]])}
         onFinalChange={() => onFinalChange({ min: values[0], max: values[1] })}
         renderTrack={({ props, children }) => (
           <div
@@ -45,7 +62,7 @@ const RangeDouble = ({ MIN, MAX, STEP, currentValues, rtl, onChange, onFinalChan
             </div>
           </div>
         )}
-        renderThumb={({ index, props, isDragged }) => (
+        renderThumb={({ props }) => (
           <div
             {...props}
             style={{
@@ -65,26 +82,6 @@ const RangeDouble = ({ MIN, MAX, STEP, currentValues, rtl, onChange, onFinalChan
       />
     </div>
   );
-};
-
-RangeDouble.propTypes = {
-  MIN: PropTypes.number,
-  MAX: PropTypes.number,
-  STEP: PropTypes.number,
-  currentValues: PropTypes.arrayOf(
-    PropTypes.number.isRequired
-  ),
-  rtl: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
-  onFinalChange: PropTypes.func.isRequired
-};
-
-RangeDouble.defaultProps = {
-  MIN: 0,
-  MAX: 100,
-  STEP: 1,
-  currentValues: [0, 100],
-  rtl: false
 };
 
 export default RangeDouble;

@@ -68,7 +68,9 @@ const Filters = ({ filtration, products }) => {
     discountValue = discount,
     ratingValue = rating
   ) => {
-    let filteredProducts = products.filter(product => product.price >= prices.min && product.price <= prices.max);
+    let filteredProducts = products.filter(
+      product => product.price >= prices.min && product.price <= prices.max
+    );
     if (statusesMass.length) {
       filteredProducts = filteredProducts.filter(product => {
         if (product.badges.length > 0) {
@@ -79,8 +81,12 @@ const Filters = ({ filtration, products }) => {
         return false;
       });
     }
-    filteredProducts = filteredProducts.filter(product => product.discount >= Number(discountValue));
-    filteredProducts = filteredProducts.filter(product => product.ratingProduct >= Number(ratingValue));
+    filteredProducts = filteredProducts.filter(
+      product => product.discount >= Number(discountValue)
+    );
+    filteredProducts = filteredProducts.filter(
+      product => product.ratingProduct >= Number(ratingValue)
+    );
     filtration(filteredProducts);
   };
 
@@ -102,13 +108,23 @@ const Filters = ({ filtration, products }) => {
           <div className="flex justify-between">
             <Input
               value={price.min}
-              onBlur={event => handleFinalEditPrice({ ...price, min: Number(event.target.value) })}
+              onBlur={event =>
+                handleFinalEditPrice({
+                  ...price,
+                  min: Number(event.target.value)
+                })
+              }
               className="w-5/12 rounded"
             />
             <div>—</div>
             <Input
               value={price.max}
-              onBlur={event => handleFinalEditPrice({ ...price, max: Number(event.target.value) })}
+              onBlur={event =>
+                handleFinalEditPrice({
+                  ...price,
+                  max: Number(event.target.value)
+                })
+              }
               className="w-5/12 rounded"
             />
           </div>
