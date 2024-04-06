@@ -1,5 +1,5 @@
 import React from "react";
-import ControlButton from "../../common/ControlButton/index.js";
+import ControlButton from "../../common/ControlButton";
 import { useSelector } from "react-redux";
 
 const LinkWishlist = () => {

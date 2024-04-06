@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Radio from "../Radio";
-import Checkbox from "../Checkbox/index.js";
+import Checkbox from "../Checkbox";
 
 const SelectionBlock = ({ title, options, selectedItems, onChange, type }) => {
   const handleInputChange = event => {

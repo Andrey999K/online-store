@@ -1,11 +1,13 @@
+import React from "react";
+
 interface CheckboxProps {
   label: string;
   value: string;
   checked: boolean;
-  onChange: (args: any) => void;
+  onChange: () => void;
 }
 
-const Checkbox = ({ label, value, checked, onChange }: CheckboxProps) => {
+const Checkbox: React.FC<CheckboxProps> = ({ label, value, checked, onChange }) => {
   return (
     <div className="inline-flex items-center ml-[-12px] mt-[-12px]">
       <label

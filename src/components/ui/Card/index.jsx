@@ -1,5 +1,5 @@
 import React from "react";
-import Badge from "../../common/Badge/index.js";
+import Badge from "../../common/Badge";
 import ButtonBuy from "../ButtonBuy";
 import PropTypes from "prop-types";
 import Icon from "../Icon";
