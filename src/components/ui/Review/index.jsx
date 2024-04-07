@@ -1,14 +1,18 @@
 import React from "react";
 import Rating from "../Rating";
 import PropTypes from "prop-types";
-import Avatar from "../Avatar";
+import { Avatar } from "../Avatar";
 
 const Review = ({ data }) => {
   const { reviewId, name, rating, text, date } = data;
   return (
     <div className="flex flex-col gap-3">
       <div className="flex gap-3">
-        <Avatar src={`https://xsgames.co/randomusers/assets/avatars/male/${reviewId % 75}.jpg`} />
+        <Avatar
+          src={`https://xsgames.co/randomusers/assets/avatars/male/${
+            reviewId % 75
+          }.jpg`}
+        />
         <div>
           <div className="flex gap-3">
             <span>{name}</span>
