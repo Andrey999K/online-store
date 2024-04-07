@@ -5,7 +5,7 @@ interface Radio {
   label: string;
   value: string | number;
   checked: boolean;
-  onChange: () => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Radio: React.FC<Radio> = ({ name, label, value, checked, onChange }) => {
@@ -20,7 +20,10 @@ const Radio: React.FC<Radio> = ({ name, label, value, checked, onChange }) => {
         checked={checked}
         onChange={onChange}
       />
-      <label className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer ml-2" htmlFor={String(value)}>
+      <label
+        className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer ml-2"
+        htmlFor={String(value)}
+      >
         {label}
       </label>
     </div>

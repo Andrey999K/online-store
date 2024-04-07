@@ -1,16 +1,48 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Radio from "../Radio";
 import Checkbox from "../Checkbox";
 
-const SelectionBlock = ({ title, options, selectedItems, onChange, type }) => {
-  const handleInputChange = event => {
+interface SelectionBlockProps {
+  title?: string;
+  options: Array<{
+    name: string;
+    value: string;
+  }>;
+}
+
+interface CheckboxProps extends SelectionBlockProps {
+  selectedItems: Array<string>;
+  onChange: (value: Array<string>) => void;
+  type: "checkbox";
+}
+
+interface RadioProps extends SelectionBlockProps {
+  selectedItems: string;
+  onChange: (value: string) => void;
+  type: "radio";
+}
+
+type Props = CheckboxProps | RadioProps;
+
+const SelectionBlock: React.FC<Props> = ({
+  title,
+  options,
+  selectedItems = [],
+  onChange,
+  type
+}) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = event.target.checked;
     const value = event.target.value;
     if (isChecked) {
-      type === "checkbox" ? onChange([...selectedItems, value]) : onChange(value);
+      type === "checkbox"
+        ? onChange([...selectedItems, value])
+        : onChange(value);
     } else {
-      if (type === "checkbox") onChange(selectedItems.filter(item => item !== value));
+      if (type === "checkbox")
+        onChange(
+          (selectedItems as Array<string>).filter(item => item !== value)
+        );
     }
   };
   const name = Math.random().toString(36).substr(2, 9);
@@ -36,7 +68,7 @@ const SelectionBlock = ({ title, options, selectedItems, onChange, type }) => {
               name={name}
               label={option.name}
               value={option.value}
-              checked={Number(selectedItems) === option.value}
+              checked={selectedItems === option.value}
               onChange={handleInputChange}
             />
           );
@@ -44,14 +76,6 @@ const SelectionBlock = ({ title, options, selectedItems, onChange, type }) => {
       </div>
     </div>
   );
-};
-
-SelectionBlock.propTypes = {
-  title: PropTypes.string,
-  options: PropTypes.array.isRequired,
-  selectedItems: PropTypes.oneOfType([PropTypes.array, PropTypes.number, PropTypes.string]),
-  onChange: PropTypes.func.isRequired,
-  type: PropTypes.string
 };
 
 export default React.memo(SelectionBlock);

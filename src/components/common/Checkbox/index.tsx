@@ -4,10 +4,15 @@ interface CheckboxProps {
   label: string;
   value: string;
   checked: boolean;
-  onChange: () => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ label, value, checked, onChange }) => {
+const Checkbox: React.FC<CheckboxProps> = ({
+  label,
+  value,
+  checked,
+  onChange
+}) => {
   return (
     <div className="inline-flex items-center ml-[-12px] mt-[-12px]">
       <label
@@ -40,7 +45,10 @@ const Checkbox: React.FC<CheckboxProps> = ({ label, value, checked, onChange }) 
           </svg>
         </div>
       </label>
-      <label className="mt-px cursor-pointer select-none font-light text-gray-700 ml-1" htmlFor={value}>
+      <label
+        className="mt-px cursor-pointer select-none font-light text-gray-700 ml-1"
+        htmlFor={value}
+      >
         {label}
       </label>
     </div>
