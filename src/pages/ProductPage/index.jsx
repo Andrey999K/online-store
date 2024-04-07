@@ -9,8 +9,8 @@ import paginate from "../../utils/paginate";
 import Pagination from "../../components/ui/Pagination";
 import SortOptions from "../../components/ui/SortOptions";
 import { orderBy } from "lodash";
-import Bookmark from "../../components/ui/Bookmark";
 import Wrapper from "../../components/common/Wrapper/index.js";
+import { Bookmark } from "../../components/ui/Bookmark/index.js";
 
 const ProductPage = () => {
   const { productId } = useParams();

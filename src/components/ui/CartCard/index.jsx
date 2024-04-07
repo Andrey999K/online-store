@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Price from "../Price";
-import Bookmark from "../Bookmark";
+import Bookmark from "../Bookmark/index.js";
 import Icon from "../Icon";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
@@ -27,7 +27,10 @@ const CartCard = ({ product, onDelete }) => {
     let value = Number(target.value);
     value = value === 0 ? 1 : value;
     setCount(value);
-    dispatch({ type: "EDIT_COUNT_IN_CART", payload: { ...product, count: value } });
+    dispatch({
+      type: "EDIT_COUNT_IN_CART",
+      payload: { ...product, count: value }
+    });
   };
 
   return (
@@ -46,7 +49,11 @@ const CartCard = ({ product, onDelete }) => {
       </div>
       <div>
         <div className="max-w-10 flex justify-center gap-3 font-medium">
-          <button disabled={Number(count) === 1} onClick={handleDecrement} className="disabled:text-gray-400 font-bold">
+          <button
+            disabled={Number(count) === 1}
+            onClick={handleDecrement}
+            className="disabled:text-gray-400 font-bold"
+          >
             &ndash;
           </button>
           <Input
@@ -63,7 +70,10 @@ const CartCard = ({ product, onDelete }) => {
         <Price price={price} oldPrice={oldPrice} discount={discount} />
         <div className="flex flex-col gap-2">
           <Bookmark product={product} />
-          <button onClick={() => onDelete(product)} className="cursor-pointer text-gray-400 hover:text-sky-500">
+          <button
+            onClick={() => onDelete(product)}
+            className="cursor-pointer text-gray-400 hover:text-sky-500"
+          >
             <Icon className="w-[22px] h-[22px]" name="delete" />
           </button>
         </div>

@@ -4,13 +4,22 @@ import ButtonBuy from "../ButtonBuy";
 import PropTypes from "prop-types";
 import Icon from "../Icon";
 import Price from "../Price";
-import Bookmark from "../Bookmark";
 import "./card.scss";
 import { Link } from "react-router-dom";
 import Rating from "../Rating";
+import { Bookmark } from "../Bookmark";
 
 const Card = ({ product, inGrid }) => {
-  const { id, name, price, discount, oldPrice, badges, reviews, ratingProduct: rating } = product;
+  const {
+    id,
+    name,
+    price,
+    discount,
+    oldPrice,
+    badges,
+    reviews,
+    ratingProduct: rating
+  } = product;
   const reviewsNumber = reviews.length;
   const handlerLoadImageError = e => {
     e.target.classList.add("opacity-0");
@@ -22,10 +31,20 @@ const Card = ({ product, inGrid }) => {
         inGrid ? "xl:max-w-[25%] md:max-w-[33%]" : "md:max-w-full xl:max-w-full"
       }`}
     >
-      <Link to={`/product/${id}`} className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3 card">
-        <div className={`lg:min-w-[200px] relative pt-8${inGrid ? "" : " min-w-[200px]"}`}>
+      <Link
+        to={`/product/${id}`}
+        className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3 card"
+      >
+        <div
+          className={`lg:min-w-[200px] relative pt-8${
+            inGrid ? "" : " min-w-[200px]"
+          }`}
+        >
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
-            {!!badges.length && badges.map(badge => <Badge key={badge.id} text={badge.text} type={badge.name} />)}
+            {!!badges.length &&
+              badges.map(badge => (
+                <Badge key={badge.id} text={badge.text} type={badge.name} />
+              ))}
           </div>
           <div className="h-[150px] lg:h-[150px] w-auto rounded-2xl overflow-hidden">
             {id && (
@@ -44,13 +63,18 @@ const Card = ({ product, inGrid }) => {
               <>
                 <Rating rating={rating} />
                 <div className="flex items-center gap-1">
-                  <Icon name="review" className="text-gray-400 w-[16px] h-[16px]" />
+                  <Icon
+                    name="review"
+                    className="text-gray-400 w-[16px] h-[16px]"
+                  />
                   <span>{reviewsNumber}</span>
                 </div>
               </>
             )}
           </div>
-          <div className="card__info-name line-clamp-3 hover:text-sky-500">{name}</div>
+          <div className="card__info-name line-clamp-3 hover:text-sky-500">
+            {name}
+          </div>
           <div className="card__info-description hidden text-sm">
             Экран: 16; 1920х1200; IPS;
             <br />
@@ -65,10 +89,19 @@ const Card = ({ product, inGrid }) => {
             <br />
             Клавиатура: с русскими буквами
           </div>
-          <div className={"mt-auto flex flex-col gap-1" + (discount ? "" : " pt-4")}>
+          <div
+            className={
+              "mt-auto flex flex-col gap-1" + (discount ? "" : " pt-4")
+            }
+          >
             <div className="card__info-bottom flex justify-between">
               <div className="card__info-price">
-                <Price price={price} oldPrice={oldPrice} discount={discount} hover={true} />
+                <Price
+                  price={price}
+                  oldPrice={oldPrice}
+                  discount={discount}
+                  hover={true}
+                />
               </div>
               <div>
                 <div className="card__bookmark absolute right-4 top-4">
@@ -82,10 +115,15 @@ const Card = ({ product, inGrid }) => {
             <div className="text-sm">
               <div>
                 В наличии{" "}
-                <span className="underline font-medium cursor-pointer hover:text-sky-500">в 20 магазинах</span>
+                <span className="underline font-medium cursor-pointer hover:text-sky-500">
+                  в 20 магазинах
+                </span>
               </div>
               <div>
-                Привезём <span className="underline font-medium cursor-pointer hover:text-sky-500">в 500 пунктов</span>
+                Привезём{" "}
+                <span className="underline font-medium cursor-pointer hover:text-sky-500">
+                  в 500 пунктов
+                </span>
               </div>
             </div>
           </div>
