@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Icon from "../Icon";
 import Navigation from "../Navigation";
 import Contracts from "../Contacts";
-import Wrapper from "../../common/Wrapper";
+import Wrapper from "../../common/Wrapper/index.js";
 
 const HeaderMobile = ({ navItems, city, phone }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -60,7 +60,9 @@ const HeaderMobile = ({ navItems, city, phone }) => {
         </div>
       </Wrapper>
       <div
-        className={`${menuOpen ? "fixed inset-0 bg-white/50" : ""} duration-300 background-menu`}
+        className={`${
+          menuOpen ? "fixed inset-0 bg-white/50" : ""
+        } duration-300 background-menu`}
         onClick={closeMenu}
       ></div>
       <div
@@ -69,7 +71,10 @@ const HeaderMobile = ({ navItems, city, phone }) => {
           "duration-300 px-5 py-8 absolute top-0 left-[-425px] w-full h-[100dvh] max-w-[425px] border-solid border-2 bg-white z-50 menu"
         }
       >
-        <button className="mx-[-2px] my-[-7px] hover:text-sky-500 close-menu" onClick={closeMenu}>
+        <button
+          className="mx-[-2px] my-[-7px] hover:text-sky-500 close-menu"
+          onClick={closeMenu}
+        >
           <Icon name="close" />
         </button>
         <div className="mt-10 flex flex-col gap-3">

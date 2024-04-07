@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../common/Wrapper";
+import Wrapper from "../../common/Wrapper/index.js";
 import Icon from "../Icon";
 
 const FooterDesktop = () => {
@@ -79,7 +79,11 @@ const FooterDesktop = () => {
           <div>
             <ul className="flex gap-8 items-center">
               <li>
-                <a href="https://t.me/Andrey_Kutuzovv" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://t.me/Andrey_Kutuzovv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Icon
                     name="telegram"
                     className="w-[40px] h-[40px] text-sky-800 hover:text-white duration-200 ease-out"
@@ -87,8 +91,15 @@ const FooterDesktop = () => {
                 </a>
               </li>
               <li>
-                <a href="https://vk.com/andrey999k" target="_blank" rel="noopener noreferrer">
-                  <Icon name="vk" className="w-[40px] h-[40px] text-sky-800 hover:text-white duration-200 ease-out" />
+                <a
+                  href="https://vk.com/andrey999k"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon
+                    name="vk"
+                    className="w-[40px] h-[40px] text-sky-800 hover:text-white duration-200 ease-out"
+                  />
                 </a>
               </li>
               <li>

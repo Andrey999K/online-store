@@ -10,13 +10,16 @@ import Pagination from "../../components/ui/Pagination";
 import SortOptions from "../../components/ui/SortOptions";
 import { orderBy } from "lodash";
 import Bookmark from "../../components/ui/Bookmark";
-import Wrapper from "../../components/common/Wrapper";
+import Wrapper from "../../components/common/Wrapper/index.js";
 
 const ProductPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [currentPageReview, setCurrentPageReview] = useState(1);
-  const [sortReviewBy, setSortReviewBy] = useState({ iter: "rating", order: "desc" });
+  const [sortReviewBy, setSortReviewBy] = useState({
+    iter: "rating",
+    order: "desc"
+  });
   const reviewOnPage = 5;
   let reviews = [];
   if (product) reviews = product.reviews;
@@ -51,7 +54,9 @@ const ProductPage = () => {
   let sortedReviews = reviews;
   if (sortReviewBy) {
     sortedReviews =
-      sortReviewBy.iter === "date" ? sortByDate(reviews) : orderBy(reviews, [sortReviewBy.iter], [sortReviewBy.order]);
+      sortReviewBy.iter === "date"
+        ? sortByDate(reviews)
+        : orderBy(reviews, [sortReviewBy.iter], [sortReviewBy.order]);
   }
   const reviewsCrop = paginate(sortedReviews, reviewOnPage, currentPageReview);
   const showProduct = () => {
@@ -72,7 +77,8 @@ const ProductPage = () => {
                 <div>
                   Экран: 16; 1920х1200; IPS;
                   <br />
-                  Процессор: Intel Core i7 12700H 2.3 ГГц (4.7 ГГц, в режиме Turbo)
+                  Процессор: Intel Core i7 12700H 2.3 ГГц (4.7 ГГц, в режиме
+                  Turbo)
                   <br />
                   Графический процессор: Intel Iris Xe graphics ;<br />
                   Оперативная память 16 ГБ, LPDDR4x;
@@ -84,7 +90,11 @@ const ProductPage = () => {
                   Клавиатура: с русскими буквами
                 </div>
                 <div className="flex gap-3">
-                  <Price price={product.price} oldPrice={product.oldPrice} discount={product.discount} />
+                  <Price
+                    price={product.price}
+                    oldPrice={product.oldPrice}
+                    discount={product.discount}
+                  />
                   <Bookmark product={product} />
                 </div>
                 <div className="sm:max-w-xs">
@@ -97,7 +107,11 @@ const ProductPage = () => {
             <div className="flex justify-between">
               <h3 className="text-3xl">Отзывы {product.reviews.length}</h3>
               <div>
-                <SortOptions onSort={handleSortReviews} selectedSort={sortReviewBy} items={sortReviewsOptions} />
+                <SortOptions
+                  onSort={handleSortReviews}
+                  selectedSort={sortReviewBy}
+                  items={sortReviewsOptions}
+                />
               </div>
               <div className="hidden md:block">
                 <Pagination

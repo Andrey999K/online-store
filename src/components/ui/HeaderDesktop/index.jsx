@@ -7,7 +7,7 @@ import ControlButton from "../../common/ControlButton";
 import LinkWishlist from "../LinkWishlist";
 import LinkCart from "../LinkCart";
 import PropTypes from "prop-types";
-import Wrapper from "../../common/Wrapper";
+import Wrapper from "../../common/Wrapper/index.js";
 
 const HeaderDesktop = ({ navItems, city, phone }) => {
   return (

@@ -4,14 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import productsWord from "../../utils/productsWord";
 import ListCart from "../../components/ui/ListCart";
 import { store } from "../../store";
-import Wrapper from "../../components/common/Wrapper";
+import Wrapper from "../../components/common/Wrapper/index.js";
 
 const Cart = () => {
   let productsCart = useSelector(state => state.cartReducer.cart);
   const productsCount = productsCart.length;
   const dispatch = useDispatch();
   const pricesSum = productsList => {
-    return productsList.reduce((sum, product) => sum + product.price * product.count, 0);
+    return productsList.reduce(
+      (sum, product) => sum + product.price * product.count,
+      0
+    );
   };
   const [sumPrices, setSumPrices] = useState(pricesSum(productsCart));
   const handleClearData = () => {
@@ -69,7 +72,9 @@ const Cart = () => {
   };
   return (
     <Wrapper>
-      <div className="flex justify-center items-center flex-col gap-5 h-full">{showProducts()}</div>
+      <div className="flex justify-center items-center flex-col gap-5 h-full">
+        {showProducts()}
+      </div>
     </Wrapper>
   );
 };

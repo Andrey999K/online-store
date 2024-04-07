@@ -9,14 +9,17 @@ import { orderBy } from "lodash";
 import paginate from "../../utils/paginate";
 import ScreenLoader from "../../components/ui/ScreenLoader";
 import productsWord from "../../utils/productsWord";
-import Wrapper from "../../components/common/Wrapper";
+import { Wrapper } from "../../components/common/Wrapper";
 
 const Catalog = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 12;
   // const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState({ iter: "ratingProduct", order: "desc" });
+  const [sortBy, setSortBy] = useState({
+    iter: "ratingProduct",
+    order: "desc"
+  });
   const [gridOn, setGridOn] = useState(true);
   const [loading, setLoading] = useState(true);
   const sortOptions = useRef([
@@ -60,7 +63,9 @@ const Catalog = () => {
         <ProductList products={productsList} grid={gridOn} />
       </div>
     ) : (
-      <h2 className="text-2xl text-center mx-auto mt-8">Подходящих товаров не найдено.</h2>
+      <h2 className="text-2xl text-center mx-auto mt-8">
+        Подходящих товаров не найдено.
+      </h2>
     );
   };
 
@@ -68,7 +73,9 @@ const Catalog = () => {
     if (products.length)
       return (
         <div className="w-full text-3xl mt-5">
-          {`Найдено ${sortedProducts.length} ${productsWord(sortedProducts.length)}.`}
+          {`Найдено ${sortedProducts.length} ${productsWord(
+            sortedProducts.length
+          )}.`}
         </div>
       );
   };
@@ -86,7 +93,9 @@ const Catalog = () => {
             ...item,
             benefit: item.oldPrice - item.price,
             reviewsCount,
-            ratingProduct: reviewsCount ? Number((sumRating / reviewsCount).toFixed(1)) : 0
+            ratingProduct: reviewsCount
+              ? Number((sumRating / reviewsCount).toFixed(1))
+              : 0
           };
         });
         setProducts(data);
@@ -107,7 +116,9 @@ const Catalog = () => {
   }, [gridOn]);
 
   // const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
-  const sortedProducts = sortBy ? orderBy(filteredProducts, [sortBy.iter], [sortBy.order]) : filteredProducts;
+  const sortedProducts = sortBy
+    ? orderBy(filteredProducts, [sortBy.iter], [sortBy.order])
+    : filteredProducts;
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
   return (
     <div className="w-full flex">
@@ -116,7 +127,11 @@ const Catalog = () => {
         {!!productsCrop.length && (
           <div className="w-full my-6 flex justify-center lg:justify-between">
             <div className="hidden lg:block">
-              <SortOptions items={sortOptions.current} onSort={handleSort} selectedSort={sortBy} />
+              <SortOptions
+                items={sortOptions.current}
+                onSort={handleSort}
+                selectedSort={sortBy}
+              />
             </div>
             <div className="flex gap-5 items-center justify-between w-full lg:w-fit">
               <div className="order-1 lg:order-none">

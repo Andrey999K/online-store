@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProductList from "../../components/ui/ProductList";
 import { Link } from "react-router-dom";
-import Wrapper from "../../components/common/Wrapper";
+import Wrapper from "../../components/common/Wrapper/index.js";
 
 const Wishlist = () => {
   const listProducts = useSelector(state => state.favoritesReducer.favorites);
@@ -31,7 +31,9 @@ const Wishlist = () => {
     }
     return (
       <>
-        <span className="text-2xl">В списке пока нет ни одного избранного товара</span>
+        <span className="text-2xl">
+          В списке пока нет ни одного избранного товара
+        </span>
         <Link
           to="/"
           className="text-xl py-4 px-5 lg:px-8 hover:bg-sky-500 hover:text-white duration-300 border-solid border-[1px] border-sky-500 rounded"
@@ -43,7 +45,9 @@ const Wishlist = () => {
   };
   return (
     <Wrapper>
-      <div className="flex justify-center items-center flex-col gap-5 w-full h-full">{showProducts()}</div>
+      <div className="flex justify-center items-center flex-col gap-5 w-full h-full">
+        {showProducts()}
+      </div>
     </Wrapper>
   );
 };
