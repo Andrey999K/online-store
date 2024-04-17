@@ -1,10 +1,11 @@
 import React from "react";
+import { InputChangeEvent } from "../../../types";
 
 interface CheckboxProps {
   label: string;
   value: string;
   checked: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: InputChangeEvent) => void;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({

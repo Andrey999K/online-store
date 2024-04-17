@@ -1,6 +1,7 @@
 import React from "react";
 import { Radio } from "../Radio";
 import { Checkbox } from "../Checkbox";
+import { InputChangeEvent } from "../../../types";
 
 interface SelectionBlockProps {
   title?: string;
@@ -31,7 +32,7 @@ const InnerSelectionBlock: React.FC<Props> = ({
   onChange,
   type
 }) => {
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: InputChangeEvent) => {
     const isChecked = event.target.checked;
     const value = event.target.value;
     if (isChecked) {

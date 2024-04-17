@@ -1,11 +1,12 @@
 import React from "react";
+import { InputChangeEvent } from "../../../types";
 
 interface Radio {
   name: string;
   label: string;
   value: string | number;
   checked: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: InputChangeEvent) => void;
 }
 
 export const Radio: React.FC<Radio> = ({

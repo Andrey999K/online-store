@@ -1,14 +1,24 @@
 import { Logo } from "../Logo";
-import { Contracts } from "../Contacts/index.js";
+import { Contracts } from "../Contacts";
 import { Navigation } from "../Navigation";
-import { HeaderCatalog } from "../HeaderCatalog/index.js";
+import { HeaderCatalog } from "../HeaderCatalog";
 import { ControlButton } from "../../common/ControlButton";
 import { LinkWishlist } from "../LinkWishlist";
 import { LinkCart } from "../LinkCart";
-import PropTypes from "prop-types";
 import { Wrapper } from "../../common/Wrapper";
+import React from "react";
 
-export const HeaderDesktop = ({ navItems, city, phone }) => {
+interface HeaderDesktopProps {
+  navItems: Array<{ id: number; text: string }>;
+  city: string;
+  phone: string;
+}
+
+export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({
+  navItems,
+  city,
+  phone
+}) => {
   return (
     <>
       <header className="bg-white z-10">
@@ -38,10 +48,4 @@ export const HeaderDesktop = ({ navItems, city, phone }) => {
       </div>
     </>
   );
-};
-
-HeaderDesktop.propTypes = {
-  navItems: PropTypes.array.isRequired,
-  city: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired
 };

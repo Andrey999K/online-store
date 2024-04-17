@@ -6,7 +6,7 @@ interface RangeDoubleProps {
   MAX?: number;
   STEP?: number;
   currentValues: [number, number];
-  rtl: boolean;
+  rtl?: boolean;
   onChange: (value: [number, number]) => void;
   onFinalChange: (value: { min: number; max: number }) => void;
 }
