@@ -1,21 +1,20 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Price } from "../Price";
 import { Bookmark } from "../Bookmark";
 import { Icon } from "../Icon";
-import PropTypes from "prop-types";
 import { Input } from "../Input";
 import { Link } from "react-router-dom";
 import { Product } from "../../../types";
 import { useAppDispatch } from "../../../store/hooks.ts";
 
 interface CartCardProps {
-  product: Product;
-  onDelete: PropTypes.func.isRequired;
+  product: Product & { count: number };
+  onDelete: (product: Product) => void;
 }
 
 const InnerCartCard: React.FC<CartCardProps> = ({ product, onDelete }) => {
   const { id, name, price, oldPrice, discount } = product;
-  const [count, setCount] = useState(product.count.toString());
+  const [count, setCount] = useState<number | string>(product.count.toString());
   const dispatch = useAppDispatch();
 
   const handleDecrement = () => {
@@ -29,8 +28,8 @@ const InnerCartCard: React.FC<CartCardProps> = ({ product, onDelete }) => {
     dispatch({ type: "ADD_IN_CART", payload: product });
   };
 
-  const handleBlur = ({ target }) => {
-    let value = Number(target.value);
+  const handleBlur = (event: ChangeEvent<HTMLInputElement>) => {
+    let value = Number(event.target.value);
     value = value === 0 ? 1 : value;
     setCount(value);
     dispatch({
@@ -65,7 +64,7 @@ const InnerCartCard: React.FC<CartCardProps> = ({ product, onDelete }) => {
           <Input
             className="max-w-[2rem] border-b-[1px] border-solid border-gray-400 text-center outline-none focus:border-sky-500"
             value={count}
-            onBlur={event => handleBlur(event)}
+            onBlur={(event: ChangeEvent<HTMLInputElement>) => handleBlur(event)}
           />
           <button onClick={handleIncrement} className="font-bold">
             +

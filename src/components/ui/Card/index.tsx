@@ -9,12 +9,12 @@ import { Rating } from "../Rating";
 import { Bookmark } from "../Bookmark";
 import { Product } from "../../../types";
 
-interface InnerCardProps {
+interface CardProps {
   product: Product & { ratingProduct: number };
   inGrid?: boolean;
 }
 
-const InnerCard: React.FC<InnerCardProps> = ({ product, inGrid = false }) => {
+const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
   const {
     id,
     name,
