@@ -1,7 +1,7 @@
 import { Logo } from "../Logo";
 import { Contracts } from "../Contacts/index.js";
 import { Navigation } from "../Navigation";
-import { HeaderCatalog } from "../HeaderCatalog";
+import { HeaderCatalog } from "../HeaderCatalog/index.js";
 import { ControlButton } from "../../common/ControlButton";
 import { LinkWishlist } from "../LinkWishlist";
 import { LinkCart } from "../LinkCart";
