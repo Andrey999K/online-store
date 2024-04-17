@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 
-const InnerInput = ({ value, onBlur, className, ...attr }) => {
+interface InputProps {
+  value: string | number;
+  onBlur: () => void;
+  className?: string;
+}
+
+const InnerInput: React.FC<InputProps> = ({
+  value,
+  onBlur,
+  className,
+  ...attr
+}) => {
   const [inputValue, setInputValue] = useState(value.toString());
-  const handleInput = value => {
+  const handleInput = (value: string) => {
     value = value.replace(/\D/g, "");
     setInputValue(value);
   };
@@ -21,12 +31,6 @@ const InnerInput = ({ value, onBlur, className, ...attr }) => {
       {...attr}
     />
   );
-};
-
-InnerInput.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  onBlur: PropTypes.func.isRequired,
-  className: PropTypes.string
 };
 
 export const Input = React.memo(InnerInput);
