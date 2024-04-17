@@ -1,5 +1,5 @@
 import { Logo } from "../Logo";
-import { Contracts } from "../Contacts";
+import { Contracts } from "../Contacts/index.js";
 import { Navigation } from "../Navigation";
 import { HeaderCatalog } from "../HeaderCatalog";
 import { ControlButton } from "../../common/ControlButton";

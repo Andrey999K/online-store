@@ -3,7 +3,7 @@ import { Logo } from "../Logo";
 import PropTypes from "prop-types";
 import { Icon } from "../Icon";
 import { Navigation } from "../Navigation";
-import { Contracts } from "../Contacts";
+import { Contracts } from "../Contacts/index.js";
 import { Wrapper } from "../../common/Wrapper";
 
 export const HeaderMobile = ({ navItems, city, phone }) => {

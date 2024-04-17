@@ -1,8 +1,13 @@
-import PropTypes from "prop-types";
 import { Icon } from "../Icon";
+import React from "react";
 
-export const Contracts = ({ city, phone }) => {
-  function formatPhone(phoneNumber) {
+interface ContactsProps {
+  city: string;
+  phone?: string;
+}
+
+export const Contracts: React.FC<ContactsProps> = ({ city, phone }) => {
+  function formatPhone(phoneNumber: string) {
     const cleaned = phoneNumber.replace(/\D/g, "");
     const match = cleaned.match(/^(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})$/);
     if (match) {
@@ -18,19 +23,16 @@ export const Contracts = ({ city, phone }) => {
           <Icon name="arrow-down" className="w-[16px] h-[16px] text-sky-500" />
         </button>
       </div>
-      <div className="hover:text-sky-500">
-        <a href={"tel:" + phone}>
-          <span className="hidden lg:block">{formatPhone(phone)}</span>
-          <div className="block lg:hidden">
-            <Icon name="phone" />
-          </div>
-        </a>
-      </div>
+      {!!phone && (
+        <div className="hover:text-sky-500">
+          <a href={"tel:" + phone}>
+            <span className="hidden lg:block">{formatPhone(phone)}</span>
+            <div className="block lg:hidden">
+              <Icon name="phone" />
+            </div>
+          </a>
+        </div>
+      )}
     </div>
   );
-};
-
-Contracts.propTypes = {
-  city: PropTypes.string.isRequired,
-  phone: PropTypes.string
 };
