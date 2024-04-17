@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../api";
-import { Price } from "../../components/ui/Price";
+import { Price } from "../../components/ui/Price/index.js";
 import { ButtonBuy } from "../../components/ui/ButtonBuy";
 import { ScreenLoader } from "../../components/ui/ScreenLoader";
 import { Review } from "../../components/ui/Review";

@@ -1,8 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./price.scss";
 
-const InnerPrice = ({ price, oldPrice, discount, hover }) => {
+interface PriceProps {
+  price: number;
+  oldPrice: number;
+  discount: number;
+  hover?: boolean;
+}
+
+const InnerPrice: React.FC<PriceProps> = ({
+  price,
+  oldPrice,
+  discount,
+  hover
+}) => {
   return (
     <div
       className={
@@ -32,14 +43,5 @@ const InnerPrice = ({ price, oldPrice, discount, hover }) => {
     </div>
   );
 };
-
-InnerPrice.propTypes = {
-  price: PropTypes.number.isRequired,
-  oldPrice: PropTypes.number,
-  discount: PropTypes.number,
-  hover: PropTypes.bool
-};
-
-InnerPrice.defaultProps = {};
 
 export const Price = React.memo(InnerPrice);
