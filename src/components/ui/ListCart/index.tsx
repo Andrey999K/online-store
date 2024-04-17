@@ -1,16 +1,16 @@
 import React, { useCallback } from "react";
 import { CartCard } from "../CartCard";
 import { useAppDispatch } from "../../../store/hooks";
-import { ProductCart } from "../../../types";
+import { Product } from "../../../types";
 
 interface ListCartProps {
-  data: Array<ProductCart>;
+  data: Array<Product>;
 }
 
 export const ListCart: React.FC<ListCartProps> = ({ data }) => {
   const dispatch = useAppDispatch();
   const handleDelete = useCallback(
-    (product: ProductCart) => {
+    (product: Product) => {
       dispatch({ type: "DELETE_FROM_CART", payload: product });
     },
     [dispatch]

@@ -1,10 +1,10 @@
 import React, { MouseEventHandler } from "react";
 import { Icon } from "../Icon";
-import { Product, ProductCart } from "../../../types";
+import { Product } from "../../../types";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks.ts";
 
 interface BookmarkProps {
-  product: Product | ProductCart;
+  product: Product;
 }
 
 export const Bookmark: React.FC<BookmarkProps> = ({ product }) => {
