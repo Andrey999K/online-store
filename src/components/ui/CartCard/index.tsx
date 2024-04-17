@@ -6,8 +6,14 @@ import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { Input } from "../Input";
 import { Link } from "react-router-dom";
+import { Product } from "../../../types";
 
-const InnerCartCard = ({ product, onDelete }) => {
+interface CartCardProps {
+  product: Product;
+  onDelete: PropTypes.func.isRequired;
+}
+
+const InnerCartCard: React.FC<CartCardProps> = ({ product, onDelete }) => {
   const { id, name, price, oldPrice, discount } = product;
   const [count, setCount] = useState(product.count.toString());
   const dispatch = useDispatch();
@@ -80,11 +86,6 @@ const InnerCartCard = ({ product, onDelete }) => {
       </div>
     </div>
   );
-};
-
-InnerCartCard.propTypes = {
-  product: PropTypes.object.isRequired,
-  onDelete: PropTypes.func.isRequired
 };
 
 export const CartCard = React.memo(InnerCartCard);

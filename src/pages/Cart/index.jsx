@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import productsWord from "../../utils/productsWord";
 import { ListCart } from "../../components/ui/ListCart";
 import { store } from "../../store/index.js";
 import { Wrapper } from "../../components/common/Wrapper";
+import { useAppSelector } from "../../store/hooks.js";
 
 const Cart = () => {
-  let productsCart = useSelector(state => state.cartReducer.cart);
+  let productsCart = useAppSelector(state => state.cartReducer.cart);
   const productsCount = productsCart.length;
   const dispatch = useDispatch();
   const pricesSum = productsList => {
