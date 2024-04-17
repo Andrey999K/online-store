@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Icon } from "../Icon/index.js";
+import { Icon } from "../Icon";
 
 const InnerViewSwitch = ({ grid, onClick }) => {
   return (

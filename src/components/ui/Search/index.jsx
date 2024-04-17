@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Icon } from "../Icon/index.js";
+import { Icon } from "../Icon";
 
 export const Search = ({ search: value, placeholder, onSearchItem }) => {
   return (
