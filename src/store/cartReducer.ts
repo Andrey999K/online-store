@@ -1,16 +1,35 @@
-const fetchProductsCart = () => {
-  return JSON.parse(localStorage.getItem("products_in_cart")) || [];
+import { ProductCart, ProductsCart } from "../types";
+
+type CartState = {
+  cart: ProductsCart;
 };
 
-const initialState = {
+type Action = {
+  type:
+    | "ADD_IN_CART"
+    | "DELETE_FROM_CART"
+    | "DEC_PRODUCT_IN_CART"
+    | "EDIT_COUNT_IN_CART"
+    | "CLEAR_CART";
+  payload: ProductCart;
+};
+
+const fetchProductsCart = (): ProductsCart => {
+  return JSON.parse(localStorage.getItem("products_in_cart") || "[]");
+};
+
+const initialState: CartState = {
   cart: fetchProductsCart()
 };
 
-const updateCartInLocalStorage = (cart) => {
+const updateCartInLocalStorage = (cart: ProductsCart) => {
   localStorage.setItem("products_in_cart", JSON.stringify(cart));
 };
 
-export const cartReducer = (state = initialState, action) => {
+export const cartReducer = (
+  state: CartState = initialState,
+  action: Action
+): CartState => {
   const product = action.payload;
   let products = state.cart;
   let foundItemIndex = -1;

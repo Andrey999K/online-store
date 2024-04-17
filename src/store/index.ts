@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from "redux";
-import { cartReducer } from "./cartReducer";
+import { cartReducer } from "./cartReducer.ts";
 import { favoritesReducer } from "./favoritesReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 

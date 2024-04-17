@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { ControlButton } from "../../common/ControlButton";
 import { store } from "../../../store";
 import { useAppSelector } from "../../../store/hooks";
+import { ProductsCart } from "../../../types";
 
 export const LinkCart = () => {
   let productsCart = useAppSelector(state => state.cartReducer.cart);
-  const productsSum = productsList => {
+  const productsSum = (productsList: ProductsCart) => {
     return productsList.reduce((count, product) => count + product.count, 0);
   };
   const [sumProducts, setSumProducts] = useState(productsSum(productsCart));
