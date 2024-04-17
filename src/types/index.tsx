@@ -1,3 +1,5 @@
+import React from "react";
+
 export type Product = {
   id: number;
   name: string;
@@ -10,6 +12,7 @@ export type Product = {
     text: string;
   }>;
   reviews: Array<Review>;
+  ratingProduct: number;
 };
 
 export type ProductCart = {
@@ -33,3 +36,10 @@ export type Review = {
   reviewId: number;
   date: string;
 };
+
+export type PricesRange = {
+  min: number;
+  max: number;
+};
+
+export type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
