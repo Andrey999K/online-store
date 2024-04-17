@@ -1,4 +1,4 @@
-import { Icon } from "../Icon";
+import { Icon } from "../Icon/index.js";
 import PropTypes from "prop-types";
 
 export const Rating = ({ rating }) => {
