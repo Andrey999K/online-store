@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ControlButton } from "../../common/ControlButton";
 import { useSelector } from "react-redux";
-import { store } from "../../../store";
+import { store } from "../../../store/index.js";
 
 export const LinkCart = () => {
   let productsCart = useSelector(state => state.cartReducer.cart);

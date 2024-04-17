@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import productsWord from "../../utils/productsWord";
 import { ListCart } from "../../components/ui/ListCart";
-import { store } from "../../store";
+import { store } from "../../store/index.js";
 import { Wrapper } from "../../components/common/Wrapper";
 
 const Cart = () => {

@@ -1,17 +1,19 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { Icon } from "../Icon";
-import { useDispatch, useSelector } from "react-redux";
 import { Product } from "../../../types";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks.ts";
 
 interface BookmarkProps {
   product: Product;
 }
 
 export const Bookmark: React.FC<BookmarkProps> = ({ product }) => {
-  const massFavorites = useSelector(state => state.favoritesReducer.favorites);
+  const massFavorites = useAppSelector(
+    state => state.favoritesReducer.favorites
+  );
   const status = massFavorites.some(favorite => favorite.id === product.id);
-  const dispatch = useDispatch();
-  const handleClick = e => {
+  const dispatch = useAppDispatch();
+  const handleClick: MouseEventHandler<HTMLButtonElement> = e => {
     e.preventDefault();
     status
       ? dispatch({ type: "DELETE_FROM_FAVORITES", payload: product })
