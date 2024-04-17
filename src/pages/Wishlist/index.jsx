@@ -1,4 +1,4 @@
-import { ProductList } from "../../components/ui/ProductList";
+import { ProductList } from "../../components/ui/ProductList/index.js";
 import { Link } from "react-router-dom";
 import { Wrapper } from "../../components/common/Wrapper";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";

@@ -10,7 +10,7 @@ import { Bookmark } from "../Bookmark";
 import { Product } from "../../../types";
 
 interface CardProps {
-  product: Product & { ratingProduct: number };
+  product: Product;
   inGrid?: boolean;
 }
 
