@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import productsWord from "../../utils/productsWord";
 import { ListCart } from "../../components/ui/ListCart";
-import { store } from "../../store/index.js";
+import { store } from "../../store";
 import { Wrapper } from "../../components/common/Wrapper";
-import { useAppDispatch, useAppSelector } from "../../store/hooks.js";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 const Cart = () => {
   let productsCart = useAppSelector(state => state.cartReducer.cart);

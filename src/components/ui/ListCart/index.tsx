@@ -1,12 +1,16 @@
-import { useCallback } from "react";
-import PropTypes from "prop-types";
-import { CartCard } from "../CartCard/index.js";
-import { useAppDispatch } from "../../../store/hooks.js";
+import React, { useCallback } from "react";
+import { CartCard } from "../CartCard";
+import { useAppDispatch } from "../../../store/hooks";
+import { ProductCart } from "../../../types";
 
-export const ListCart = ({ data }) => {
+interface ListCartProps {
+  data: Array<ProductCart>;
+}
+
+export const ListCart: React.FC<ListCartProps> = ({ data }) => {
   const dispatch = useAppDispatch();
   const handleDelete = useCallback(
-    product => {
+    (product: ProductCart) => {
       dispatch({ type: "DELETE_FROM_CART", payload: product });
     },
     [dispatch]
@@ -18,8 +22,4 @@ export const ListCart = ({ data }) => {
       ))}
     </ul>
   );
-};
-
-ListCart.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired
 };

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ControlButton } from "../../common/ControlButton";
-import { store } from "../../../store/index.js";
-import { useAppSelector } from "../../../store/hooks.js";
+import { store } from "../../../store";
+import { useAppSelector } from "../../../store/hooks";
 
 export const LinkCart = () => {
   let productsCart = useAppSelector(state => state.cartReducer.cart);

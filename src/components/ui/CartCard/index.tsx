@@ -4,12 +4,12 @@ import { Bookmark } from "../Bookmark";
 import { Icon } from "../Icon";
 import { Input } from "../Input";
 import { Link } from "react-router-dom";
-import { Product } from "../../../types";
+import { ProductCart } from "../../../types";
 import { useAppDispatch } from "../../../store/hooks.ts";
 
 interface CartCardProps {
-  product: Product & { count: number };
-  onDelete: (product: Product) => void;
+  product: ProductCart;
+  onDelete: (product: ProductCart) => void;
 }
 
 const InnerCartCard: React.FC<CartCardProps> = ({ product, onDelete }) => {

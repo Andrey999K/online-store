@@ -1,4 +1,4 @@
-import { Card } from "../Card/index.js";
+import { Card } from "../Card";
 import PropTypes from "prop-types";
 export const ProductList = ({ products, grid }) => {
   return (
