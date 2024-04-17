@@ -1,15 +1,20 @@
 import React from "react";
 import { Badge } from "../../common/Badge";
 import { ButtonBuy } from "../ButtonBuy";
-import PropTypes from "prop-types";
 import { Icon } from "../Icon";
 import { Price } from "../Price";
 import "./card.scss";
 import { Link } from "react-router-dom";
 import { Rating } from "../Rating";
 import { Bookmark } from "../Bookmark";
+import { Product } from "../../../types";
 
-const InnerCard = ({ product, inGrid }) => {
+interface InnerCardProps {
+  product: Product & { ratingProduct: number };
+  inGrid?: boolean;
+}
+
+const InnerCard: React.FC<InnerCardProps> = ({ product, inGrid = false }) => {
   const {
     id,
     name,
@@ -21,9 +26,12 @@ const InnerCard = ({ product, inGrid }) => {
     ratingProduct: rating
   } = product;
   const reviewsNumber = reviews.length;
-  const handlerLoadImageError = e => {
-    e.target.classList.add("opacity-0");
-    e.target.parentElement.classList.add("bg-black/5");
+  const handlerLoadImageError = (
+    e: React.SyntheticEvent<HTMLImageElement, Event>
+  ) => {
+    const target = e.target as HTMLImageElement;
+    target.classList.add("opacity-0");
+    target.parentElement?.classList.add("bg-black/5");
   };
   return (
     <div
@@ -131,25 +139,6 @@ const InnerCard = ({ product, inGrid }) => {
       </Link>
     </div>
   );
-};
-
-InnerCard.propTypes = {
-  product: PropTypes.object.isRequired,
-  // id: PropTypes.number,
-  // name: PropTypes.string.isRequired,
-  // price: PropTypes.number.isRequired,
-  // oldPrice: PropTypes.number,
-  // discount: PropTypes.number,
-  // listBadges: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     id: PropTypes.number.isRequired,
-  //     text: PropTypes.string.isRequired,
-  //     name: PropTypes.string.isRequired
-  //   })
-  // ),
-  // reviewsNumber: PropTypes.number,
-  // rating: PropTypes.number,
-  inGrid: PropTypes.bool
 };
 
 export const Card = React.memo(InnerCard);
