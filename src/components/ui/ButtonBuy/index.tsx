@@ -1,13 +1,18 @@
-import React from "react";
 import Icon from "../Icon";
-import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { Product } from "../../../types";
+import React, { MouseEventHandler } from "react";
 
-const ButtonBuy = ({ min, product }) => {
+interface ButtonBuyProps {
+  min: boolean;
+  product: Product;
+}
+
+export const ButtonBuy: React.FC<ButtonBuyProps> = ({ min, product }) => {
   const dispatch = useDispatch();
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick: MouseEventHandler<HTMLButtonElement> = event => {
+    event.preventDefault();
     dispatch({ type: "ADD_IN_CART", payload: product });
     toast.success("Товар добавлен в корзину", {
       position: "top-right",
@@ -35,15 +40,10 @@ const ButtonBuy = ({ min, product }) => {
             (min ? "hidden" : " block") +
             " font-bold text-white button-buy__text whitespace-nowrap"
           }
-        >В корзину</span>
+        >
+          В корзину
+        </span>
       </button>
     </>
   );
 };
-
-ButtonBuy.propTypes = {
-  min: PropTypes.bool,
-  product: PropTypes.object.isRequired
-};
-
-export default ButtonBuy;

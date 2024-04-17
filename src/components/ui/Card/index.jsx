@@ -1,6 +1,6 @@
 import React from "react";
 import Badge from "../../common/Badge";
-import ButtonBuy from "../ButtonBuy";
+import ButtonBuy from "../ButtonBuy/index.js";
 import PropTypes from "prop-types";
 import Icon from "../Icon";
 import Price from "../Price";

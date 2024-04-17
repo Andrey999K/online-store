@@ -21,10 +21,6 @@ module.exports = {
   },
   plugins: ["react-refresh", "react-hooks", "jsx-a11y", "import"],
   rules: {
-    // "react-refresh/only-export-components": [
-    //   "warn",
-    //   { allowConstantExport: true },
-    // ],
     "semi": ["error", "always"],
     "space-before-function-paren": "off",
     "quotes": ["warn", "double", { allowTemplateLiterals: true }],
