@@ -1,14 +1,13 @@
-import { useDispatch } from "react-redux";
 import { ProductList } from "../../components/ui/ProductList";
 import { Link } from "react-router-dom";
 import { Wrapper } from "../../components/common/Wrapper";
-import { useAppSelector } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 const Wishlist = () => {
   const listProducts = useAppSelector(
     state => state.favoritesReducer.favorites
   );
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleClearData = () => {
     dispatch({ type: "CLEAR_FAVORITES" });
   };

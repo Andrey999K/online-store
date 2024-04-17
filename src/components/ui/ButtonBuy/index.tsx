@@ -1,8 +1,8 @@
 import { Icon } from "../Icon";
-import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { Product } from "../../../types";
 import React, { MouseEventHandler } from "react";
+import { useAppDispatch } from "../../../store/hooks.ts";
 
 interface ButtonBuyProps {
   min: boolean;
@@ -10,7 +10,7 @@ interface ButtonBuyProps {
 }
 
 export const ButtonBuy: React.FC<ButtonBuyProps> = ({ min, product }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleClick: MouseEventHandler<HTMLButtonElement> = event => {
     event.preventDefault();
     dispatch({ type: "ADD_IN_CART", payload: product });

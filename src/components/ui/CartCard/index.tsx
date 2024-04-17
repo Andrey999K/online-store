@@ -3,10 +3,10 @@ import { Price } from "../Price";
 import { Bookmark } from "../Bookmark";
 import { Icon } from "../Icon";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
 import { Input } from "../Input";
 import { Link } from "react-router-dom";
 import { Product } from "../../../types";
+import { useAppDispatch } from "../../../store/hooks.ts";
 
 interface CartCardProps {
   product: Product;
@@ -16,7 +16,7 @@ interface CartCardProps {
 const InnerCartCard: React.FC<CartCardProps> = ({ product, onDelete }) => {
   const { id, name, price, oldPrice, discount } = product;
   const [count, setCount] = useState(product.count.toString());
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleDecrement = () => {
     if (Number(count) !== 1) {
