@@ -1,8 +1,7 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Logo = ({ image }) => {
+export const Logo = ({ image }) => {
   return (
     <Link to="/">
       {image ? (
@@ -22,5 +21,3 @@ const Logo = ({ image }) => {
 Logo.propTypes = {
   image: PropTypes.string
 };
-
-export default Logo;

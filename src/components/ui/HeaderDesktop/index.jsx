@@ -1,15 +1,14 @@
-import React from "react";
-import Logo from "../Logo";
-import Contracts from "../Contacts";
-import Navigation from "../Navigation";
-import HeaderCatalog from "../HeaderCatalog";
-import ControlButton from "../../common/ControlButton";
-import LinkWishlist from "../LinkWishlist";
-import LinkCart from "../LinkCart";
+import { Logo } from "../Logo";
+import { Contracts } from "../Contacts";
+import { Navigation } from "../Navigation";
+import { HeaderCatalog } from "../HeaderCatalog";
+import { ControlButton } from "../../common/ControlButton";
+import { LinkWishlist } from "../LinkWishlist";
+import { LinkCart } from "../LinkCart";
 import PropTypes from "prop-types";
-import Wrapper from "../../common/Wrapper/index.js";
+import { Wrapper } from "../../common/Wrapper";
 
-const HeaderDesktop = ({ navItems, city, phone }) => {
+export const HeaderDesktop = ({ navItems, city, phone }) => {
   return (
     <>
       <header className="bg-white z-10">
@@ -46,5 +45,3 @@ HeaderDesktop.propTypes = {
   city: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired
 };
-
-export default HeaderDesktop;

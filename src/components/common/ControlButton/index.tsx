@@ -1,4 +1,4 @@
-import Icon from "../../ui/Icon";
+import { Icon } from "../../ui/Icon";
 import { Link } from "react-router-dom";
 
 interface ControlButtonProps {
@@ -8,7 +8,12 @@ interface ControlButtonProps {
   count?: number;
 }
 
-const ControlButton = ({ icon, text, url = "/", count }: ControlButtonProps) => {
+export const ControlButton = ({
+  icon,
+  text,
+  url = "/",
+  count
+}: ControlButtonProps) => {
   return (
     <Link
       to={url}
@@ -28,5 +33,3 @@ const ControlButton = ({ icon, text, url = "/", count }: ControlButtonProps) => 
     </Link>
   );
 };
-
-export default ControlButton;

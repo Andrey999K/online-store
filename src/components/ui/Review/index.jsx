@@ -1,9 +1,8 @@
-import React from "react";
-import Rating from "../Rating";
+import { Rating } from "../Rating";
 import PropTypes from "prop-types";
 import { Avatar } from "../Avatar";
 
-const Review = ({ data }) => {
+export const Review = ({ data }) => {
   const { reviewId, name, rating, text, date } = data;
   return (
     <div className="flex flex-col gap-3">
@@ -37,4 +36,3 @@ Review.propTypes = {
     date: PropTypes.string.isRequired
   }).isRequired
 };
-export default Review;

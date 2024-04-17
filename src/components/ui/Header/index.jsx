@@ -1,8 +1,7 @@
-import React from "react";
-import HeaderDesktop from "../HeaderDesktop";
-import HeaderMobile from "../HeaderMobile";
+import { HeaderDesktop } from "../HeaderDesktop";
+import { HeaderMobile } from "../HeaderMobile";
 
-const Header = () => {
+export const Header = () => {
   const isMobile = window.innerWidth <= 1024;
   const navItems = [
     { id: 1, text: "Журнал" },
@@ -14,15 +13,16 @@ const Header = () => {
     { id: 7, text: "Обратная связь" }
   ];
   return isMobile ? (
-    <HeaderMobile navItems={navItems} city="Павловский Посад" phone="+79998887766" />
+    <HeaderMobile
+      navItems={navItems}
+      city="Павловский Посад"
+      phone="+79998887766"
+    />
   ) : (
-    <HeaderDesktop navItems={navItems} city="Павловский Посад" phone="+79998887766" />
+    <HeaderDesktop
+      navItems={navItems}
+      city="Павловский Посад"
+      phone="+79998887766"
+    />
   );
 };
-
-// Header.propTypes = {
-//   search: PropTypes.string,
-//   onSearch: PropTypes.func
-// };
-
-export default Header;

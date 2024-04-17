@@ -1,15 +1,15 @@
 import React from "react";
-import Badge from "../../common/Badge";
-import ButtonBuy from "../ButtonBuy/index.js";
+import { Badge } from "../../common/Badge";
+import { ButtonBuy } from "../ButtonBuy";
 import PropTypes from "prop-types";
-import Icon from "../Icon";
-import Price from "../Price";
+import { Icon } from "../Icon";
+import { Price } from "../Price";
 import "./card.scss";
 import { Link } from "react-router-dom";
-import Rating from "../Rating";
+import { Rating } from "../Rating";
 import { Bookmark } from "../Bookmark";
 
-const Card = ({ product, inGrid }) => {
+const InnerCard = ({ product, inGrid }) => {
   const {
     id,
     name,
@@ -133,7 +133,7 @@ const Card = ({ product, inGrid }) => {
   );
 };
 
-Card.propTypes = {
+InnerCard.propTypes = {
   product: PropTypes.object.isRequired,
   // id: PropTypes.number,
   // name: PropTypes.string.isRequired,
@@ -152,4 +152,4 @@ Card.propTypes = {
   inGrid: PropTypes.bool
 };
 
-export default React.memo(Card);
+export const Card = React.memo(InnerCard);

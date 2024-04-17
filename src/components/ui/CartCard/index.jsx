@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Price from "../Price";
-import Bookmark from "../Bookmark/index.js";
-import Icon from "../Icon";
+import { Price } from "../Price";
+import { Bookmark } from "../Bookmark";
+import { Icon } from "../Icon";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import Input from "../Input";
+import { Input } from "../Input";
 import { Link } from "react-router-dom";
 
-const CartCard = ({ product, onDelete }) => {
+const InnerCartCard = ({ product, onDelete }) => {
   const { id, name, price, oldPrice, discount } = product;
   const [count, setCount] = useState(product.count.toString());
   const dispatch = useDispatch();
@@ -82,8 +82,9 @@ const CartCard = ({ product, onDelete }) => {
   );
 };
 
-CartCard.propTypes = {
+InnerCartCard.propTypes = {
   product: PropTypes.object.isRequired,
   onDelete: PropTypes.func.isRequired
 };
-export default React.memo(CartCard);
+
+export const CartCard = React.memo(InnerCartCard);

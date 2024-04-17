@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import ControlButton from "../../common/ControlButton";
+import { useEffect, useState } from "react";
+import { ControlButton } from "../../common/ControlButton";
 import { useSelector } from "react-redux";
 import { store } from "../../../store";
 
-const LinkCart = () => {
+export const LinkCart = () => {
   let productsCart = useSelector(state => state.cartReducer.cart);
   const productsSum = productsList => {
     return productsList.reduce((count, product) => count + product.count, 0);
@@ -16,7 +16,7 @@ const LinkCart = () => {
     });
     return () => unsubscribe();
   }, []);
-  return <ControlButton icon="cart" text="Корзина" url="/cart" count={sumProducts} />;
+  return (
+    <ControlButton icon="cart" text="Корзина" url="/cart" count={sumProducts} />
+  );
 };
-
-export default LinkCart;

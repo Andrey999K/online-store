@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import productsWord from "../../utils/productsWord";
-import ListCart from "../../components/ui/ListCart";
+import { ListCart } from "../../components/ui/ListCart";
 import { store } from "../../store";
-import Wrapper from "../../components/common/Wrapper/index.js";
+import { Wrapper } from "../../components/common/Wrapper";
 
 const Cart = () => {
   let productsCart = useSelector(state => state.cartReducer.cart);

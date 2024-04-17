@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 
-const SortOptions = ({ items, onSort, selectedSort }) => {
+const InnerSortOptions = ({ items, onSort, selectedSort }) => {
   const handleSort = field => {
     if (selectedSort.iter === field)
-      onSort(prevState => ({ ...prevState, order: prevState.order === "asc" ? "desc" : "asc" }));
+      onSort(prevState => ({
+        ...prevState,
+        order: prevState.order === "asc" ? "desc" : "asc"
+      }));
     else onSort({ iter: field, order: "asc" });
   };
   const showSort = item => {
@@ -13,7 +16,10 @@ const SortOptions = ({ items, onSort, selectedSort }) => {
       return (
         <>
           <b>{item.text}</b>
-          <Icon name={`arrow-${selectedSort.order}-sort`} className="w-[18px] h-[18px]" />
+          <Icon
+            name={`arrow-${selectedSort.order}-sort`}
+            className="w-[18px] h-[18px]"
+          />
         </>
       );
     }
@@ -23,7 +29,12 @@ const SortOptions = ({ items, onSort, selectedSort }) => {
     <div className="flex items-center">
       <ul className="flex text-base gap-3">
         {items.map(item => (
-          <li key={item.field} onClick={() => handleSort(item.field)} role="button" className="flex items-end gap-1">
+          <li
+            key={item.field}
+            onClick={() => handleSort(item.field)}
+            role="button"
+            className="flex items-end gap-1"
+          >
             {showSort(item)}
           </li>
         ))}
@@ -32,7 +43,7 @@ const SortOptions = ({ items, onSort, selectedSort }) => {
   );
 };
 
-SortOptions.propTypes = {
+InnerSortOptions.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       field: PropTypes.string.isRequired,
@@ -46,6 +57,6 @@ SortOptions.propTypes = {
   }).isRequired
 };
 
-SortOptions.defaultProps = {};
+InnerSortOptions.defaultProps = {};
 
-export default React.memo(SortOptions);
+export const SortOptions = React.memo(InnerSortOptions);

@@ -1,6 +1,6 @@
 import React from "react";
-import Radio from "../Radio";
-import Checkbox from "../Checkbox";
+import { Radio } from "../Radio";
+import { Checkbox } from "../Checkbox";
 
 interface SelectionBlockProps {
   title?: string;
@@ -24,7 +24,7 @@ interface RadioProps extends SelectionBlockProps {
 
 type Props = CheckboxProps | RadioProps;
 
-const SelectionBlock: React.FC<Props> = ({
+const InnerSelectionBlock: React.FC<Props> = ({
   title,
   options,
   selectedItems = [],
@@ -78,4 +78,4 @@ const SelectionBlock: React.FC<Props> = ({
   );
 };
 
-export default React.memo(SelectionBlock);
+export const SelectionBlock = React.memo(InnerSelectionBlock);

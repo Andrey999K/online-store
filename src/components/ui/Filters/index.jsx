@@ -1,10 +1,10 @@
-import React, { useCallback, useRef, useState } from "react";
-import RangeDouble from "../../common/RangeDouble";
-import Input from "../Input";
+import { useCallback, useRef, useState } from "react";
+import { RangeDouble } from "../../common/RangeDouble";
+import { Input } from "../Input";
 import PropTypes from "prop-types";
-import SelectionBlock from "../../common/SelectionBlock";
+import { SelectionBlock } from "../../common/SelectionBlock";
 
-const Filters = ({ filtration, products }) => {
+export const Filters = ({ filtration, products }) => {
   const minPrice = () => {
     return products.reduce((min, product) => {
       return product.price < min ? product.price : min;
@@ -169,5 +169,3 @@ Filters.propTypes = {
   filtration: PropTypes.func.isRequired,
   products: PropTypes.array.isRequired
 };
-
-export default Filters;

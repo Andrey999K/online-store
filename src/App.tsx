@@ -1,6 +1,6 @@
 import "./App.css";
-import Header from "./components/ui/Header";
-import Footer from "./components/ui/Footer";
+import { Header } from "./components/ui/Header";
+import { Footer } from "./components/ui/Footer";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Catalog from "./pages/Catalog";
 import NotFound from "./pages/NotFound";

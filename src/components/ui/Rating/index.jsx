@@ -1,8 +1,7 @@
-import React from "react";
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import PropTypes from "prop-types";
 
-const Rating = ({ rating }) => {
+export const Rating = ({ rating }) => {
   return (
     <div className="flex items-center gap-1">
       <Icon name="star" className="text-sky-500 w-[16px] h-[16px]" />
@@ -14,5 +13,3 @@ const Rating = ({ rating }) => {
 Rating.propTypes = {
   rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
 };
-
-export default Rating;

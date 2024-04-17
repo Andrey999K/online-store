@@ -1,6 +1,6 @@
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 
-const HeaderCatalog = () => {
+export const HeaderCatalog = () => {
   return (
     <div>
       <button
@@ -17,5 +17,3 @@ const HeaderCatalog = () => {
 HeaderCatalog.propTypes = {};
 
 HeaderCatalog.defaultProps = {};
-
-export default HeaderCatalog;

@@ -1,7 +1,6 @@
-import React from "react";
 import PropTypes from "prop-types";
 
-const Navigation = ({ items }) => {
+export const Navigation = ({ items }) => {
   return (
     <nav>
       {items && (
@@ -25,5 +24,3 @@ Navigation.propTypes = {
 };
 
 Navigation.defaultProps = {};
-
-export default Navigation;

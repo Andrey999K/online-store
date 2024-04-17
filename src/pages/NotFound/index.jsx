@@ -1,5 +1,4 @@
-import React from "react";
-import Wrapper from "../../components/common/Wrapper/index.js";
+import { Wrapper } from "../../components/common/Wrapper";
 
 const NotFound = () => {
   return (

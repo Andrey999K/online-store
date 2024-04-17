@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
-import CartCard from "../CartCard";
+import { CartCard } from "../CartCard";
 
-const ListCart = ({ data }) => {
+export const ListCart = ({ data }) => {
   const dispatch = useDispatch();
   const handleDelete = useCallback(product => {
     dispatch({ type: "DELETE_FROM_CART", payload: product });
@@ -20,5 +20,3 @@ const ListCart = ({ data }) => {
 ListCart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired
 };
-
-export default ListCart;

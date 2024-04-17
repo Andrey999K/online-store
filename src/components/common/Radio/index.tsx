@@ -8,7 +8,13 @@ interface Radio {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Radio: React.FC<Radio> = ({ name, label, value, checked, onChange }) => {
+export const Radio: React.FC<Radio> = ({
+  name,
+  label,
+  value,
+  checked,
+  onChange
+}) => {
   return (
     <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
       <input
@@ -29,5 +35,3 @@ const Radio: React.FC<Radio> = ({ name, label, value, checked, onChange }) => {
     </div>
   );
 };
-
-export default Radio;

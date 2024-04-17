@@ -1,8 +1,7 @@
-import React from "react";
 import PropTypes from "prop-types";
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 
-const Search = ({ search: value, placeholder, onSearchItem }) => {
+export const Search = ({ search: value, placeholder, onSearchItem }) => {
   return (
     <div className="flex max-h-8 relative w-full max-w-[500px]">
       <input
@@ -14,7 +13,10 @@ const Search = ({ search: value, placeholder, onSearchItem }) => {
         onChange={event => onSearchItem(event.target.value)}
       />
       <button
-        className={(value.length === 0 ? "hidden " : "") + "text-gray-400 hover:text-sky-500 absolute right-7 top-1.5"}
+        className={
+          (value.length === 0 ? "hidden " : "") +
+          "text-gray-400 hover:text-sky-500 absolute right-7 top-1.5"
+        }
         onClick={() => onSearchItem("")}
       >
         <Icon name="clear" className="w-[20px] h-[20px]" />
@@ -33,5 +35,3 @@ Search.propTypes = {
 };
 
 Search.defaultProps = {};
-
-export default Search;

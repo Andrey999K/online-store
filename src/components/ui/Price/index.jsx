@@ -2,15 +2,27 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./price.scss";
 
-const Price = ({ price, oldPrice, discount, hover }) => {
+const InnerPrice = ({ price, oldPrice, discount, hover }) => {
   return (
-    <div className={(hover ? "price " : "") + "text-2xl flex flex-col gap-1 leading-none"}>
+    <div
+      className={
+        (hover ? "price " : "") + "text-2xl flex flex-col gap-1 leading-none"
+      }
+    >
       {!!discount && (
         <div className="flex gap-2 items-center">
-          <span className="price__old line-through text-sm text-gray-400">{oldPrice}</span>
+          <span className="price__old line-through text-sm text-gray-400">
+            {oldPrice}
+          </span>
           <div className="text-sm py-1 px-2 text-white bg-red-500 rounded-full whitespace-nowrap">
-            <span className={(hover ? "group-hover:hidden" : "") + " block"}>{`- ${discount} %`}</span>
-            {!!hover && <span className="hidden group-hover:block">{`- ${oldPrice - price} ₽`}</span>}
+            <span
+              className={(hover ? "group-hover:hidden" : "") + " block"}
+            >{`- ${discount} %`}</span>
+            {!!hover && (
+              <span className="hidden group-hover:block">{`- ${
+                oldPrice - price
+              } ₽`}</span>
+            )}
           </div>
         </div>
       )}
@@ -21,13 +33,13 @@ const Price = ({ price, oldPrice, discount, hover }) => {
   );
 };
 
-Price.propTypes = {
+InnerPrice.propTypes = {
   price: PropTypes.number.isRequired,
   oldPrice: PropTypes.number,
   discount: PropTypes.number,
   hover: PropTypes.bool
 };
 
-Price.defaultProps = {};
+InnerPrice.defaultProps = {};
 
-export default React.memo(Price);
+export const Price = React.memo(InnerPrice);

@@ -1,4 +1,4 @@
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { Product } from "../../../types";

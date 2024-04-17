@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Logo from "../Logo";
+import { useEffect, useState } from "react";
+import { Logo } from "../Logo";
 import PropTypes from "prop-types";
-import Icon from "../Icon";
-import Navigation from "../Navigation";
-import Contracts from "../Contacts";
-import Wrapper from "../../common/Wrapper/index.js";
+import { Icon } from "../Icon";
+import { Navigation } from "../Navigation";
+import { Contracts } from "../Contacts";
+import { Wrapper } from "../../common/Wrapper";
 
-const HeaderMobile = ({ navItems, city, phone }) => {
+export const HeaderMobile = ({ navItems, city, phone }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const openMenu = () => {
     document.body.style.overflow = "hidden";
@@ -91,5 +91,3 @@ HeaderMobile.propTypes = {
   city: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired
 };
-
-export default HeaderMobile;

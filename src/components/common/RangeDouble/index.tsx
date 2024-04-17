@@ -11,7 +11,7 @@ interface RangeDoubleProps {
   onFinalChange: (value: { min: number; max: number }) => void;
 }
 
-const RangeDouble: React.FC<RangeDoubleProps> = ({
+export const RangeDouble: React.FC<RangeDoubleProps> = ({
   MIN = 0,
   MAX = 100,
   STEP = 1,
@@ -83,5 +83,3 @@ const RangeDouble: React.FC<RangeDoubleProps> = ({
     </div>
   );
 };
-
-export default RangeDouble;

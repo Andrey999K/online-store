@@ -1,8 +1,7 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ProductList from "../../components/ui/ProductList";
+import { ProductList } from "../../components/ui/ProductList";
 import { Link } from "react-router-dom";
-import Wrapper from "../../components/common/Wrapper/index.js";
+import { Wrapper } from "../../components/common/Wrapper";
 
 const Wishlist = () => {
   const listProducts = useSelector(state => state.favoritesReducer.favorites);

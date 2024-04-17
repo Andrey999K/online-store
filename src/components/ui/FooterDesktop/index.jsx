@@ -1,8 +1,7 @@
-import React from "react";
-import Wrapper from "../../common/Wrapper/index.js";
-import Icon from "../Icon";
+import { Wrapper } from "../../common/Wrapper";
+import { Icon } from "../Icon";
 
-const FooterDesktop = () => {
+export const FooterDesktop = () => {
   return (
     <footer className="bg-sky-500 text-white py-8">
       <Wrapper>
@@ -127,5 +126,3 @@ const FooterDesktop = () => {
     </footer>
   );
 };
-
-export default FooterDesktop;

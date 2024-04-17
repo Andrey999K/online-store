@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import { useDispatch, useSelector } from "react-redux";
 import { Product } from "../../../types";
 

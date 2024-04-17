@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import SortOptions from "../../components/ui/SortOptions";
-import ViewSwitch from "../../components/ui/ViewSwitch";
-import Pagination from "../../components/ui/Pagination";
-import ProductList from "../../components/ui/ProductList";
-import Filters from "../../components/ui/Filters";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { SortOptions } from "../../components/ui/SortOptions";
+import { ViewSwitch } from "../../components/ui/ViewSwitch";
+import { Pagination } from "../../components/ui/Pagination";
+import { ProductList } from "../../components/ui/ProductList";
+import { Filters } from "../../components/ui/Filters";
 import api from "../../api";
 import { orderBy } from "lodash";
 import paginate from "../../utils/paginate";
-import ScreenLoader from "../../components/ui/ScreenLoader";
+import { ScreenLoader } from "../../components/ui/ScreenLoader";
 import productsWord from "../../utils/productsWord";
 import { Wrapper } from "../../components/common/Wrapper";
 
