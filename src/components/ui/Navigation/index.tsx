@@ -1,6 +1,13 @@
-import PropTypes from "prop-types";
+import React from "react";
 
-export const Navigation = ({ items }) => {
+interface NavigationProps {
+  items: Array<{
+    id: number;
+    text: string;
+  }>;
+}
+
+export const Navigation: React.FC<NavigationProps> = ({ items = [] }) => {
   return (
     <nav>
       {items && (
@@ -18,9 +25,3 @@ export const Navigation = ({ items }) => {
     </nav>
   );
 };
-
-Navigation.propTypes = {
-  items: PropTypes.array
-};
-
-Navigation.defaultProps = {};
