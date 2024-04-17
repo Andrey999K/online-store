@@ -6,7 +6,7 @@ import { ButtonBuy } from "../../components/ui/ButtonBuy";
 import { ScreenLoader } from "../../components/ui/ScreenLoader";
 import { Review } from "../../components/ui/Review";
 import paginate from "../../utils/paginate";
-import { Pagination } from "../../components/ui/Pagination";
+import { Pagination } from "../../components/ui/Pagination/index.js";
 import { SortOptions } from "../../components/ui/SortOptions";
 import { orderBy } from "lodash";
 import { Wrapper } from "../../components/common/Wrapper";

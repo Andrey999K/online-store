@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { SortOptions } from "../../components/ui/SortOptions";
 import { ViewSwitch } from "../../components/ui/ViewSwitch";
-import { Pagination } from "../../components/ui/Pagination";
+import { Pagination } from "../../components/ui/Pagination/index.js";
 import { ProductList } from "../../components/ui/ProductList";
 import { Filters } from "../../components/ui/Filters";
 import api from "../../api";
