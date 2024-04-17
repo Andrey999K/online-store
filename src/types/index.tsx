@@ -43,3 +43,9 @@ export type PricesRange = {
 };
 
 export type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
+
+export interface HeaderProps {
+  navItems: Array<{ id: number; text: string }>;
+  city: string;
+  phone: string;
+}

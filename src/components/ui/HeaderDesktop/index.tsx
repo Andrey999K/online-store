@@ -7,14 +7,9 @@ import { LinkWishlist } from "../LinkWishlist";
 import { LinkCart } from "../LinkCart";
 import { Wrapper } from "../../common/Wrapper";
 import React from "react";
+import { HeaderProps } from "../../../types";
 
-interface HeaderDesktopProps {
-  navItems: Array<{ id: number; text: string }>;
-  city: string;
-  phone: string;
-}
-
-export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({
+export const HeaderDesktop: React.FC<HeaderProps> = ({
   navItems,
   city,
   phone
