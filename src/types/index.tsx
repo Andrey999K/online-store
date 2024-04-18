@@ -1,16 +1,18 @@
 import React from "react";
 
+export type Badge = {
+  id: number;
+  name: string;
+  text: string;
+};
+
 export type Product = {
   id: number;
   name: string;
   price: number;
   oldPrice: number;
   discount: number;
-  badges: Array<{
-    id: number;
-    name: string;
-    text: string;
-  }>;
+  badges: Array<Badge>;
   reviews: Array<Review>;
   ratingProduct: number;
 };

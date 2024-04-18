@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 function generateRandomDate() {
   const startDate = new Date("2022-05-01");
@@ -6,9 +6,18 @@ function generateRandomDate() {
   const timeBetweenDates = endDate.getTime() - startDate.getTime();
   const daysBetweenDates = timeBetweenDates / (1000 * 3600 * 24);
   const randomNumberOfDays = Math.floor(Math.random() * daysBetweenDates);
-  const randomDate = new Date(startDate.getTime() + randomNumberOfDays * (1000 * 3600 * 24));
-  const options = { day: "2-digit", month: "2-digit", year: "numeric" };
-  return randomDate.toLocaleDateString("en-GB", options).replace(/\//g, ".").padStart(10, "0");
+  const randomDate = new Date(
+    startDate.getTime() + randomNumberOfDays * (1000 * 3600 * 24)
+  );
+
+  const day = String(randomDate.getDate()).padStart(2, "0");
+  const month = String(randomDate.getMonth() + 1).padStart(2, "0"); // getMonth() возвращает месяц от 0 до 11
+  const year = randomDate.getFullYear();
+
+  return `${day}.${month}.${year}`;
+
+  // const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+  // return randomDate.toLocaleDateString("en-GB", options).replace(/\//g, ".").padStart(10, "0");
 }
 
 let parsedData;
@@ -26,5 +35,3 @@ fs.readFile("../../public/data/data.json", "utf8", (err, data) => {
   const json = JSON.stringify(parsedData, null, 2);
   fs.writeFileSync("data.json", json);
 });
-
-
