@@ -1,6 +1,7 @@
 import { Wrapper } from "../../components/common/Wrapper";
+import React from "react";
 
-const NotFound = () => {
+export const NotFound: React.FC = () => {
   return (
     <Wrapper>
       <div className="flex justify-center items-center text-3xl">
@@ -9,5 +10,3 @@ const NotFound = () => {
     </Wrapper>
   );
 };
-
-export default NotFound;

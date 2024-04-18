@@ -7,7 +7,7 @@ import { Wrapper } from "../../components/common/Wrapper";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { ProductsCart } from "../../types";
 
-const Cart: React.FC = () => {
+export const Cart: React.FC = () => {
   let productsCart = useAppSelector(state => state.cartReducer.cart);
   const productsCount = productsCart.length;
   const dispatch = useAppDispatch();
@@ -79,5 +79,3 @@ const Cart: React.FC = () => {
     </Wrapper>
   );
 };
-
-export default Cart;

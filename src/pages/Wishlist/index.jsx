@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Wrapper } from "../../components/common/Wrapper";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
-const Wishlist = () => {
+export const Wishlist = () => {
   const listProducts = useAppSelector(
     state => state.favoritesReducer.favorites
   );
@@ -52,5 +52,3 @@ const Wishlist = () => {
     </Wrapper>
   );
 };
-
-export default Wishlist;

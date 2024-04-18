@@ -12,7 +12,7 @@ import { orderBy } from "lodash";
 import { Wrapper } from "../../components/common/Wrapper";
 import { Bookmark } from "../../components/ui/Bookmark";
 
-const ProductPage = () => {
+export const ProductPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [currentPageReview, setCurrentPageReview] = useState(1);
@@ -158,5 +158,3 @@ const ProductPage = () => {
 
   return <Wrapper>{showProduct()}</Wrapper>;
 };
-
-export default ProductPage;

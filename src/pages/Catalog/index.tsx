@@ -14,7 +14,7 @@ import { Product, Products, SetState, SortOption } from "../../types";
 
 const INITIAL_PAGE = 1;
 
-const Catalog = () => {
+export const Catalog = () => {
   const [products, setProducts] = useState<Products>([]);
   const [currentPage, setCurrentPage] = useState<number>(INITIAL_PAGE);
   const pageSize = 12;
@@ -174,5 +174,3 @@ const Catalog = () => {
     </div>
   );
 };
-
-export default Catalog;

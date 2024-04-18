@@ -2,11 +2,11 @@ import "./App.css";
 import { Header } from "./components/ui/Header";
 import { Footer } from "./components/ui/Footer";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Catalog from "./pages/Catalog";
-import NotFound from "./pages/NotFound";
-import ProductPage from "./pages/ProductPage";
-import Cart from "./pages/Cart";
-import Wishlist from "./pages/Wishlist";
+import { Catalog } from "./pages/Catalog";
+import { NotFound } from "./pages/NotFound";
+import { ProductPage } from "./pages/ProductPage";
+import { Cart } from "./pages/Cart";
+import { Wishlist } from "./pages/Wishlist";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
