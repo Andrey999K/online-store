@@ -1,4 +1,4 @@
-import catalog from "./fake.api/catalog.api";
+import catalog from "./fake.api/catalog.api.ts";
 const API = {
   catalog
 };

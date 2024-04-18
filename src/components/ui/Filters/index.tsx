@@ -2,11 +2,16 @@ import React, { useCallback, useRef, useState } from "react";
 import { RangeDouble } from "../../common/RangeDouble";
 import { Input } from "../Input";
 import { SelectionBlock } from "../../common/SelectionBlock";
-import { InputChangeEvent, PricesRange, Product } from "../../../types";
+import {
+  InputChangeEvent,
+  PricesRange,
+  Product,
+  Products
+} from "../../../types";
 
 interface FiltersProps {
-  filtration: (products: Array<Product>) => void;
-  products: Array<Product>;
+  filtration: (products: Products) => void;
+  products: Products;
 }
 
 export const Filters: React.FC<FiltersProps> = ({ filtration, products }) => {

@@ -1,9 +1,9 @@
 import { Card } from "../Card";
-import { Product } from "../../../types";
+import { Products } from "../../../types";
 import React from "react";
 
 interface ProductListProps {
-  products: Array<Product>;
+  products: Products;
   grid: boolean;
 }
 

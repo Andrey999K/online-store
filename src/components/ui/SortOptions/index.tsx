@@ -1,13 +1,13 @@
 import React from "react";
 import { Icon } from "../Icon";
-import { SortOption } from "../../../types";
+import { SetState, SortOption } from "../../../types";
 
 interface SortOptionsProps {
   items: Array<{
     field: string;
     text: string;
   }>;
-  onSort: (value: ((prevState: SortOption) => SortOption) | SortOption) => void;
+  onSort: SetState<SortOption>;
   selectedSort: {
     iter: string;
     order: string;

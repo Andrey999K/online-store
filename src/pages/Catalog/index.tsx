@@ -1,22 +1,25 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { SortOptions } from "../../components/ui/SortOptions/index.js";
-import { ViewSwitch } from "../../components/ui/ViewSwitch/index.js";
+import { SortOptions } from "../../components/ui/SortOptions";
+import { ViewSwitch } from "../../components/ui/ViewSwitch";
 import { Pagination } from "../../components/ui/Pagination";
 import { ProductList } from "../../components/ui/ProductList";
 import { Filters } from "../../components/ui/Filters";
 import api from "../../api";
 import { orderBy } from "lodash";
 import paginate from "../../utils/paginate";
-import { ScreenLoader } from "../../components/ui/ScreenLoader/index.js";
+import { ScreenLoader } from "../../components/ui/ScreenLoader";
 import productsWord from "../../utils/productsWord";
 import { Wrapper } from "../../components/common/Wrapper";
+import { Product, Products, SetState, SortOption } from "../../types";
+
+const INITIAL_PAGE = 1;
 
 const Catalog = () => {
-  const [products, setProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [products, setProducts] = useState<Products>([]);
+  const [currentPage, setCurrentPage] = useState<number>(INITIAL_PAGE);
   const pageSize = 12;
   // const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState({
+  const [sortBy, setSortBy] = useState<SortOption>({
     iter: "ratingProduct",
     order: "desc"
   });
@@ -30,33 +33,33 @@ const Catalog = () => {
     { field: "discount", text: "По скидке" },
     { field: "benefit", text: "По выгоде" }
   ]);
-  const [filteredProducts, setFiltersProducts] = useState([]);
-  const timer = useRef(null);
+  const [filteredProducts, setFiltersProducts] = useState<Products>([]);
+  const timer = useRef<number | null>(null);
 
   // const handleSearchProduct = (productName) => {
   //   setSearch(productName);
   // };
 
-  const handlePageChange = pageNumber => {
+  const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
 
-  const handleSort = useCallback(value => {
+  const handleSort: SetState<SortOption> = useCallback(value => {
     setSortBy(value);
     setCurrentPage(1);
   }, []);
 
-  const handleEditView = grid => {
+  const handleEditView = (grid: boolean) => {
     if (grid) setGridOn(false);
     else setGridOn(true);
   };
 
-  const handleFiltration = value => {
+  const handleFiltration = (value: Product[]) => {
     setFiltersProducts(value);
     setCurrentPage(1);
   };
 
-  const showProductList = (productsList, gridOn) => {
+  const showProductList = (productsList: Products, gridOn: boolean) => {
     if (!products.length || loading) return <ScreenLoader />;
     return productsList.length ? (
       <div className="w-full lg:w-3/4 xl:w-4/5">
@@ -83,6 +86,7 @@ const Catalog = () => {
   useEffect(() => {
     setTimeout(() => {
       api.catalog.fetchAll().then(response => {
+        console.log(response);
         const data = response.map(item => {
           const reviewsCount = item.reviews.length;
           let sumRating = 0;
@@ -104,7 +108,9 @@ const Catalog = () => {
       });
     }, 2000);
     return () => {
-      clearInterval(timer.current);
+      if (timer.current !== null) {
+        clearInterval(timer.current);
+      }
     };
   }, []);
 

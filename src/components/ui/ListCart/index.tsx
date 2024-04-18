@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { CartCard } from "../CartCard";
 import { useAppDispatch } from "../../../store/hooks";
-import { Product } from "../../../types";
+import { Product, Products } from "../../../types";
 
 interface ListCartProps {
-  data: Array<Product>;
+  data: Products;
 }
 
 export const ListCart: React.FC<ListCartProps> = ({ data }) => {
