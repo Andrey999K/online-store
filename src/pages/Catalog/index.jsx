@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { SortOptions } from "../../components/ui/SortOptions";
+import { SortOptions } from "../../components/ui/SortOptions/index.js";
 import { ViewSwitch } from "../../components/ui/ViewSwitch";
 import { Pagination } from "../../components/ui/Pagination";
 import { ProductList } from "../../components/ui/ProductList";

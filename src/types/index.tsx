@@ -38,3 +38,5 @@ export interface HeaderProps {
 
 export type ProductCart = Product & { count: number };
 export type ProductsCart = Array<ProductCart>;
+
+export type SortOption = { iter: string; order: "asc" | "desc" };

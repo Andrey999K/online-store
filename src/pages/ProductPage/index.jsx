@@ -7,7 +7,7 @@ import { ScreenLoader } from "../../components/ui/ScreenLoader/index.js";
 import { ReviewBlock } from "../../components/ui/ReviewBlock/index.js";
 import paginate from "../../utils/paginate";
 import { Pagination } from "../../components/ui/Pagination";
-import { SortOptions } from "../../components/ui/SortOptions";
+import { SortOptions } from "../../components/ui/SortOptions/index.js";
 import { orderBy } from "lodash";
 import { Wrapper } from "../../components/common/Wrapper";
 import { Bookmark } from "../../components/ui/Bookmark";

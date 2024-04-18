@@ -1,9 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Icon } from "../Icon";
+import { SortOption } from "../../../types";
 
-const InnerSortOptions = ({ items, onSort, selectedSort }) => {
-  const handleSort = field => {
+interface SortOptionsProps {
+  items: Array<{
+    field: string;
+    text: string;
+  }>;
+  onSort: (value: ((prevState: SortOption) => SortOption) | SortOption) => void;
+  selectedSort: {
+    iter: string;
+    order: string;
+  };
+}
+
+const InnerSortOptions: React.FC<SortOptionsProps> = ({
+  items,
+  onSort,
+  selectedSort
+}) => {
+  const handleSort = (field: string) => {
     if (selectedSort.iter === field)
       onSort(prevState => ({
         ...prevState,
@@ -11,7 +27,7 @@ const InnerSortOptions = ({ items, onSort, selectedSort }) => {
       }));
     else onSort({ iter: field, order: "asc" });
   };
-  const showSort = item => {
+  const showSort = (item: { field: string; text: string }) => {
     if (item.field === selectedSort.iter) {
       return (
         <>
@@ -42,21 +58,5 @@ const InnerSortOptions = ({ items, onSort, selectedSort }) => {
     </div>
   );
 };
-
-InnerSortOptions.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      field: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired,
-  onSort: PropTypes.func.isRequired,
-  selectedSort: PropTypes.shape({
-    iter: PropTypes.string.isRequired,
-    order: PropTypes.string.isRequired
-  }).isRequired
-};
-
-InnerSortOptions.defaultProps = {};
 
 export const SortOptions = React.memo(InnerSortOptions);
