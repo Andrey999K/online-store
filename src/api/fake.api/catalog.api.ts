@@ -3,7 +3,7 @@ import { Product } from "../../types";
 
 const fetchAll = async (): Promise<Array<Product>> => {
   try {
-    const response = await axios.get(`${window.location.href}data.json`);
+    const response = await axios.get(`${window.location.origin}/data.json`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -13,7 +13,9 @@ const fetchAll = async (): Promise<Array<Product>> => {
 
 const getById = async (productId: number | string): Promise<Product> => {
   try {
-    const response = await axios.get(`${window.location.href}data.json`);
+    console.log(window);
+    const response = await axios.get(`${window.location.origin}/data.json`);
+    console.log(response);
     return response.data.find(
       (product: Product) => product.id === Number(productId)
     );
