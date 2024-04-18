@@ -11,17 +11,25 @@ import { SortOptions } from "../../components/ui/SortOptions";
 import { orderBy } from "lodash";
 import { Wrapper } from "../../components/common/Wrapper";
 import { Bookmark } from "../../components/ui/Bookmark";
+import { Product, Review, SetState, SortOption } from "../../types";
+
+type ParamProductId = {
+  productId: string;
+};
+
+const INITIAL_PAGE = 1;
 
 export const ProductPage = () => {
-  const { productId } = useParams();
-  const [product, setProduct] = useState(null);
-  const [currentPageReview, setCurrentPageReview] = useState(1);
-  const [sortReviewBy, setSortReviewBy] = useState({
+  const { productId } = useParams<ParamProductId>();
+  const [product, setProduct] = useState<Product | null>(null);
+  const [currentPageReview, setCurrentPageReview] =
+    useState<number>(INITIAL_PAGE);
+  const [sortReviewBy, setSortReviewBy] = useState<SortOption>({
     iter: "rating",
     order: "desc"
   });
   const reviewOnPage = 5;
-  let reviews = [];
+  let reviews: Array<Review> = [];
   if (product) reviews = product.reviews;
 
   const sortReviewsOptions = [
@@ -29,16 +37,16 @@ export const ProductPage = () => {
     { field: "date", text: "По дате" }
   ];
 
-  const handleSortReviews = value => {
+  const handleSortReviews: SetState<SortOption> = value => {
     setSortReviewBy(value);
     setCurrentPageReview(1);
   };
 
-  const handlePageReviewChange = pageNumber => {
+  const handlePageReviewChange = (pageNumber: number) => {
     setCurrentPageReview(pageNumber);
   };
 
-  const sortByDate = items => {
+  const sortByDate = (items: Array<Review>) => {
     return orderBy(
       items,
       [

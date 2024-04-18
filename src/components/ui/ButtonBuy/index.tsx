@@ -5,7 +5,7 @@ import React, { MouseEventHandler } from "react";
 import { useAppDispatch } from "../../../store/hooks.ts";
 
 interface ButtonBuyProps {
-  min: boolean;
+  min?: boolean;
   product: Product;
 }
 
