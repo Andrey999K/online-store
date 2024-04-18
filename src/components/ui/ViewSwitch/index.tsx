@@ -1,8 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Icon } from "../Icon";
 
-const InnerViewSwitch = ({ grid, onClick }) => {
+interface ViewSwitchProps {
+  grid: boolean;
+  onClick: (grid: boolean) => void;
+}
+
+const InnerViewSwitch: React.FC<ViewSwitchProps> = ({ grid, onClick }) => {
   return (
     <div className="flex gap-5">
       <button
@@ -23,11 +27,6 @@ const InnerViewSwitch = ({ grid, onClick }) => {
       </button>
     </div>
   );
-};
-
-InnerViewSwitch.propTypes = {
-  grid: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
 };
 
 export const ViewSwitch = React.memo(InnerViewSwitch);
