@@ -2,8 +2,9 @@ import { ProductList } from "../../components/ui/ProductList";
 import { Link } from "react-router-dom";
 import { Wrapper } from "../../components/common/Wrapper";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import React from "react";
 
-export const Wishlist = () => {
+export const Wishlist: React.FC = () => {
   const listProducts = useAppSelector(
     state => state.favoritesReducer.favorites
   );
