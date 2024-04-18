@@ -35,3 +35,6 @@ export interface HeaderProps {
   city: string;
   phone: string;
 }
+
+export type ProductCart = Product & { count: number };
+export type ProductsCart = Array<ProductCart>;

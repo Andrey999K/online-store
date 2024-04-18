@@ -4,11 +4,11 @@ import { Bookmark } from "../Bookmark";
 import { Icon } from "../Icon";
 import { Input } from "../Input";
 import { Link } from "react-router-dom";
-import { Product } from "../../../types";
+import { Product, ProductCart } from "../../../types";
 import { useAppDispatch } from "../../../store/hooks.ts";
 
 interface CartCardProps {
-  product: Product;
+  product: ProductCart;
   onDelete: (product: Product) => void;
 }
 

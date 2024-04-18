@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
 interface InputProps {
   value: string | number;
-  onBlur: () => void;
+  onBlur: (event: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
 

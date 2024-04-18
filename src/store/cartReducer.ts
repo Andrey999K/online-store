@@ -1,7 +1,4 @@
-import { Product } from "../types";
-
-type ProductCart = Product & { count: number };
-type ProductsCart = Array<ProductCart>;
+import { Product, ProductCart, ProductsCart } from "../types";
 
 type CartState = {
   cart: ProductsCart;
