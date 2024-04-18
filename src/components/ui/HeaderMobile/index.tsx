@@ -1,0 +1,91 @@
+import React, { useEffect, useState } from "react";
+import { Logo } from "../Logo";
+import { Icon } from "../Icon";
+import { Navigation } from "../Navigation";
+import { Contracts } from "../Contacts";
+import { Wrapper } from "../../common/Wrapper";
+import { HeaderProps } from "../../../types";
+
+export const HeaderMobile: React.FC<HeaderProps> = ({
+  navItems,
+  city,
+  phone
+}) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const openMenu = () => {
+    document.body.style.overflow = "hidden";
+    setMenuOpen(true);
+  };
+  const closeMenu = () => {
+    document.body.style.overflow = "auto";
+    setMenuOpen(false);
+  };
+
+  useEffect(() => {
+    let startTouchX = 0;
+    let endTouchX = 0;
+    let startTouchY = 0;
+    let endTouchY = 0;
+
+    document.addEventListener("touchstart", event => {
+      startTouchX = event.changedTouches[0].pageX;
+      startTouchY = event.changedTouches[0].pageY;
+    });
+
+    document.addEventListener("touchend", event => {
+      endTouchX = event.changedTouches[0].pageX;
+      endTouchY = event.changedTouches[0].pageY;
+      if (
+        startTouchX < Math.floor(window.innerWidth / 2) &&
+        Math.abs(endTouchY - startTouchY) < 40 &&
+        endTouchX > startTouchX
+      )
+        openMenu();
+      if (
+        startTouchX > Math.floor(window.innerWidth / 2) &&
+        Math.abs(endTouchY - startTouchY) < 40 &&
+        endTouchX < startTouchX
+      )
+        closeMenu();
+    });
+  }, []);
+
+  return (
+    <header className="bg-white z-[9999] sticky top-0 shadow">
+      <Wrapper>
+        <div className="flex items-center justify-between py-5">
+          <button className="hover:text-sky-500" onClick={openMenu}>
+            <Icon name="burger" />
+          </button>
+          <Logo />
+          <button className="hover:text-sky-500">
+            <Icon name="search" />
+          </button>
+        </div>
+      </Wrapper>
+      <div
+        className={`${
+          menuOpen ? "fixed inset-0 bg-white/50" : ""
+        } duration-300 background-menu`}
+        onClick={closeMenu}
+      ></div>
+      <div
+        className={
+          (menuOpen ? "translate-x-[425px] " : "translate-x-0 ") +
+          "duration-300 px-5 py-8 absolute top-0 left-[-425px] w-full h-[100dvh] max-w-[425px] border-solid border-2 bg-white z-50 menu"
+        }
+      >
+        <button
+          className="mx-[-2px] my-[-7px] hover:text-sky-500 close-menu"
+          onClick={closeMenu}
+        >
+          <Icon name="close" />
+        </button>
+        <div className="mt-10 flex flex-col gap-3">
+          <Contracts city={city} phone={phone} />
+          <Navigation items={navItems} />
+        </div>
+      </div>
+    </header>
+  );
+};
