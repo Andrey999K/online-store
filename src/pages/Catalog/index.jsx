@@ -7,7 +7,7 @@ import { Filters } from "../../components/ui/Filters";
 import api from "../../api";
 import { orderBy } from "lodash";
 import paginate from "../../utils/paginate";
-import { ScreenLoader } from "../../components/ui/ScreenLoader";
+import { ScreenLoader } from "../../components/ui/ScreenLoader/index.js";
 import productsWord from "../../utils/productsWord";
 import { Wrapper } from "../../components/common/Wrapper";
 

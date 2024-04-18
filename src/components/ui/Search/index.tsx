@@ -1,7 +1,17 @@
-import PropTypes from "prop-types";
 import { Icon } from "../Icon";
+import React from "react";
 
-export const Search = ({ search: value, placeholder, onSearchItem }) => {
+interface SearchProps {
+  search: string;
+  placeholder?: string;
+  onSearchItem: (value: string) => void;
+}
+
+export const Search: React.FC<SearchProps> = ({
+  search: value,
+  placeholder,
+  onSearchItem
+}) => {
   return (
     <div className="flex max-h-8 relative w-full max-w-[500px]">
       <input
@@ -27,11 +37,3 @@ export const Search = ({ search: value, placeholder, onSearchItem }) => {
     </div>
   );
 };
-
-Search.propTypes = {
-  search: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  onSearchItem: PropTypes.func.isRequired
-};
-
-Search.defaultProps = {};
