@@ -11,12 +11,11 @@ type EditCountAction = {
 
 type Action =
   | {
-      type:
-        | "ADD_IN_CART"
-        | "DELETE_FROM_CART"
-        | "DEC_PRODUCT_IN_CART"
-        | "CLEAR_CART";
+      type: "ADD_IN_CART" | "DELETE_FROM_CART" | "DEC_PRODUCT_IN_CART";
       payload: Product;
+    }
+  | {
+      type: "CLEAR_CART";
     }
   | EditCountAction;
 
@@ -36,31 +35,43 @@ export const cartReducer = (
   state: CartState = initialState,
   action: Action
 ): CartState => {
-  let product = action.payload;
+  let product = "payload" in action ? action.payload : null;
   let products = state.cart;
   let foundItemIndex = -1;
   switch (action.type) {
     case "ADD_IN_CART":
-      foundItemIndex = products.findIndex(item => item.id === product.id);
-      if (foundItemIndex > -1) products[foundItemIndex].count += 1;
-      else products.push({ ...product, count: 1 });
-      updateCartInLocalStorage(products);
-      return { ...state, cart: products };
+      if (product) {
+        foundItemIndex = products.findIndex(item => item.id === product.id);
+        if (foundItemIndex > -1) products[foundItemIndex].count += 1;
+        else products.push({ ...product, count: 1 });
+        updateCartInLocalStorage(products);
+        return { ...state, cart: products };
+      }
+      return state;
     case "DELETE_FROM_CART":
-      products = products.filter(item => item.id !== action.payload.id);
-      updateCartInLocalStorage(products);
-      return { ...state, cart: products };
+      if (product) {
+        products = products.filter(item => item.id !== action.payload!.id);
+        updateCartInLocalStorage(products);
+        return { ...state, cart: products };
+      }
+      return state;
     case "DEC_PRODUCT_IN_CART":
-      foundItemIndex = products.findIndex(item => item.id === product.id);
-      if (foundItemIndex > -1) products[foundItemIndex].count -= 1;
-      updateCartInLocalStorage(products);
-      return { ...state, cart: products };
+      if (product) {
+        foundItemIndex = products.findIndex(item => item.id === product.id);
+        if (foundItemIndex > -1) products[foundItemIndex].count -= 1;
+        updateCartInLocalStorage(products);
+        return { ...state, cart: products };
+      }
+      return state;
     case "EDIT_COUNT_IN_CART":
-      foundItemIndex = products.findIndex(item => item.id === product.id);
-      if (foundItemIndex > -1)
-        products[foundItemIndex].count = (product as ProductCart).count;
-      updateCartInLocalStorage(products);
-      return { ...state, cart: products };
+      if (product) {
+        foundItemIndex = products.findIndex(item => item.id === product.id);
+        if (foundItemIndex > -1)
+          products[foundItemIndex].count = (product as ProductCart).count;
+        updateCartInLocalStorage(products);
+        return { ...state, cart: products };
+      }
+      return state;
     case "CLEAR_CART":
       updateCartInLocalStorage([]);
       return { ...state, cart: [] };
