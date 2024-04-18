@@ -4,7 +4,7 @@ import api from "../../api";
 import { Price } from "../../components/ui/Price";
 import { ButtonBuy } from "../../components/ui/ButtonBuy";
 import { ScreenLoader } from "../../components/ui/ScreenLoader";
-import { Review } from "../../components/ui/Review";
+import { ReviewBlock } from "../../components/ui/Review/index.js";
 import paginate from "../../utils/paginate";
 import { Pagination } from "../../components/ui/Pagination";
 import { SortOptions } from "../../components/ui/SortOptions";
@@ -125,7 +125,7 @@ const ProductPage = () => {
             <ul className="flex flex-col gap-8 items-center">
               {reviewsCrop.map(review => (
                 <li key={review.reviewId}>
-                  <Review data={review} />
+                  <ReviewBlock data={review} />
                 </li>
               ))}
             </ul>
