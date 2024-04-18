@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import productsWord from "../../utils/productsWord";
+import { productsWord } from "../../utils/productsWord.ts";
 import { ListCart } from "../../components/ui/ListCart";
 import { store } from "../../store";
 import { Wrapper } from "../../components/common/Wrapper";

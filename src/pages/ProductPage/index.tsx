@@ -5,7 +5,7 @@ import { Price } from "../../components/ui/Price";
 import { ButtonBuy } from "../../components/ui/ButtonBuy";
 import { ScreenLoader } from "../../components/ui/ScreenLoader";
 import { ReviewBlock } from "../../components/ui/ReviewBlock";
-import paginate from "../../utils/paginate";
+import { paginate } from "../../utils/paginate.ts";
 import { Pagination } from "../../components/ui/Pagination";
 import { SortOptions } from "../../components/ui/SortOptions";
 import { orderBy } from "lodash";

@@ -35,7 +35,7 @@ export const cartReducer = (
   state: CartState = initialState,
   action: Action
 ): CartState => {
-  let product = "payload" in action ? action.payload : null;
+  const product = "payload" in action ? action.payload : null;
   let products = state.cart;
   let foundItemIndex = -1;
   switch (action.type) {
