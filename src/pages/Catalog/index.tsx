@@ -86,7 +86,6 @@ export const Catalog = () => {
   useEffect(() => {
     setTimeout(() => {
       api.catalog.fetchAll().then(response => {
-        console.log(response);
         const data = response.map(item => {
           const reviewsCount = item.reviews.length;
           let sumRating = 0;

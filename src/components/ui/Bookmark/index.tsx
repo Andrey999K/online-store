@@ -2,15 +2,14 @@ import React, { MouseEventHandler } from "react";
 import { Icon } from "../Icon";
 import { Product } from "../../../types";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks.ts";
+import { getFavorites } from "../../../store/favorites.slicer.ts";
 
 interface BookmarkProps {
   product: Product;
 }
 
 export const Bookmark: React.FC<BookmarkProps> = ({ product }) => {
-  const massFavorites = useAppSelector(
-    state => state.favoritesReducer.favorites
-  );
+  const massFavorites = useAppSelector(getFavorites());
   const status = massFavorites.some(favorite => favorite.id === product.id);
   const dispatch = useAppDispatch();
   const handleClick: MouseEventHandler<HTMLButtonElement> = e => {

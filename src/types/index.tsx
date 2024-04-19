@@ -46,3 +46,9 @@ export type SortOption = { iter: string; order: "asc" | "desc" };
 export type SetState<T> = (value: ((prevState: T) => T) | T) => void;
 
 export type Products = Array<Product>;
+
+export type InitialState<T> = {
+  entity: T;
+  isLoading: boolean;
+  error: boolean | null;
+};

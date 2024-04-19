@@ -15,7 +15,6 @@ const getById = async (productId: number | string): Promise<Product> => {
   try {
     console.log(window);
     const response = await axios.get(`${window.location.origin}/data.json`);
-    console.log(response);
     return response.data.find(
       (product: Product) => product.id === Number(productId)
     );
