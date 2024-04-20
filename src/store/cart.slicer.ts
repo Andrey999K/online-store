@@ -4,7 +4,11 @@ import { InitialState, Product, ProductCart, ProductsCart } from "../types";
 type CartState = InitialState<ProductsCart>;
 
 const fetchProductsCart = (): ProductsCart => {
-  return JSON.parse(localStorage.getItem("products_in_cart") || "[]");
+  return JSON.parse(localStorage.getItem("productsInCart") || "[]");
+};
+
+const updateCartInLocalStorage = (cart: ProductsCart) => {
+  localStorage.setItem("productsInCart", JSON.stringify(cart));
 };
 
 export const setCart = createAsyncThunk("productsCart/set", async () => {
@@ -59,13 +63,14 @@ const cartSlice = createSlice({
     builder.addCase(setCart.pending, setPending);
     builder.addCase(setCart.fulfilled, (state: CartState, { payload }) => {
       state.entity = payload;
+      updateCartInLocalStorage(payload);
     });
     builder.addCase(setCart.rejected, setRejected);
 
     builder.addCase(addInCart.pending, setPending);
     builder.addCase(addInCart.fulfilled, (state: CartState, { payload }) => {
       let find = false;
-      state.entity = state.entity.map(product => {
+      let newState = state.entity.map(product => {
         if (!find && product.id === payload.id) {
           find = true;
           return { ...product, count: product.count + 1 };
@@ -73,8 +78,10 @@ const cartSlice = createSlice({
         return product;
       });
       if (!find) {
-        state.entity = [...state.entity, { ...payload, count: 1 }];
+        newState = [...newState, { ...payload, count: 1 }];
       }
+      state.entity = newState;
+      updateCartInLocalStorage(newState);
     });
     builder.addCase(addInCart.rejected, setRejected);
 
@@ -82,33 +89,37 @@ const cartSlice = createSlice({
     builder.addCase(
       deleteFromCart.fulfilled,
       (state: CartState, { payload }) => {
-        state.entity = state.entity.filter(
+        const newState = state.entity.filter(
           product => product.id !== payload.id
         );
+        state.entity = newState;
+        updateCartInLocalStorage(newState);
       }
     );
     builder.addCase(deleteFromCart.rejected, setRejected);
 
     builder.addCase(updateCart.pending, setPending);
     builder.addCase(updateCart.fulfilled, (state: CartState, { payload }) => {
+      let newState = state.entity;
       if (payload.count < 1) {
-        state.entity = state.entity.filter(
-          product => product.id !== payload.id
-        );
+        newState = state.entity.filter(product => product.id !== payload.id);
       } else {
-        state.entity = state.entity.map(product => {
+        newState = state.entity.map(product => {
           if (product.id === payload.id) {
             return { ...product, count: payload.count };
           }
           return product;
         });
       }
+      state.entity = newState;
+      updateCartInLocalStorage(newState);
     });
     builder.addCase(updateCart.rejected, setRejected);
 
     builder.addCase(clearCart.pending, setPending);
     builder.addCase(clearCart.fulfilled, (state: CartState) => {
       state.entity = [];
+      updateCartInLocalStorage([]);
     });
     builder.addCase(clearCart.rejected, setRejected);
   }
