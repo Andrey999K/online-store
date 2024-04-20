@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import { Wrapper } from "../../components/common/Wrapper";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import React from "react";
+import { clearFavorites, getFavorites } from "../../store/favorites.slicer.ts";
 
 export const Wishlist: React.FC = () => {
-  const listProducts = useAppSelector(
-    state => state.favoritesReducer.favorites
-  );
+  const listProducts = useAppSelector(getFavorites());
   const dispatch = useAppDispatch();
   const handleClearData = () => {
-    dispatch({ type: "CLEAR_FAVORITES" });
+    dispatch(clearFavorites());
   };
   const showProducts = () => {
     if (listProducts.length) {
