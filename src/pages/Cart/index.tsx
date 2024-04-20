@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import productsWord from "../../utils/productsWord";
+import { productsWord } from "../../utils/productsWord.ts";
 import { ListCart } from "../../components/ui/ListCart";
-import { store } from "../../store";
 import { Wrapper } from "../../components/common/Wrapper";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { ProductsCart } from "../../types";
+import { clearCart, getCart } from "../../store/cart.slicer.ts";
 
 export const Cart: React.FC = () => {
-  let productsCart = useAppSelector(state => state.cartReducer.cart);
+  let productsCart = useAppSelector(getCart());
   const productsCount = productsCart.length;
   const dispatch = useAppDispatch();
   const pricesSum = (productsList: ProductsCart) => {
@@ -19,15 +19,11 @@ export const Cart: React.FC = () => {
   };
   const [sumPrices, setSumPrices] = useState(pricesSum(productsCart));
   const handleClearData = () => {
-    dispatch({ type: "CLEAR_CART" });
+    dispatch(clearCart());
   };
   useEffect(() => {
-    const unsubscribe = store.subscribe(() => {
-      productsCart = store.getState().cartReducer.cart;
-      setSumPrices(pricesSum(productsCart));
-    });
-    return () => unsubscribe();
-  }, []);
+    setSumPrices(pricesSum(productsCart));
+  }, [productsCart]);
   const showProducts = () => {
     if (productsCount) {
       return (

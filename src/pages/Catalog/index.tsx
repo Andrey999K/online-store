@@ -6,9 +6,9 @@ import { ProductList } from "../../components/ui/ProductList";
 import { Filters } from "../../components/ui/Filters";
 import api from "../../api";
 import { orderBy } from "lodash";
-import paginate from "../../utils/paginate";
+import { paginate } from "../../utils/paginate.ts";
 import { ScreenLoader } from "../../components/ui/ScreenLoader";
-import productsWord from "../../utils/productsWord";
+import { productsWord } from "../../utils/productsWord.ts";
 import { Wrapper } from "../../components/common/Wrapper";
 import { Product, Products, SetState, SortOption } from "../../types";
 
@@ -34,7 +34,7 @@ export const Catalog = () => {
     { field: "benefit", text: "По выгоде" }
   ]);
   const [filteredProducts, setFiltersProducts] = useState<Products>([]);
-  const timer = useRef<number | null>(null);
+  const timer = useRef<NodeJS.Timeout | null>(null);
 
   // const handleSearchProduct = (productName) => {
   //   setSearch(productName);
@@ -86,7 +86,6 @@ export const Catalog = () => {
   useEffect(() => {
     setTimeout(() => {
       api.catalog.fetchAll().then(response => {
-        console.log(response);
         const data = response.map(item => {
           const reviewsCount = item.reviews.length;
           let sumRating = 0;

@@ -9,8 +9,17 @@ import { Cart } from "./pages/Cart";
 import { Wishlist } from "./pages/Wishlist";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useAppDispatch } from "./store/hooks.ts";
+import { useEffect } from "react";
+import { setCart } from "./store/cart.slicer.ts";
+import { setFavorites } from "./store/favorites.slicer.ts";
 
 function App() {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(setCart());
+    dispatch(setFavorites());
+  }, []);
   return (
     <div className="App flex flex-col justify-between">
       {/* <Header search={search} onSearch={handleSearchProduct}/> */}

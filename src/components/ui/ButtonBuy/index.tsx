@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { Product } from "../../../types";
 import React, { MouseEventHandler } from "react";
 import { useAppDispatch } from "../../../store/hooks.ts";
+import { addInCart } from "../../../store/cart.slicer.ts";
 
 interface ButtonBuyProps {
   min?: boolean;
@@ -13,7 +14,7 @@ export const ButtonBuy: React.FC<ButtonBuyProps> = ({ min, product }) => {
   const dispatch = useAppDispatch();
   const handleClick: MouseEventHandler<HTMLButtonElement> = event => {
     event.preventDefault();
-    dispatch({ type: "ADD_IN_CART", payload: product });
+    dispatch(addInCart(product));
     toast.success("Товар добавлен в корзину", {
       position: "top-right",
       autoClose: 5000,

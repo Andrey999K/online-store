@@ -6,6 +6,7 @@ import { Input } from "../Input";
 import { Link } from "react-router-dom";
 import { Product, ProductCart } from "../../../types";
 import { useAppDispatch } from "../../../store/hooks.ts";
+import { updateCart } from "../../../store/cart.slicer.ts";
 
 interface CartCardProps {
   product: ProductCart;
@@ -20,22 +21,19 @@ const InnerCartCard: React.FC<CartCardProps> = ({ product, onDelete }) => {
   const handleDecrement = () => {
     if (Number(count) !== 1) {
       setCount(prevState => (Number(prevState) - 1).toString());
-      dispatch({ type: "DEC_PRODUCT_IN_CART", payload: product });
+      dispatch(updateCart({ ...product, count: +count - 1 }));
     }
   };
   const handleIncrement = () => {
     setCount(prevState => (Number(prevState) + 1).toString());
-    dispatch({ type: "ADD_IN_CART", payload: product });
+    dispatch(updateCart({ ...product, count: +count + 1 }));
   };
 
   const handleBlur = (event: ChangeEvent<HTMLInputElement>) => {
     let value = Number(event.target.value);
     value = value === 0 ? 1 : value;
     setCount(value);
-    dispatch({
-      type: "EDIT_COUNT_IN_CART",
-      payload: { ...product, count: value }
-    });
+    dispatch(updateCart({ ...product, count: +value }));
   };
 
   return (
