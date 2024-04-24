@@ -158,9 +158,11 @@ export const ProductPage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      api.catalog.getById(productId).then(response => {
-        setProduct(response);
-      });
+      if (productId) {
+        api.catalog.getById(productId).then(response => {
+          setProduct(response);
+        });
+      }
     }, 2000);
   }, []);
 
