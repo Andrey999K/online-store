@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { SortOptions } from "../../components/ui/SortOptions";
 import { ViewSwitch } from "../../components/ui/ViewSwitch";
 import { Pagination } from "../../components/ui/Pagination";
@@ -14,7 +14,7 @@ import { Product, Products, SetState, SortOption } from "../../types";
 
 const INITIAL_PAGE = 1;
 
-export const Catalog = () => {
+export const Catalog: React.FC = () => {
   const [products, setProducts] = useState<Products>([]);
   const [currentPage, setCurrentPage] = useState<number>(INITIAL_PAGE);
   const pageSize = 12;
