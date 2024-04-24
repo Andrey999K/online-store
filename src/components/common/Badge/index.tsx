@@ -1,6 +1,6 @@
 interface BadgeProps {
   text: string;
-  type: string;
+  type: "super" | "installment";
   color?: string;
 }
 
