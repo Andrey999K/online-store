@@ -1,12 +1,13 @@
 import { Badge, Review } from "../types";
+// @ts-ignore
 import fs from "fs";
 
 const badgesData: Array<Badge> = [
-  { id: 1, name: "super", text: "Суперцена" },
-  { id: 2, name: "installment", text: "Рассрочка 0-0-6" },
-  { id: 2, name: "installment", text: "Рассрочка 0-0-12" },
-  { id: 2, name: "installment", text: "Рассрочка 0-0-24" },
-  { id: 2, name: "bonus", text: "+200 бонусов" }
+  { id: 1, type: "super", text: "Суперцена" },
+  { id: 2, type: "installment", text: "Рассрочка 0-0-6" },
+  { id: 2, type: "installment", text: "Рассрочка 0-0-12" },
+  { id: 2, type: "installment", text: "Рассрочка 0-0-24" },
+  { id: 2, type: "bonus", text: "+200 бонусов" }
 ];
 
 const names: Array<string> = [

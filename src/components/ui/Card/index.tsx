@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge } from "../../common/Badge";
+import { BadgeProduct } from "../../common/Badge";
 import { ButtonBuy } from "../ButtonBuy";
 import { Icon } from "../Icon";
 import { Price } from "../Price";
@@ -51,7 +51,7 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
             {!!badges.length &&
               badges.map(badge => (
-                <Badge key={badge.id} text={badge.text} type={badge.name} />
+                <BadgeProduct key={badge.id} text={badge.text} type={badge.type} />
               ))}
           </div>
           <div className="h-[150px] lg:h-[150px] w-auto rounded-2xl overflow-hidden">

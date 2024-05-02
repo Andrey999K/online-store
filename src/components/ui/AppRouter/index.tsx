@@ -6,7 +6,6 @@ import { Cart } from "../../../pages/Cart";
 import { Wishlist } from "../../../pages/Wishlist";
 import { NotFound } from "../../../pages/NotFound";
 
-
 const AppRouter = () => {
   return (
     <Routes>

@@ -44,7 +44,7 @@ const setPending = (state: CartState) => {
   state.isLoading = true;
   state.error = null;
 };
-const setRejected = (state: CartState, { payload }: { payload: any }) => {
+const setRejected = (state: CartState, { payload }: { payload: boolean | null }) => {
   state.isLoading = false;
   state.error = payload;
 };

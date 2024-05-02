@@ -40,7 +40,7 @@ const setPending = (state: FavoritesState) => {
   state.isLoading = true;
   state.error = null;
 };
-const setRejected = (state: FavoritesState, { payload }: { payload: any }) => {
+const setRejected = (state: FavoritesState, { payload }: { payload: boolean | null }) => {
   state.isLoading = false;
   state.error = payload;
 };

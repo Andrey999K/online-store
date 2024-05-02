@@ -2,7 +2,7 @@ import React from "react";
 
 export type Badge = {
   id: number;
-  name: "super" | "installment";
+  type: "super" | "installment" | "bonus";
   text: string;
 };
 

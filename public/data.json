@@ -8,7 +8,7 @@
     "badges": [
       {
         "id": 2,
-        "name": "bonus",
+        "type": "bonus",
         "text": "+200 бонусов"
       }
     ],
@@ -499,7 +499,7 @@
     "badges": [
       {
         "id": 2,
-        "name": "bonus",
+        "type": "bonus",
         "text": "+200 бонусов"
       }
     ],
@@ -1683,7 +1683,7 @@
     "badges": [
       {
         "id": 2,
-        "name": "bonus",
+        "type": "bonus",
         "text": "+200 бонусов"
       }
     ],
@@ -3345,7 +3345,7 @@
     "badges": [
       {
         "id": 2,
-        "name": "bonus",
+        "type": "bonus",
         "text": "+200 бонусов"
       }
     ],
@@ -5505,7 +5505,7 @@
     "badges": [
       {
         "id": 2,
-        "name": "bonus",
+        "type": "bonus",
         "text": "+200 бонусов"
       }
     ],
@@ -5649,7 +5649,7 @@
     "badges": [
       {
         "id": 2,
-        "name": "bonus",
+        "type": "bonus",
         "text": "+200 бонусов"
       }
     ],
@@ -6443,7 +6443,7 @@
     "badges": [
       {
         "id": 2,
-        "name": "bonus",
+        "type": "bonus",
         "text": "+200 бонусов"
       }
     ],
@@ -6863,7 +6863,7 @@
     "badges": [
       {
         "id": 2,
-        "name": "bonus",
+        "type": "bonus",
         "text": "+200 бонусов"
       }
     ],
@@ -8262,7 +8262,7 @@
     "badges": [
       {
         "id": 2,
-        "name": "bonus",
+        "type": "bonus",
         "text": "+200 бонусов"
       }
     ],

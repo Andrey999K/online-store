@@ -8,7 +8,7 @@ import { ProductsCart } from "../../types";
 import { clearCart, getCart } from "../../store/cart.slicer.ts";
 
 export const Cart: React.FC = () => {
-  let productsCart = useAppSelector(getCart());
+  const productsCart = useAppSelector(getCart());
   const productsCount = productsCart.length;
   const dispatch = useAppDispatch();
   const pricesSum = (productsList: ProductsCart) => {

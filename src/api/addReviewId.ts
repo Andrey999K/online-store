@@ -1,4 +1,5 @@
 import { Product } from "../types";
+// @ts-ignore
 import fs from "fs";
 
 let parsedData: Array<Product> | null;

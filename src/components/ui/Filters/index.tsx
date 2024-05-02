@@ -89,7 +89,7 @@ export const Filters: React.FC<FiltersProps> = ({ filtration, products }) => {
       filteredProducts = filteredProducts.filter(product => {
         if (product.badges.length > 0) {
           for (let i = 0; i < product.badges.length; i++) {
-            if (statusesMass.includes(product.badges[i].name)) return product;
+            if (statusesMass.includes(product.badges[i].type)) return product;
           }
         }
         return false;
