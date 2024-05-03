@@ -12,9 +12,7 @@ function App() {
     dispatch(setCart());
     dispatch(setFavorites());
   }, []);
-  return (
-    <AppRouter />
-  );
+  return <AppRouter />;
 }
 
 export default App;

@@ -31,6 +31,7 @@ export const ProductPage = () => {
   const reviewOnPage = 5;
   let reviews: Array<Review> = [];
   if (product) reviews = product.reviews;
+  const paginationShow = Math.floor(reviews.length / reviewOnPage) > 0;
 
   const sortReviewsOptions = [
     { field: "rating", text: "По рейтингу" },
@@ -121,14 +122,16 @@ export const ProductPage = () => {
                   items={sortReviewsOptions}
                 />
               </div>
-              <div className="hidden md:block">
-                <Pagination
-                  pageSize={reviewOnPage}
-                  onPageChange={handlePageReviewChange}
-                  currentPage={currentPageReview}
-                  itemsCount={reviews.length}
-                />
-              </div>
+              {paginationShow && (
+                <div className="hidden md:block">
+                  <Pagination
+                    pageSize={reviewOnPage}
+                    onPageChange={handlePageReviewChange}
+                    currentPage={currentPageReview}
+                    itemsCount={reviews.length}
+                  />
+                </div>
+              )}
             </div>
             <ul className="flex flex-col gap-8 items-center">
               {reviewsCrop.map(review => (
@@ -137,14 +140,16 @@ export const ProductPage = () => {
                 </li>
               ))}
             </ul>
-            <div className="flex justify-center md:justify-start">
-              <Pagination
-                pageSize={reviewOnPage}
-                onPageChange={handlePageReviewChange}
-                currentPage={currentPageReview}
-                itemsCount={reviews.length}
-              />
-            </div>
+            {paginationShow && (
+              <div className="flex justify-center md:justify-start">
+                <Pagination
+                  pageSize={reviewOnPage}
+                  onPageChange={handlePageReviewChange}
+                  currentPage={currentPageReview}
+                  itemsCount={reviews.length}
+                />
+              </div>
+            )}
           </div>
         </div>
       );
