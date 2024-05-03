@@ -13,13 +13,13 @@ interface SelectionBlockProps {
 
 interface CheckboxProps extends SelectionBlockProps {
   selectedItems: Array<string>;
-  onChange: (value: Array<string>) => void;
+  onChange: (_value: Array<string>) => void;
   type: "checkbox";
 }
 
 interface RadioProps extends SelectionBlockProps {
   selectedItems: string;
-  onChange: (value: string) => void;
+  onChange: (_value: string) => void;
   type: "radio";
 }
 

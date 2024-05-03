@@ -3,7 +3,7 @@ import { Icon } from "../Icon";
 
 interface ViewSwitchProps {
   grid: boolean;
-  onClick: (grid: boolean) => void;
+  onClick: (_grid: boolean) => void;
 }
 
 const InnerViewSwitch: React.FC<ViewSwitchProps> = ({ grid, onClick }) => {

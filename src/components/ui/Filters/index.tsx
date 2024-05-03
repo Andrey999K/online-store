@@ -5,7 +5,7 @@ import { SelectionBlock } from "../../common/SelectionBlock";
 import { InputChangeEvent, PricesRange, Products } from "../../../types";
 
 interface FiltersProps {
-  filtration: (products: Products) => void;
+  filtration: (_products: Products) => void;
   products: Products;
 }
 

@@ -2,7 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 
 interface InputProps {
   value: string | number;
-  onBlur: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (_event: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
 

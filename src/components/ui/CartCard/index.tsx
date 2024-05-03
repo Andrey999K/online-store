@@ -10,7 +10,7 @@ import { updateCart } from "../../../store/cart.slicer.ts";
 
 interface CartCardProps {
   product: ProductCart;
-  onDelete: (product: Product) => void;
+  onDelete: (_product: Product) => void;
 }
 
 const InnerCartCard: React.FC<CartCardProps> = ({ product, onDelete }) => {

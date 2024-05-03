@@ -7,8 +7,8 @@ interface RangeDoubleProps {
   STEP?: number;
   currentValues: [number, number];
   rtl?: boolean;
-  onChange: (value: [number, number]) => void;
-  onFinalChange: (value: { min: number; max: number }) => void;
+  onChange: (_value: [number, number]) => void;
+  onFinalChange: (_value: { min: number; max: number }) => void;
 }
 
 export const RangeDouble: React.FC<RangeDoubleProps> = ({

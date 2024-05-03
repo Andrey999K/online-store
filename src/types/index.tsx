@@ -43,7 +43,7 @@ export type ProductsCart = Array<ProductCart>;
 
 export type SortOption = { iter: string; order: "asc" | "desc" };
 
-export type SetState<T> = (value: ((prevState: T) => T) | T) => void;
+export type SetState<T> = (_value: ((_prevState: T) => T) | T) => void;
 
 export type Products = Array<Product>;
 

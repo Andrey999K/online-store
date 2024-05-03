@@ -5,7 +5,7 @@ interface CheckboxProps {
   label: string;
   value: string;
   checked: boolean;
-  onChange: (event: InputChangeEvent) => void;
+  onChange: (_event: InputChangeEvent) => void;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({

@@ -4,7 +4,7 @@ import React from "react";
 interface SearchProps {
   search: string;
   placeholder?: string;
-  onSearchItem: (value: string) => void;
+  onSearchItem: (_value: string) => void;
 }
 
 export const Search: React.FC<SearchProps> = ({

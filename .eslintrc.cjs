@@ -9,7 +9,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:import/react"
   ],
-  ignorePatterns: ["dist", ".eslintrc.cjs", "node_modules", "build"],
+  ignorePatterns: ["dist", ".eslintrc.cjs", "node_modules", "build", "src/api"],
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   settings: {
     react: { version: "18.2" },
@@ -24,10 +24,11 @@ module.exports = {
     "semi": ["error", "always"],
     "space-before-function-paren": "off",
     "quotes": ["warn", "double", { allowTemplateLiterals: true }],
-    "no-unused-vars": "warn",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "multiline-ternary": "off",
     "react-refresh/only-export-components": "off",
     "react-hooks/exhaustive-deps": "off",
-    "import/no-unresolved": "error"
+    "import/no-unresolved": "error",
+    "react/prop-types": "off"
   }
 };

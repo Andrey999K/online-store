@@ -6,7 +6,7 @@ interface Radio {
   label: string;
   value: string | number;
   checked: boolean;
-  onChange: (event: InputChangeEvent) => void;
+  onChange: (_event: InputChangeEvent) => void;
 }
 
 export const Radio: React.FC<Radio> = ({
