@@ -1,13 +1,15 @@
 import { Card } from "../Card";
 import { Products } from "../../../types";
-import React from "react";
+import React, { useContext } from "react";
+import { GridContext } from "../../../pages/Catalog";
 
 interface ProductListProps {
   products: Products;
-  grid: boolean;
 }
 
-export const ProductList: React.FC<ProductListProps> = ({ products, grid }) => {
+export const ProductList: React.FC<ProductListProps> = ({ products }) => {
+  const gridContext = useContext(GridContext);
+  const grid = gridContext ? gridContext.gridOn : true;
   return (
     <div
       className={
