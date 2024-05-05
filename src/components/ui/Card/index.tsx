@@ -6,7 +6,7 @@ import { Price } from "../Price";
 import "./card.scss";
 import { Link } from "react-router-dom";
 import { Rating } from "../Rating";
-import { Bookmark } from "../Bookmark";
+import { FavoritesButton } from "../Bookmark";
 import { Product } from "../../../types";
 
 interface CardProps {
@@ -51,7 +51,11 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
             {!!badges.length &&
               badges.map(badge => (
-                <BadgeProduct key={badge.id} text={badge.text} type={badge.type} />
+                <BadgeProduct
+                  key={badge.id}
+                  text={badge.text}
+                  type={badge.type}
+                />
               ))}
           </div>
           <div className="h-[150px] lg:h-[150px] w-auto rounded-2xl overflow-hidden">
@@ -113,7 +117,7 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
               </div>
               <div>
                 <div className="card__bookmark absolute right-4 top-4">
-                  <Bookmark product={product} />
+                  <FavoritesButton product={product} />
                 </div>
                 <div className="card__button-buy absolute right-4 lg:bottom-[56px]">
                   <ButtonBuy min={inGrid} product={product} />

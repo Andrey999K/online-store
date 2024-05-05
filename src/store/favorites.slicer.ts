@@ -25,7 +25,7 @@ export const addInFavorites = createAsyncThunk(
   }
 );
 
-export const deleteInFavorites = createAsyncThunk(
+export const deleteFromFavorites = createAsyncThunk(
   "favorites/delete",
   async (payload: Product) => {
     return payload;
@@ -79,9 +79,9 @@ const favoritesSlice = createSlice({
     );
     builder.addCase(addInFavorites.rejected, setRejected);
 
-    builder.addCase(deleteInFavorites.pending, setPending);
+    builder.addCase(deleteFromFavorites.pending, setPending);
     builder.addCase(
-      deleteInFavorites.fulfilled,
+      deleteFromFavorites.fulfilled,
       (state: FavoritesState, { payload }) => {
         const newState = state.entity.filter(
           product => product.id !== payload.id
@@ -90,7 +90,7 @@ const favoritesSlice = createSlice({
         updateFavoritesInLocalStorage(newState);
       }
     );
-    builder.addCase(deleteInFavorites.rejected, setRejected);
+    builder.addCase(deleteFromFavorites.rejected, setRejected);
 
     builder.addCase(clearFavorites.pending, setPending);
     builder.addCase(clearFavorites.fulfilled, (state: FavoritesState) => {

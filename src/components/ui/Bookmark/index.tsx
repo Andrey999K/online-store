@@ -4,7 +4,7 @@ import { Product } from "../../../types";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks.ts";
 import {
   addInFavorites,
-  deleteInFavorites,
+  deleteFromFavorites,
   getFavorites
 } from "../../../store/favorites.slicer.ts";
 
@@ -12,14 +12,14 @@ interface BookmarkProps {
   product: Product;
 }
 
-export const Bookmark: React.FC<BookmarkProps> = ({ product }) => {
+export const FavoritesButton: React.FC<BookmarkProps> = ({ product }) => {
   const massFavorites = useAppSelector(getFavorites());
   const status = massFavorites.some(favorite => favorite.id === product.id);
   const dispatch = useAppDispatch();
   const handleClick: MouseEventHandler<HTMLButtonElement> = e => {
     e.preventDefault();
     status
-      ? dispatch(deleteInFavorites(product))
+      ? dispatch(deleteFromFavorites(product))
       : dispatch(addInFavorites(product));
   };
   return (
