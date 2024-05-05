@@ -8,13 +8,13 @@ import { Link } from "react-router-dom";
 import { Rating } from "../Rating";
 import { FavoritesButton } from "../Bookmark";
 import { Product } from "../../../types";
+import { useGrid } from "../../../hooks/useGrid.ts";
 
 interface CardProps {
   product: Product;
-  inGrid?: boolean;
 }
 
-const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
+const InnerCard: React.FC<CardProps> = ({ product }) => {
   const {
     id,
     name,
@@ -25,6 +25,7 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
     reviews,
     ratingProduct: rating
   } = product;
+  const grid = useGrid();
   const reviewsNumber = reviews.length;
   const handlerLoadImageError = (
     e: React.SyntheticEvent<HTMLImageElement, Event>
@@ -36,7 +37,7 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
   return (
     <div
       className={`self-start w-full hover:shadow-2xl duration-300 z-10 ${
-        inGrid ? "xl:max-w-[25%] md:max-w-[33%]" : "md:max-w-full xl:max-w-full"
+        grid ? "xl:max-w-[25%] md:max-w-[33%]" : "md:max-w-full xl:max-w-full"
       }`}
     >
       <Link
@@ -45,7 +46,7 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
       >
         <div
           className={`lg:min-w-[200px] relative pt-8${
-            inGrid ? "" : " min-w-[200px]"
+            grid ? "" : " min-w-[200px]"
           }`}
         >
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
@@ -120,7 +121,7 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
                   <FavoritesButton product={product} />
                 </div>
                 <div className="card__button-buy absolute right-4 lg:bottom-[56px]">
-                  <ButtonBuy min={inGrid} product={product} />
+                  <ButtonBuy product={product} />
                 </div>
               </div>
             </div>

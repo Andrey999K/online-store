@@ -1,15 +1,14 @@
 import { Card } from "../Card";
 import { Products } from "../../../types";
-import React, { useContext } from "react";
-import { GridContext } from "../../../pages/Catalog";
+import React from "react";
+import { useGrid } from "../../../hooks/useGrid.ts";
 
 interface ProductListProps {
   products: Products;
 }
 
 export const ProductList: React.FC<ProductListProps> = ({ products }) => {
-  const gridContext = useContext(GridContext);
-  const grid = gridContext ? gridContext.gridOn : true;
+  const grid = useGrid();
   return (
     <div
       className={
@@ -18,7 +17,7 @@ export const ProductList: React.FC<ProductListProps> = ({ products }) => {
       }
     >
       {products.map(product => (
-        <Card key={product.id} product={product} inGrid={grid} />
+        <Card key={product.id} product={product} />
       ))}
     </div>
   );
