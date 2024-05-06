@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const notification = (
+export const notification = (
   type: "info" | "error" | "success" | "warning",
   text: string,
   duration?: number
@@ -16,5 +16,3 @@ const notification = (
     theme: "light"
   });
 };
-
-export default notification;

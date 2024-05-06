@@ -6,8 +6,6 @@ declare global {
   }
 }
 
-const isProd = (): boolean => {
+export const isProd = (): boolean => {
   return import.meta.env.MODE === "production";
 };
-
-export default isProd;

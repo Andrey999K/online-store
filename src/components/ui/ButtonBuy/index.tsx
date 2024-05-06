@@ -3,7 +3,7 @@ import { Product } from "../../../types";
 import React, { MouseEventHandler } from "react";
 import { useAppDispatch } from "../../../store/hooks.ts";
 import { addInCart } from "../../../store/cart.slicer.ts";
-import notification from "../../../utils/notification.ts";
+import { notification } from "../../../utils/notification.ts";
 import { useGrid } from "../../../hooks/useGrid.ts";
 
 interface ButtonBuyProps {

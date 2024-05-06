@@ -3,7 +3,7 @@ import { Header } from "../../components/ui/Header";
 import { ToastContainer } from "react-toastify";
 import { Footer } from "../../components/ui/Footer";
 
-const MainLayout = () => {
+export const MainLayout = () => {
   return (
     <div className="App flex flex-col justify-between">
       {/* <Header search={search} onSearch={handleSearchProduct}/> */}
@@ -16,5 +16,3 @@ const MainLayout = () => {
     </div>
   );
 };
-
-export default MainLayout;
