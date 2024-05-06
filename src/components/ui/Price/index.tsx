@@ -1,5 +1,5 @@
 import React from "react";
-import "./price.scss";
+import { useGrid } from "../../../hooks/useGrid.ts";
 
 interface PriceProps {
   price: number;
@@ -14,15 +14,17 @@ const InnerPrice: React.FC<PriceProps> = ({
   discount,
   hover
 }) => {
+  const grid = useGrid();
   return (
     <div
       className={
-        (hover ? "price " : "") + "text-2xl flex flex-col gap-1 leading-none"
+        (hover ? "group/price " : "") +
+        "text-2xl flex flex-col gap-1 leading-none"
       }
     >
       {!!discount && (
         <div className="flex gap-2 items-center">
-          <span className="price__old line-through text-sm text-gray-400">
+          <span className="text-sm line-through text-gray-400 group-hover/price:text-[#5EB3FF]">
             {oldPrice}
           </span>
           <div className="text-sm py-1 px-2 text-white bg-red-500 rounded-full whitespace-nowrap">
@@ -37,8 +39,15 @@ const InnerPrice: React.FC<PriceProps> = ({
           </div>
         </div>
       )}
-      <div className="price__new inline">
-        {price} <span className="text-gray-400">₽</span>
+      <div
+        className={`${
+          grid ? "" : "text-[26px]"
+        } inline group-hover/price:text-[#5EB3FF]`}
+      >
+        {price}{" "}
+        <span className="text-gray-400 group-hover/price:text-[#5EB3FF]">
+          ₽
+        </span>
       </div>
     </div>
   );

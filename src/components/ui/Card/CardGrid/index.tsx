@@ -1,5 +1,4 @@
 import React from "react";
-import "../card.scss";
 import { Link } from "react-router-dom";
 import { CardProps } from "../../../../types";
 import { BadgeProduct } from "../../../common/Badge";
@@ -11,7 +10,6 @@ import { ButtonBuy } from "../../ButtonBuy";
 import { useCard } from "../../../../hooks/useCard.ts";
 
 const InnerCardGrid: React.FC<CardProps> = ({ product }) => {
-  console.log("CardGrid");
   const {
     id,
     name,
@@ -27,7 +25,7 @@ const InnerCardGrid: React.FC<CardProps> = ({ product }) => {
     <div className="self-start w-full hover:shadow-2xl duration-300 z-10 xl:max-w-[25%] md:max-w-[33%]">
       <Link
         to={`/product/${id}`}
-        className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3 card"
+        className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3"
       >
         <div className="lg:min-w-[200px] relative pt-8">
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
@@ -51,7 +49,7 @@ const InnerCardGrid: React.FC<CardProps> = ({ product }) => {
             )}
           </div>
         </div>
-        <div className="card__info gap-1 h-full flex flex-col">
+        <div className="gap-1 h-full flex flex-col">
           <div className="flex items-center gap-3">
             {!!reviewsNumber && (
               <>
@@ -66,30 +64,14 @@ const InnerCardGrid: React.FC<CardProps> = ({ product }) => {
               </>
             )}
           </div>
-          <div className="card__info-name line-clamp-3 hover:text-sky-500">
-            {name}
-          </div>
-          <div className="card__info-description hidden text-sm">
-            Экран: 16; 1920х1200; IPS;
-            <br />
-            Процессор: Intel Core i7 12700H 2.3 ГГц (4.7 ГГц, в режиме Turbo)
-            <br />
-            Графический процессор: Intel Iris Xe graphics ;<br />
-            Оперативная память 16 ГБ, LPDDR4x;
-            <br />
-            Диск: SSD 512 ГБ;
-            <br />
-            Операционная система: Windows 11 Home;
-            <br />
-            Клавиатура: с русскими буквами
-          </div>
+          <div className="line-clamp-3 hover:text-sky-500">{name}</div>
           <div
             className={
               "mt-auto flex flex-col gap-1" + (discount ? "" : " pt-4")
             }
           >
-            <div className="card__info-bottom flex justify-between">
-              <div className="card__info-price">
+            <div className="flex justify-between">
+              <div>
                 <Price
                   price={price}
                   oldPrice={oldPrice}
@@ -98,10 +80,10 @@ const InnerCardGrid: React.FC<CardProps> = ({ product }) => {
                 />
               </div>
               <div>
-                <div className="card__bookmark absolute right-4 top-4">
+                <div className="absolute right-4 top-4">
                   <FavoritesButton product={product} />
                 </div>
-                <div className="card__button-buy absolute right-4 lg:bottom-[56px]">
+                <div className="absolute right-4 lg:bottom-[56px]">
                   <ButtonBuy product={product} />
                 </div>
               </div>
