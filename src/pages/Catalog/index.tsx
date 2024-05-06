@@ -63,8 +63,16 @@ export const Catalog: React.FC = () => {
     setCurrentPage(1);
   }, []);
 
+  const loadingStart = () => {
+    setLoading(true);
+    timer.current = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
   const handleEditView = () => {
     setGridOn(prevState => !prevState);
+    loadingStart();
   };
 
   const handleFiltration = (value: Product[]) => {
@@ -127,10 +135,7 @@ export const Catalog: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setLoading(true);
-    timer.current = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+    loadingStart();
   }, [gridOn]);
 
   // const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
