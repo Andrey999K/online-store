@@ -1,20 +1,17 @@
 import React from "react";
-import { BadgeProduct } from "../../common/Badge";
-import { ButtonBuy } from "../ButtonBuy";
-import { Icon } from "../Icon";
-import { Price } from "../Price";
-import "./card.scss";
+import "../card.scss";
 import { Link } from "react-router-dom";
-import { Rating } from "../Rating";
-import { FavoritesButton } from "../Bookmark";
-import { Product } from "../../../types";
-import { useGrid } from "../../../hooks/useGrid.ts";
+import { CardProps } from "../../../../types";
+import { BadgeProduct } from "../../../common/Badge";
+import { Rating } from "../../Rating";
+import { Icon } from "../../Icon";
+import { Price } from "../../Price";
+import { FavoritesButton } from "../../Bookmark";
+import { ButtonBuy } from "../../ButtonBuy";
+import { useCard } from "../../../../hooks/useCard.ts";
 
-interface CardProps {
-  product: Product;
-}
-
-const InnerCard: React.FC<CardProps> = ({ product }) => {
+const InnerCardGrid: React.FC<CardProps> = ({ product }) => {
+  console.log("CardGrid");
   const {
     id,
     name,
@@ -22,33 +19,17 @@ const InnerCard: React.FC<CardProps> = ({ product }) => {
     discount,
     oldPrice,
     badges,
-    reviews,
-    ratingProduct: rating
-  } = product;
-  const grid = useGrid();
-  const reviewsNumber = reviews.length;
-  const handlerLoadImageError = (
-    e: React.SyntheticEvent<HTMLImageElement, Event>
-  ) => {
-    const target = e.target as HTMLImageElement;
-    target.classList.add("opacity-0");
-    target.parentElement?.classList.add("bg-black/5");
-  };
+    rating,
+    reviewsNumber,
+    handlerLoadImageError
+  } = useCard(product);
   return (
-    <div
-      className={`self-start w-full hover:shadow-2xl duration-300 z-10 ${
-        grid ? "xl:max-w-[25%] md:max-w-[33%]" : "md:max-w-full xl:max-w-full"
-      }`}
-    >
+    <div className="self-start w-full hover:shadow-2xl duration-300 z-10 xl:max-w-[25%] md:max-w-[33%]">
       <Link
         to={`/product/${id}`}
         className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3 card"
       >
-        <div
-          className={`lg:min-w-[200px] relative pt-8${
-            grid ? "" : " min-w-[200px]"
-          }`}
-        >
+        <div className="lg:min-w-[200px] relative pt-8">
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
             {!!badges.length &&
               badges.map(badge => (
@@ -146,4 +127,4 @@ const InnerCard: React.FC<CardProps> = ({ product }) => {
   );
 };
 
-export const Card = React.memo(InnerCard);
+export const CardGrid = React.memo(InnerCardGrid);

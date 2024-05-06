@@ -52,3 +52,7 @@ export type InitialState<T> = {
   isLoading: boolean;
   error: boolean | null;
 };
+
+export interface CardProps {
+  product: Product;
+}
