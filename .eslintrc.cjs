@@ -29,6 +29,7 @@ module.exports = {
     "react-refresh/only-export-components": "off",
     "react-hooks/exhaustive-deps": "off",
     "import/no-unresolved": "error",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 };

@@ -1,20 +1,15 @@
 import React from "react";
-import { BadgeProduct } from "../../common/Badge";
-import { ButtonBuy } from "../ButtonBuy";
-import { Icon } from "../Icon";
-import { Price } from "../Price";
-import "./card.scss";
+import { BadgeProduct } from "../../../common/Badge";
+import { ButtonBuy } from "../../ButtonBuy";
+import { Icon } from "../../Icon";
+import { Price } from "../../Price";
 import { Link } from "react-router-dom";
-import { Rating } from "../Rating";
-import { Bookmark } from "../Bookmark";
-import { Product } from "../../../types";
+import { Rating } from "../../Rating";
+import { FavoritesButton } from "../../Bookmark";
+import { CardProps } from "../../../../types";
+import { useCard } from "../../../../hooks/useCard.ts";
 
-interface CardProps {
-  product: Product;
-  inGrid?: boolean;
-}
-
-const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
+const InnerCardRow: React.FC<CardProps> = ({ product }) => {
   const {
     id,
     name,
@@ -22,39 +17,28 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
     discount,
     oldPrice,
     badges,
-    reviews,
-    ratingProduct: rating
-  } = product;
-  const reviewsNumber = reviews.length;
-  const handlerLoadImageError = (
-    e: React.SyntheticEvent<HTMLImageElement, Event>
-  ) => {
-    const target = e.target as HTMLImageElement;
-    target.classList.add("opacity-0");
-    target.parentElement?.classList.add("bg-black/5");
-  };
+    rating,
+    reviewsNumber,
+    handlerLoadImageError
+  } = useCard(product);
   return (
-    <div
-      className={`self-start w-full hover:shadow-2xl duration-300 z-10 ${
-        inGrid ? "xl:max-w-[25%] md:max-w-[33%]" : "md:max-w-full xl:max-w-full"
-      }`}
-    >
+    <div className="self-start w-full hover:shadow-2xl duration-300 z-10 md:max-w-full xl:max-w-full">
       <Link
         to={`/product/${id}`}
-        className="group relative pb-4 pt-2 px-4 rounded flex flex-col gap-3 card"
+        className="group relative rounded flex gap-3 max-w-full w-full flex-row p-6"
       >
-        <div
-          className={`lg:min-w-[200px] relative pt-8${
-            inGrid ? "" : " min-w-[200px]"
-          }`}
-        >
+        <div className="lg:min-w-[200px] relative pt-8 min-w-[200px]">
           <div className="flex gap-2 flex-wrap pr-5 absolute top-0">
             {!!badges.length &&
               badges.map(badge => (
-                <BadgeProduct key={badge.id} text={badge.text} type={badge.type} />
+                <BadgeProduct
+                  key={badge.id}
+                  text={badge.text}
+                  type={badge.type}
+                />
               ))}
           </div>
-          <div className="h-[150px] lg:h-[150px] w-auto rounded-2xl overflow-hidden">
+          <div className="w-auto rounded-2xl overflow-hidden">
             {id && (
               <img
                 className="w-full h-full object-contain mx-auto"
@@ -65,7 +49,7 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
             )}
           </div>
         </div>
-        <div className="card__info gap-1 h-full flex flex-col">
+        <div className="flex flex-col w-full gap-1 h-full">
           <div className="flex items-center gap-3">
             {!!reviewsNumber && (
               <>
@@ -80,10 +64,10 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
               </>
             )}
           </div>
-          <div className="card__info-name line-clamp-3 hover:text-sky-500">
+          <div className="order-[-1] line-clamp-3 hover:text-sky-500 max-w-[400px]">
             {name}
           </div>
-          <div className="card__info-description hidden text-sm">
+          <div className="text-sm max-w-[400px]">
             Экран: 16; 1920х1200; IPS;
             <br />
             Процессор: Intel Core i7 12700H 2.3 ГГц (4.7 ГГц, в режиме Turbo)
@@ -102,8 +86,8 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
               "mt-auto flex flex-col gap-1" + (discount ? "" : " pt-4")
             }
           >
-            <div className="card__info-bottom flex justify-between">
-              <div className="card__info-price">
+            <div className="absolute bottom-6 right-6 flex justify-between">
+              <div className="relative bottom-12 order-[-1]">
                 <Price
                   price={price}
                   oldPrice={oldPrice}
@@ -112,11 +96,11 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
                 />
               </div>
               <div>
-                <div className="card__bookmark absolute right-4 top-4">
-                  <Bookmark product={product} />
+                <div className="top-[-260px] absolute right-4">
+                  <FavoritesButton product={product} />
                 </div>
-                <div className="card__button-buy absolute right-4 lg:bottom-[56px]">
-                  <ButtonBuy min={inGrid} product={product} />
+                <div className="bottom-0 right-0 absolute">
+                  <ButtonBuy product={product} />
                 </div>
               </div>
             </div>
@@ -141,4 +125,4 @@ const InnerCard: React.FC<CardProps> = ({ product, inGrid = false }) => {
   );
 };
 
-export const Card = React.memo(InnerCard);
+export const CardRow = React.memo(InnerCardRow);

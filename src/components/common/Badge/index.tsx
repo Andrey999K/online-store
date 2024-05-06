@@ -6,7 +6,7 @@ interface BadgeProps extends Omit<Badge, "id"> {
 
 export const BadgeProduct = ({ text, type, color }: BadgeProps) => {
   let colorBadge = color ? `bg-[${color}]` : "bg-sky-500";
-  if (type === "super") colorBadge = "bg-green-500";
+  colorBadge = type === "super" ? "bg-green-500" : colorBadge;
   return (
     <div
       className={

@@ -1,13 +1,24 @@
-import { Card } from "../Card";
+import { CardRow } from "../Card/CardRow";
 import { Products } from "../../../types";
 import React from "react";
+import { useGrid } from "../../../hooks/useGrid.ts";
+import { CardGrid } from "../Card/CardGrid";
 
 interface ProductListProps {
   products: Products;
-  grid: boolean;
 }
 
-export const ProductList: React.FC<ProductListProps> = ({ products, grid }) => {
+export const ProductList: React.FC<ProductListProps> = ({ products }) => {
+  const grid = useGrid();
+  const renderList = () => {
+    return products.map(product => {
+      return grid ? (
+        <CardGrid key={product.id} product={product} />
+      ) : (
+        <CardRow key={product.id} product={product} />
+      );
+    });
+  };
   return (
     <div
       className={
@@ -15,9 +26,7 @@ export const ProductList: React.FC<ProductListProps> = ({ products, grid }) => {
         (grid ? " items-start" : " list-layout flex-col")
       }
     >
-      {products.map(product => (
-        <Card key={product.id} product={product} inGrid={grid} />
-      ))}
+      {renderList()}
     </div>
   );
 };

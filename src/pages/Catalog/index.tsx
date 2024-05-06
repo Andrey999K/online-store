@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from "react";
 import { SortOptions } from "../../components/ui/SortOptions";
 import { ViewSwitch } from "../../components/ui/ViewSwitch";
 import { Pagination } from "../../components/ui/Pagination";
@@ -13,6 +19,14 @@ import { Wrapper } from "../../components/common/Wrapper";
 import { Product, Products, SetState, SortOption } from "../../types";
 
 const INITIAL_PAGE = 1;
+
+interface GridContextType {
+  gridOn: boolean;
+}
+
+export const GridContext = createContext<GridContextType | undefined>(
+  undefined
+);
 
 export const Catalog: React.FC = () => {
   const [products, setProducts] = useState<Products>([]);
@@ -49,9 +63,16 @@ export const Catalog: React.FC = () => {
     setCurrentPage(1);
   }, []);
 
-  const handleEditView = (grid: boolean) => {
-    if (grid) setGridOn(false);
-    else setGridOn(true);
+  const loadingStart = () => {
+    setLoading(true);
+    timer.current = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
+  const handleEditView = () => {
+    setGridOn(prevState => !prevState);
+    loadingStart();
   };
 
   const handleFiltration = (value: Product[]) => {
@@ -59,11 +80,11 @@ export const Catalog: React.FC = () => {
     setCurrentPage(1);
   };
 
-  const showProductList = (productsList: Products, gridOn: boolean) => {
+  const showProductList = (productsList: Products) => {
     if (!products.length || loading) return <ScreenLoader />;
     return productsList.length ? (
       <div className="w-full lg:w-3/4 xl:w-4/5">
-        <ProductList products={productsList} grid={gridOn} />
+        <ProductList products={productsList} />
       </div>
     ) : (
       <h2 className="text-2xl text-center mx-auto mt-8">
@@ -114,10 +135,7 @@ export const Catalog: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setLoading(true);
-    timer.current = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+    loadingStart();
   }, [gridOn]);
 
   // const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
@@ -126,22 +144,42 @@ export const Catalog: React.FC = () => {
     : filteredProducts;
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
   return (
-    <div className="w-full flex">
-      <Wrapper>
-        {showFoundProductsCount()}
-        {!!productsCrop.length && (
-          <div className="w-full my-6 flex justify-center lg:justify-between">
-            <div className="hidden lg:block">
-              <SortOptions
-                items={sortOptions.current}
-                onSort={handleSort}
-                selectedSort={sortBy}
-              />
-            </div>
-            <div className="flex gap-5 items-center justify-between w-full lg:w-fit">
-              <div className="order-1 lg:order-none">
-                <ViewSwitch onClick={handleEditView} grid={gridOn} />
+    <GridContext.Provider value={{ gridOn }}>
+      <div className="w-full flex">
+        <Wrapper>
+          {showFoundProductsCount()}
+          {!!productsCrop.length && (
+            <div className="w-full my-6 flex justify-center lg:justify-between">
+              <div className="hidden lg:block">
+                <SortOptions
+                  items={sortOptions.current}
+                  onSort={handleSort}
+                  selectedSort={sortBy}
+                />
               </div>
+              <div className="flex gap-5 items-center justify-between w-full lg:w-fit">
+                <div className="order-1 lg:order-none">
+                  <ViewSwitch onClick={handleEditView} />
+                </div>
+                <Pagination
+                  itemsCount={sortedProducts.length}
+                  pageSize={pageSize}
+                  onPageChange={handlePageChange}
+                  currentPage={currentPage}
+                />
+              </div>
+            </div>
+          )}
+          <div className="flex justify-between mx-auto w-full h-full">
+            {showProductList(productsCrop)}
+            {!!products.length && (
+              <div className="ml-auto hidden lg:block w-1/4 xl:w-1/5">
+                <Filters filtration={handleFiltration} products={products} />
+              </div>
+            )}
+          </div>
+          {!!sortedProducts.length && (
+            <div className="w-full my-6 flex justify-center lg:justify-end">
               <Pagination
                 itemsCount={sortedProducts.length}
                 pageSize={pageSize}
@@ -149,27 +187,9 @@ export const Catalog: React.FC = () => {
                 currentPage={currentPage}
               />
             </div>
-          </div>
-        )}
-        <div className="flex justify-between mx-auto w-full h-full">
-          {showProductList(productsCrop, gridOn)}
-          {!!products.length && (
-            <div className="ml-auto hidden lg:block w-1/4 xl:w-1/5">
-              <Filters filtration={handleFiltration} products={products} />
-            </div>
           )}
-        </div>
-        {!!sortedProducts.length && (
-          <div className="w-full my-6 flex justify-center lg:justify-end">
-            <Pagination
-              itemsCount={sortedProducts.length}
-              pageSize={pageSize}
-              onPageChange={handlePageChange}
-              currentPage={currentPage}
-            />
-          </div>
-        )}
-      </Wrapper>
-    </div>
+        </Wrapper>
+      </div>
+    </GridContext.Provider>
   );
 };

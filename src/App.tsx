@@ -4,9 +4,9 @@ import { useAppDispatch } from "./store/hooks.ts";
 import { useEffect } from "react";
 import { setCart } from "./store/cart.slicer.ts";
 import { setFavorites } from "./store/favorites.slicer.ts";
-import AppRouter from "./components/ui/AppRouter";
+import { AppRouter } from "./components/ui/AppRouter";
 
-function App() {
+export function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(setCart());
@@ -14,5 +14,3 @@ function App() {
   }, []);
   return <AppRouter />;
 }
-
-export default App;

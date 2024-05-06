@@ -17,7 +17,7 @@ export const Wishlist: React.FC = () => {
         <>
           <h2 className="text-3xl w-full">Избранное</h2>
           <div className="w-full h-full flex justify-between">
-            <ProductList grid={true} products={listProducts} />
+            <ProductList products={listProducts} />
             <div className="p-6 max-w-[260px] w-full bg-gray-100 flex flex-col gap-4">
               <button
                 onClick={handleClearData}

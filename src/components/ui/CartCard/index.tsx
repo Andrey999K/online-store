@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import { Price } from "../Price";
-import { Bookmark } from "../Bookmark";
+import { FavoritesButton } from "../Bookmark";
 import { Icon } from "../Icon";
 import { Input } from "../Input";
 import { Link } from "react-router-dom";
@@ -72,7 +72,7 @@ const InnerCartCard: React.FC<CartCardProps> = ({ product, onDelete }) => {
       <div className="flex gap-3">
         <Price price={price} oldPrice={oldPrice} discount={discount} />
         <div className="flex flex-col gap-2">
-          <Bookmark product={product} />
+          <FavoritesButton product={product} />
           <button
             onClick={() => onDelete(product)}
             className="cursor-pointer text-gray-400 hover:text-sky-500"

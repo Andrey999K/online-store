@@ -10,7 +10,7 @@ import { Pagination } from "../../components/ui/Pagination";
 import { SortOptions } from "../../components/ui/SortOptions";
 import { orderBy } from "lodash";
 import { Wrapper } from "../../components/common/Wrapper";
-import { Bookmark } from "../../components/ui/Bookmark";
+import { FavoritesButton } from "../../components/ui/Bookmark";
 import { Product, Review, SetState, SortOption } from "../../types";
 
 type ParamProductId = {
@@ -104,7 +104,7 @@ export const ProductPage = () => {
                     oldPrice={product.oldPrice}
                     discount={product.discount}
                   />
-                  <Bookmark product={product} />
+                  <FavoritesButton product={product} />
                 </div>
                 <div className="sm:max-w-xs">
                   <ButtonBuy product={product} />
