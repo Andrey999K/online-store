@@ -1,16 +1,17 @@
 import React from "react";
 import { Icon } from "../Icon";
+import { useGrid } from "../../../hooks/useGrid.ts";
 
 interface ViewSwitchProps {
-  grid: boolean;
-  onClick: (_grid: boolean) => void;
+  onClick: () => void;
 }
 
-const InnerViewSwitch: React.FC<ViewSwitchProps> = ({ grid, onClick }) => {
+const InnerViewSwitch: React.FC<ViewSwitchProps> = ({ onClick }) => {
+  const grid = useGrid();
   return (
     <div className="flex gap-5">
       <button
-        onClick={() => onClick(grid)}
+        onClick={onClick}
         className={
           (grid ? "text-black" : "text-gray-400") + " hover:text-sky-500"
         }
@@ -18,7 +19,7 @@ const InnerViewSwitch: React.FC<ViewSwitchProps> = ({ grid, onClick }) => {
         <Icon name="grid" className="w-[18px] h-[18px]" />
       </button>
       <button
-        onClick={() => onClick(grid)}
+        onClick={onClick}
         className={
           (grid ? "text-gray-400" : "text-black") + " hover:text-sky-500"
         }

@@ -63,9 +63,8 @@ export const Catalog: React.FC = () => {
     setCurrentPage(1);
   }, []);
 
-  const handleEditView = (grid: boolean) => {
-    if (grid) setGridOn(false);
-    else setGridOn(true);
+  const handleEditView = () => {
+    setGridOn(prevState => !prevState);
   };
 
   const handleFiltration = (value: Product[]) => {
@@ -155,7 +154,7 @@ export const Catalog: React.FC = () => {
               </div>
               <div className="flex gap-5 items-center justify-between w-full lg:w-fit">
                 <div className="order-1 lg:order-none">
-                  <ViewSwitch onClick={handleEditView} grid={gridOn} />
+                  <ViewSwitch onClick={handleEditView} />
                 </div>
                 <Pagination
                   itemsCount={sortedProducts.length}
