@@ -29,10 +29,10 @@ const InnerPrice: React.FC<PriceProps> = ({
           </span>
           <div className="text-sm py-1 px-2 text-white bg-red-500 rounded-full whitespace-nowrap">
             <span
-              className={(hover ? "group-hover:hidden" : "") + " block"}
+              className={(hover ? "group-hover/price:hidden" : "") + " block"}
             >{`- ${discount} %`}</span>
             {!!hover && (
-              <span className="hidden group-hover:block">{`- ${
+              <span className="hidden group-hover/price:block">{`- ${
                 oldPrice - price
               } ₽`}</span>
             )}
