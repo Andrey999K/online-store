@@ -48,7 +48,7 @@ export const Catalog: React.FC = () => {
     { field: "discount", text: "По скидке" },
     { field: "benefit", text: "По выгоде" }
   ]);
-  const [filteredProducts, setFiltersProducts] = useState<Products>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Products>([]);
   const timer = useRef<NodeJS.Timeout | null>(null);
 
   // const handleSearchProduct = (productName) => {
@@ -77,7 +77,7 @@ export const Catalog: React.FC = () => {
   };
 
   const handleFiltration = (value: Product[]) => {
-    setFiltersProducts(value);
+    setFilteredProducts(value);
     setCurrentPage(1);
   };
 
@@ -95,7 +95,7 @@ export const Catalog: React.FC = () => {
   };
 
   const showFoundProductsCount = () => {
-    if (products.length)
+    if (sortedProducts.length)
       return (
         <div className="w-full text-3xl mt-5">
           {`Найдено ${sortedProducts.length} ${productsWord(
@@ -106,6 +106,7 @@ export const Catalog: React.FC = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
     setTimeout(() => {
       api.catalog
         .fetchAll()
@@ -126,7 +127,7 @@ export const Catalog: React.FC = () => {
             };
           });
           setProducts(data);
-          setFiltersProducts(data);
+          setFilteredProducts(data);
           setLoading(false);
         })
         .catch(error => {
@@ -140,10 +141,12 @@ export const Catalog: React.FC = () => {
         clearInterval(timer.current);
       }
     };
-  }, []);
+  }, [currentPage]);
 
   useEffect(() => {
-    loadingStart();
+    if (!loading) {
+      loadingStart();
+    }
   }, [gridOn]);
 
   // const searchProducts = filteredProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
@@ -151,6 +154,10 @@ export const Catalog: React.FC = () => {
     ? orderBy(filteredProducts, [sortBy.iter], [sortBy.order])
     : filteredProducts;
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
+
+  // const { data } = useFetchPage(currentPage);
+  // console.log("test", data);
+  // fetchPage(sortBy, currentPage).then(res => console.log(res));
 
   return (
     <GridContext.Provider value={{ gridOn }}>
@@ -183,7 +190,7 @@ export const Catalog: React.FC = () => {
             {showProductList(productsCrop)}
             {!!products.length && (
               <div className="ml-auto hidden lg:block w-1/4 xl:w-1/5">
-                <Filters filtration={handleFiltration} products={products} />
+                <Filters result={handleFiltration} products={products} />
               </div>
             )}
           </div>

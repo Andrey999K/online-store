@@ -103,11 +103,12 @@ export const ProductPage = () => {
                     price={product.price}
                     oldPrice={product.oldPrice}
                     discount={product.discount}
+                    hover
                   />
                   <FavoritesButton product={product} />
                 </div>
                 <div className="sm:max-w-xs">
-                  <ButtonBuy product={product} />
+                  <ButtonBuy product={product} big />
                 </div>
               </div>
             </div>

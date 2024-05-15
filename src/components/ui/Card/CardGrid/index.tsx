@@ -76,7 +76,7 @@ const InnerCardGrid: React.FC<CardProps> = ({ product }) => {
                   price={price}
                   oldPrice={oldPrice}
                   discount={discount}
-                  hover={true}
+                  hover
                 />
               </div>
               <div>

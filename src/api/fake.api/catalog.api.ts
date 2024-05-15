@@ -1,5 +1,7 @@
 import axios from "axios";
-import { Product } from "@/types";
+import { Product, SortOption } from "@/types";
+import { useQuery, UseQueryResult } from "react-query";
+import { orderBy } from "lodash";
 
 const fetchAll = async (): Promise<Array<Product>> => {
   try {
@@ -9,6 +11,30 @@ const fetchAll = async (): Promise<Array<Product>> => {
     console.log(error);
     throw error;
   }
+};
+
+export const fetchPage = async (
+  products: Product[],
+  sortBy: SortOption,
+  numberPage: number
+): Promise<unknown> => {
+  const { data } = await axios.get(`${window.location.origin}/data.json`);
+  console.log("sortBy", sortBy);
+  console.log("numberPage", numberPage);
+  console.log(
+    sortBy ? orderBy(products, [sortBy.iter], [sortBy.order]) : products
+  );
+  // console.log(paginate(data, 12, numberPage));
+  return data;
+};
+
+export const useFetchPage = (
+  numberPage: number
+): UseQueryResult<Array<Product>, Error> => {
+  return useQuery({
+    queryKey: ["products"],
+    queryFn: () => fetchPage(numberPage)
+  });
 };
 
 const getById = async (productId: number | string): Promise<Product> => {
@@ -25,5 +51,6 @@ const getById = async (productId: number | string): Promise<Product> => {
 
 export default {
   fetchAll,
+  fetchPage,
   getById
 };

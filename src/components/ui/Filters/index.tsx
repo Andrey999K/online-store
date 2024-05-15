@@ -1,15 +1,16 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { RangeDouble } from "@/components/common/RangeDouble";
 import { Input } from "../Input";
 import { SelectionBlock } from "@/components/common/SelectionBlock";
 import { InputChangeEvent, PricesRange, Products } from "@/types";
+import { filtration } from "@/utils/filtration.ts";
 
 interface FiltersProps {
-  filtration: (_products: Products) => void;
   products: Products;
+  result: (_products: Products) => void;
 }
 
-export const Filters: React.FC<FiltersProps> = ({ filtration, products }) => {
+export const Filters: React.FC<FiltersProps> = ({ products, result }) => {
   const minPrice = () => {
     return products.reduce((min, product) => {
       return product.price < min ? product.price : min;
@@ -52,57 +53,21 @@ export const Filters: React.FC<FiltersProps> = ({ filtration, products }) => {
     setPrice({ min: value[0], max: value[1] });
   };
 
-  const handleFiltrationByStatus = useCallback(
-    (statusMass: Array<string>) => {
-      setStatuses(statusMass);
-      handleFiltration(price, statusMass);
-    },
-    [price]
-  );
+  const handleFiltrationByStatus = useCallback((statusMass: Array<string>) => {
+    setStatuses(statusMass);
+  }, []);
 
-  const handleFiltrationByDiscount = useCallback(
-    (discountValue: string) => {
-      setDiscount(discountValue);
-      handleFiltration(price, statuses, discountValue);
-    },
-    [price, statuses]
-  );
+  const handleFiltrationByDiscount = useCallback((discountValue: string) => {
+    setDiscount(discountValue);
+  }, []);
 
-  const handleFiltrationByRating = useCallback(
-    (ratingValue: string) => {
-      setRating(ratingValue);
-      handleFiltration(price, statuses, discount, ratingValue);
-    },
-    [price, statuses, discount]
-  );
-
-  const handleFiltration = (
-    prices = price,
-    statusesMass = statuses,
-    discountValue = discount,
-    ratingValue = rating
-  ) => {
-    let filteredProducts = products.filter(
-      product => product.price >= prices.min && product.price <= prices.max
-    );
-    if (statusesMass.length) {
-      filteredProducts = filteredProducts.filter(product => {
-        if (product.badges.length > 0) {
-          for (let i = 0; i < product.badges.length; i++) {
-            if (statusesMass.includes(product.badges[i].type)) return product;
-          }
-        }
-        return false;
-      });
-    }
-    filteredProducts = filteredProducts.filter(
-      product => product.discount >= Number(discountValue)
-    );
-    filteredProducts = filteredProducts.filter(
-      product => product.ratingProduct >= Number(ratingValue)
-    );
-    filtration(filteredProducts);
+  const handleFiltration = (prices: PricesRange = price) => {
+    result(filtration(products, prices, statuses, discount, rating));
   };
+
+  const handleFiltrationByRating = useCallback((ratingValue: string) => {
+    setRating(ratingValue);
+  }, []);
 
   const handleFinalEditPrice = useCallback(
     (prices: PricesRange) => {
@@ -111,10 +76,14 @@ export const Filters: React.FC<FiltersProps> = ({ filtration, products }) => {
       if (prices.min > pricesRange.max) prices.min = prices.max;
       if (prices.max < pricesRange.min) prices.max = prices.min;
       setPrice(prices);
-      handleFiltration(prices, statuses);
+      handleFiltration(prices);
     },
-    [pricesRange.min, pricesRange.max, statuses]
+    [pricesRange.min, pricesRange.max]
   );
+
+  useEffect(() => {
+    handleFiltration();
+  }, [statuses, discount, rating]);
 
   return (
     <div className="p-6 max-w-[300px] w-full bg-gray-100 flex flex-col gap-4">
