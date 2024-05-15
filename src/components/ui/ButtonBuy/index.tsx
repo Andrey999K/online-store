@@ -8,9 +8,10 @@ import { useGrid } from "@/hooks/useGrid.ts";
 
 interface ButtonBuyProps {
   product: Product;
+  big?: boolean;
 }
 
-export const ButtonBuy: React.FC<ButtonBuyProps> = ({ product }) => {
+export const ButtonBuy: React.FC<ButtonBuyProps> = ({ product, big }) => {
   const dispatch = useAppDispatch();
   const grid = useGrid();
   const handleClick: MouseEventHandler<HTMLButtonElement> = event => {
@@ -21,7 +22,9 @@ export const ButtonBuy: React.FC<ButtonBuyProps> = ({ product }) => {
   return (
     <button
       className={
-        (grid ? "rounded-full w-[40px]" : " w-full py-0 px-5 rounded-3xl ") +
+        (big || !grid
+          ? "w-full py-0 px-5 rounded-3xl"
+          : "rounded-full w-[40px]") +
         " h-[40px] bg-sky-500 flex justify-center gap-2 items-center hover:bg-sky-400"
       }
       onClick={handleClick}
@@ -29,7 +32,7 @@ export const ButtonBuy: React.FC<ButtonBuyProps> = ({ product }) => {
       <Icon name="cart" className="w-[24px] h-[24px] text-white" />
       <span
         className={
-          (grid ? "hidden" : " block") +
+          (big || !grid ? "block" : "hidden") +
           " font-bold text-white button-buy__text whitespace-nowrap"
         }
       >
