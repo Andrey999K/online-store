@@ -5,18 +5,19 @@ import React, {
   useRef,
   useState
 } from "react";
-import { SortOptions } from "../../components/ui/SortOptions";
-import { ViewSwitch } from "../../components/ui/ViewSwitch";
-import { Pagination } from "../../components/ui/Pagination";
-import { ProductList } from "../../components/ui/ProductList";
-import { Filters } from "../../components/ui/Filters";
-import api from "../../api";
+import { SortOptions } from "@/components/ui/SortOptions";
+import { ViewSwitch } from "@/components/ui/ViewSwitch";
+import { Pagination } from "@/components/ui/Pagination";
+import { ProductList } from "@/components/ui/ProductList";
+import { Filters } from "@/components/ui/Filters";
+import api from "@/api";
 import { orderBy } from "lodash";
-import { paginate } from "../../utils/paginate.ts";
-import { ScreenLoader } from "../../components/ui/ScreenLoader";
-import { productsWord } from "../../utils/productsWord.ts";
-import { Wrapper } from "../../components/common/Wrapper";
-import { Product, Products, SetState, SortOption } from "../../types";
+import { paginate } from "@/utils/paginate.ts";
+import { ScreenLoader } from "@/components/ui/ScreenLoader";
+import { productsWord } from "@/utils/productsWord.ts";
+import { Wrapper } from "@/components/common/Wrapper";
+import { Product, Products, SetState, SortOption } from "@/types";
+import { isProd } from "@/utils/isProd.ts";
 
 const INITIAL_PAGE = 1;
 
@@ -106,26 +107,33 @@ export const Catalog: React.FC = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      api.catalog.fetchAll().then(response => {
-        const data = response.map(item => {
-          const reviewsCount = item.reviews.length;
-          let sumRating = 0;
-          item.reviews.forEach(review => {
-            sumRating += review.rating;
+      api.catalog
+        .fetchAll()
+        .then(response => {
+          const data = response.map(item => {
+            const reviewsCount = item.reviews.length;
+            let sumRating = 0;
+            item.reviews.forEach(review => {
+              sumRating += review.rating;
+            });
+            return {
+              ...item,
+              benefit: item.oldPrice - item.price,
+              reviewsCount,
+              ratingProduct: reviewsCount
+                ? Number((sumRating / reviewsCount).toFixed(1))
+                : 0
+            };
           });
-          return {
-            ...item,
-            benefit: item.oldPrice - item.price,
-            reviewsCount,
-            ratingProduct: reviewsCount
-              ? Number((sumRating / reviewsCount).toFixed(1))
-              : 0
-          };
+          setProducts(data);
+          setFiltersProducts(data);
+          setLoading(false);
+        })
+        .catch(error => {
+          if (!isProd()) {
+            console.log(error);
+          }
         });
-        setProducts(data);
-        setFiltersProducts(data);
-        setLoading(false);
-      });
     }, 2000);
     return () => {
       if (timer.current !== null) {
@@ -143,6 +151,7 @@ export const Catalog: React.FC = () => {
     ? orderBy(filteredProducts, [sortBy.iter], [sortBy.order])
     : filteredProducts;
   const productsCrop = paginate(sortedProducts, pageSize, currentPage);
+
   return (
     <GridContext.Provider value={{ gridOn }}>
       <div className="w-full flex">

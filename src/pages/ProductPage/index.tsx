@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import api from "../../api";
-import { Price } from "../../components/ui/Price";
-import { ButtonBuy } from "../../components/ui/ButtonBuy";
-import { ScreenLoader } from "../../components/ui/ScreenLoader";
-import { ReviewBlock } from "../../components/ui/ReviewBlock";
-import { paginate } from "../../utils/paginate.ts";
-import { Pagination } from "../../components/ui/Pagination";
-import { SortOptions } from "../../components/ui/SortOptions";
+import api from "@/api";
+import { Price } from "@/components/ui/Price";
+import { ButtonBuy } from "@/components/ui/ButtonBuy";
+import { ScreenLoader } from "@/components/ui/ScreenLoader";
+import { ReviewBlock } from "@/components/ui/ReviewBlock";
+import { paginate } from "@/utils/paginate.ts";
+import { Pagination } from "@/components/ui/Pagination";
+import { SortOptions } from "@/components/ui/SortOptions";
 import { orderBy } from "lodash";
-import { Wrapper } from "../../components/common/Wrapper";
-import { FavoritesButton } from "../../components/ui/Bookmark";
-import { Product, Review, SetState, SortOption } from "../../types";
+import { Wrapper } from "@/components/common/Wrapper";
+import { FavoritesButton } from "@/components/ui/Bookmark";
+import { Product, Review, SetState, SortOption } from "@/types";
 
 type ParamProductId = {
   productId: string;

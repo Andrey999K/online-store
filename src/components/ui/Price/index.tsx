@@ -1,5 +1,5 @@
 import React from "react";
-import { useGrid } from "../../../hooks/useGrid.ts";
+import { useGrid } from "@/hooks/useGrid.ts";
 
 interface PriceProps {
   price: number;

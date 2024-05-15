@@ -1,7 +1,7 @@
 import React from "react";
 import { Radio } from "../Radio";
 import { Checkbox } from "../Checkbox";
-import { InputChangeEvent } from "../../../types";
+import { InputChangeEvent } from "@/types";
 
 interface SelectionBlockProps {
   title?: string;

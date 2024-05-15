@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { InitialState, Product, Products } from "../types";
+import { InitialState, Product, Products } from "@/types";
 
 type FavoritesState = InitialState<Products>;
 

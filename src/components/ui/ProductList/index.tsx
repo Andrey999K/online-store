@@ -1,8 +1,8 @@
-import { CardRow } from "../Card/CardRow";
-import { Products } from "../../../types";
+import { CardRow } from "@/components/ui/Card/CardRow";
+import { Products } from "@/types";
 import React from "react";
-import { useGrid } from "../../../hooks/useGrid.ts";
-import { CardGrid } from "../Card/CardGrid";
+import { useGrid } from "@/hooks/useGrid.ts";
+import { CardGrid } from "@/components/ui/Card/CardGrid";
 
 interface ProductListProps {
   products: Products;

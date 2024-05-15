@@ -1,5 +1,5 @@
-import { Wrapper } from "../../common/Wrapper";
-import { Icon } from "../Icon";
+import { Wrapper } from "@/components/common/Wrapper";
+import { Icon } from "@/components/common/Icon";
 import React from "react";
 
 export const FooterDesktop: React.FC = () => {

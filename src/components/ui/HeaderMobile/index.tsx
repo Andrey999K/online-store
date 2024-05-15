@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Logo } from "../Logo";
-import { Icon } from "../Icon";
-import { Navigation } from "../Navigation";
-import { Contracts } from "../Contacts";
-import { Wrapper } from "../../common/Wrapper";
-import { HeaderProps } from "../../../types";
+import { Logo } from "@/components/ui/Logo";
+import { Icon } from "@/components/common/Icon";
+import { Navigation } from "@/components/ui/Navigation";
+import { Contracts } from "@/components/ui/Contacts";
+import { Wrapper } from "@/components/common/Wrapper";
+import { HeaderProps } from "@/types";
 
 export const HeaderMobile: React.FC<HeaderProps> = ({
   navItems,

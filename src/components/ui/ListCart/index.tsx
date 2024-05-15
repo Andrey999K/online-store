@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
-import { CartCard } from "../CartCard";
-import { useAppDispatch } from "../../../store/hooks";
-import { Product, ProductsCart } from "../../../types";
-import { deleteFromCart } from "../../../store/cart.slicer.ts";
+import { CartCard } from "@/components/ui/CartCard";
+import { useAppDispatch } from "@/store/hooks.ts";
+import { Product, ProductsCart } from "@/types";
+import { deleteFromCart } from "@/store/cart.slicer.ts";
 
 interface ListCartProps {
   data: ProductsCart;

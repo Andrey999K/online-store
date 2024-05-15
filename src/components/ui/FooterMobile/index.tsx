@@ -1,6 +1,6 @@
-import { ControlButton } from "../../common/ControlButton";
-import { LinkWishlist } from "../LinkWishlist";
-import { LinkCart } from "../LinkCart";
+import { ControlButton } from "@/components/common/ControlButton";
+import { LinkWishlist } from "@/components/ui/LinkWishlist";
+import { LinkCart } from "@/components/ui/LinkCart";
 import React from "react";
 
 export const FooterMobile: React.FC = () => {

@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon } from "../Icon";
-import { useGrid } from "../../../hooks/useGrid.ts";
+import { Icon } from "@/components/common/Icon";
+import { useGrid } from "@/hooks/useGrid.ts";
 
 interface ViewSwitchProps {
   onClick: () => void;

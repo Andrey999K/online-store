@@ -1,12 +1,12 @@
 import React, { MouseEventHandler } from "react";
-import { Icon } from "../Icon";
-import { Product } from "../../../types";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks.ts";
+import { Icon } from "@/components/common/Icon";
+import { Product } from "@/types";
+import { useAppDispatch, useAppSelector } from "@/store/hooks.ts";
 import {
   addInFavorites,
   deleteFromFavorites,
   getFavorites
-} from "../../../store/favorites.slicer.ts";
+} from "@/store/favorites.slicer.ts";
 
 interface BookmarkProps {
   product: Product;

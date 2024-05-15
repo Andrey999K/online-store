@@ -1,13 +1,13 @@
-import { Logo } from "../Logo";
-import { Contracts } from "../Contacts";
-import { Navigation } from "../Navigation";
-import { HeaderCatalog } from "../HeaderCatalog";
-import { ControlButton } from "../../common/ControlButton";
-import { LinkWishlist } from "../LinkWishlist";
-import { LinkCart } from "../LinkCart";
-import { Wrapper } from "../../common/Wrapper";
+import { Logo } from "@/components/ui/Logo";
+import { Contracts } from "@/components/ui/Contacts";
+import { Navigation } from "@/components/ui/Navigation";
+import { HeaderCatalog } from "@/components/ui/HeaderCatalog";
+import { ControlButton } from "@/components/common/ControlButton";
+import { LinkWishlist } from "@/components/ui/LinkWishlist";
+import { LinkCart } from "@/components/ui/LinkCart";
+import { Wrapper } from "@/components/common/Wrapper";
 import React, { useEffect } from "react";
-import { HeaderProps } from "../../../types";
+import { HeaderProps } from "@/types";
 
 export const HeaderDesktop: React.FC<HeaderProps> = ({
   navItems,

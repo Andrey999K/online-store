@@ -1,4 +1,4 @@
-import { Wrapper } from "../../components/common/Wrapper";
+import { Wrapper } from "@/components/common/Wrapper";
 import React from "react";
 
 export const NotFound: React.FC = () => {

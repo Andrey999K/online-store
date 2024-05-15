@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Product } from "../../types";
+import { Product } from "@/types";
 
 const fetchAll = async (): Promise<Array<Product>> => {
   try {
@@ -13,7 +13,6 @@ const fetchAll = async (): Promise<Array<Product>> => {
 
 const getById = async (productId: number | string): Promise<Product> => {
   try {
-    console.log(window);
     const response = await axios.get(`${window.location.origin}/data.json`);
     return response.data.find(
       (product: Product) => product.id === Number(productId)

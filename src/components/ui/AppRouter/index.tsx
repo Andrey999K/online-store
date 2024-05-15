@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import { MainLayout } from "../../../layouts/MainLayout";
-import { Catalog } from "../../../pages/Catalog";
-import { ProductPage } from "../../../pages/ProductPage";
-import { Cart } from "../../../pages/Cart";
-import { Wishlist } from "../../../pages/Wishlist";
-import { NotFound } from "../../../pages/NotFound";
+import { MainLayout } from "@/layouts/MainLayout";
+import { Catalog } from "@/pages/Catalog";
+import { ProductPage } from "@/pages/ProductPage";
+import { Cart } from "@/pages/Cart";
+import { Wishlist } from "@/pages/Wishlist";
+import { NotFound } from "@/pages/NotFound";
 
 export const AppRouter = () => {
   return (

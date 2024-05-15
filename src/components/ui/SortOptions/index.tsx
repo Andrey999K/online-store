@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon } from "../Icon";
-import { SetState, SortOption } from "../../../types";
+import { Icon } from "@/components/common/Icon";
+import { SetState, SortOption } from "@/types";
 
 interface SortOptionsProps {
   items: Array<{

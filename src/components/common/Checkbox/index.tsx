@@ -1,5 +1,5 @@
 import React from "react";
-import { InputChangeEvent } from "../../../types";
+import { InputChangeEvent } from "@/types";
 
 interface CheckboxProps {
   label: string;

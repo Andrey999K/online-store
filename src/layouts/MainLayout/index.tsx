@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "../../components/ui/Header";
+import { Header } from "@/components/ui/Header";
 import { ToastContainer } from "react-toastify";
-import { Footer } from "../../components/ui/Footer";
+import { Footer } from "@/components/ui/Footer";
 
 export const MainLayout = () => {
   return (

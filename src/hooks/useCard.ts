@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "../types";
+import { Product } from "@/types";
 
 type ResultUseCard = Omit<Product, "ratingProduct"> & {
   rating: number;

@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CardProps } from "../../../../types";
-import { BadgeProduct } from "../../../common/Badge";
-import { Rating } from "../../Rating";
-import { Icon } from "../../Icon";
-import { Price } from "../../Price";
-import { FavoritesButton } from "../../Bookmark";
-import { ButtonBuy } from "../../ButtonBuy";
-import { useCard } from "../../../../hooks/useCard.ts";
+import { CardProps } from "@/types";
+import { BadgeProduct } from "@/components/common/Badge";
+import { Rating } from "@/components/ui/Rating";
+import { Icon } from "@/components/common/Icon";
+import { Price } from "@/components/ui/Price";
+import { FavoritesButton } from "@/components/ui/Bookmark";
+import { ButtonBuy } from "@/components/ui/ButtonBuy";
+import { useCard } from "@/hooks/useCard.ts";
 
 const InnerCardGrid: React.FC<CardProps> = ({ product }) => {
   const {

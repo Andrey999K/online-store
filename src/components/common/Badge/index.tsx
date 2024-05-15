@@ -1,4 +1,4 @@
-import { Badge } from "../../../types";
+import { Badge } from "@/types";
 
 interface BadgeProps extends Omit<Badge, "id"> {
   color?: string;

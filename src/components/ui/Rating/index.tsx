@@ -1,4 +1,4 @@
-import { Icon } from "../Icon";
+import { Icon } from "@/components/common/Icon";
 import React from "react";
 
 interface RatingProps {

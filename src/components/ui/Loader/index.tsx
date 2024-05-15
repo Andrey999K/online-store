@@ -1,4 +1,5 @@
 import { HashLoader } from "react-spinners";
+import React from "react";
 
 export const Loader: React.FC = () => {
   return (

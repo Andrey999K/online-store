@@ -1,4 +1,4 @@
-import { Icon } from "../../ui/Icon";
+import { Icon } from "../Icon";
 import { Link } from "react-router-dom";
 
 interface ControlButtonProps {

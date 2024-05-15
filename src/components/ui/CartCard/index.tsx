@@ -1,12 +1,12 @@
 import React, { ChangeEvent, useState } from "react";
 import { Price } from "../Price";
-import { FavoritesButton } from "../Bookmark";
-import { Icon } from "../Icon";
-import { Input } from "../Input";
+import { FavoritesButton } from "@/components/ui/Bookmark";
+import { Icon } from "@/components/common/Icon";
+import { Input } from "@/components/ui/Input";
 import { Link } from "react-router-dom";
-import { Product, ProductCart } from "../../../types";
-import { useAppDispatch } from "../../../store/hooks.ts";
-import { updateCart } from "../../../store/cart.slicer.ts";
+import { Product, ProductCart } from "@/types";
+import { useAppDispatch } from "@/store/hooks.ts";
+import { updateCart } from "@/store/cart.slicer.ts";
 
 interface CartCardProps {
   product: ProductCart;

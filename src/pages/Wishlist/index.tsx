@@ -1,9 +1,9 @@
-import { ProductList } from "../../components/ui/ProductList";
+import { ProductList } from "@/components/ui/ProductList";
 import { Link } from "react-router-dom";
-import { Wrapper } from "../../components/common/Wrapper";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { Wrapper } from "@/components/common/Wrapper";
+import { useAppDispatch, useAppSelector } from "@/store/hooks.ts";
 import React from "react";
-import { clearFavorites, getFavorites } from "../../store/favorites.slicer.ts";
+import { clearFavorites, getFavorites } from "@/store/favorites.slicer.ts";
 
 export const Wishlist: React.FC = () => {
   const listProducts = useAppSelector(getFavorites());

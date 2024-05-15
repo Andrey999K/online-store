@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { ControlButton } from "../../common/ControlButton";
-import { useAppSelector } from "../../../store/hooks";
-import { ProductsCart } from "../../../types";
-import { getCart } from "../../../store/cart.slicer.ts";
+import { ControlButton } from "@/components/common/ControlButton";
+import { useAppSelector } from "@/store/hooks.ts";
+import { ProductsCart } from "@/types";
+import { getCart } from "@/store/cart.slicer.ts";
 
 export const LinkCart = () => {
   const productsCart = useAppSelector(getCart());

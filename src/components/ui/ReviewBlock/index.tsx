@@ -1,6 +1,6 @@
-import { Rating } from "../Rating";
-import { Avatar } from "../Avatar";
-import { Review } from "../../../types";
+import { Rating } from "@/components/ui/Rating";
+import { Avatar } from "@/components/ui/Avatar";
+import { Review } from "@/types";
 import React from "react";
 
 interface ReviewProps {

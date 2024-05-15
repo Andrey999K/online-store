@@ -1,8 +1,8 @@
 import React, { useCallback, useRef, useState } from "react";
-import { RangeDouble } from "../../common/RangeDouble";
+import { RangeDouble } from "@/components/common/RangeDouble";
 import { Input } from "../Input";
-import { SelectionBlock } from "../../common/SelectionBlock";
-import { InputChangeEvent, PricesRange, Products } from "../../../types";
+import { SelectionBlock } from "@/components/common/SelectionBlock";
+import { InputChangeEvent, PricesRange, Products } from "@/types";
 
 interface FiltersProps {
   filtration: (_products: Products) => void;

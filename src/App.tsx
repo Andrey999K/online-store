@@ -5,6 +5,9 @@ import { useEffect } from "react";
 import { setCart } from "./store/cart.slicer.ts";
 import { setFavorites } from "./store/favorites.slicer.ts";
 import { AppRouter } from "./components/ui/AppRouter";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+export const queryClient = new QueryClient();
 
 export function App() {
   const dispatch = useAppDispatch();
@@ -12,5 +15,9 @@ export function App() {
     dispatch(setCart());
     dispatch(setFavorites());
   }, []);
-  return <AppRouter />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AppRouter />
+    </QueryClientProvider>
+  );
 }

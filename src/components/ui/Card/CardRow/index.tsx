@@ -1,13 +1,13 @@
 import React from "react";
-import { BadgeProduct } from "../../../common/Badge";
-import { ButtonBuy } from "../../ButtonBuy";
-import { Icon } from "../../Icon";
-import { Price } from "../../Price";
+import { BadgeProduct } from "@/components/common/Badge";
+import { ButtonBuy } from "@/components/ui/ButtonBuy";
+import { Icon } from "@/components/common/Icon";
+import { Price } from "@/components/ui/Price";
 import { Link } from "react-router-dom";
-import { Rating } from "../../Rating";
-import { FavoritesButton } from "../../Bookmark";
-import { CardProps } from "../../../../types";
-import { useCard } from "../../../../hooks/useCard.ts";
+import { Rating } from "@/components/ui/Rating";
+import { FavoritesButton } from "@/components/ui/Bookmark";
+import { CardProps } from "@/types";
+import { useCard } from "@/hooks/useCard.ts";
 
 const InnerCardRow: React.FC<CardProps> = ({ product }) => {
   const {

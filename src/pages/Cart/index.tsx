@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { productsWord } from "../../utils/productsWord.ts";
-import { ListCart } from "../../components/ui/ListCart";
-import { Wrapper } from "../../components/common/Wrapper";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { ProductsCart } from "../../types";
-import { clearCart, getCart } from "../../store/cart.slicer.ts";
+import { productsWord } from "@/utils/productsWord.ts";
+import { ListCart } from "@/components/ui/ListCart";
+import { Wrapper } from "@/components/common/Wrapper";
+import { useAppDispatch, useAppSelector } from "@/store/hooks.ts";
+import { ProductsCart } from "@/types";
+import { clearCart, getCart } from "@/store/cart.slicer.ts";
 
 export const Cart: React.FC = () => {
   const productsCart = useAppSelector(getCart());
