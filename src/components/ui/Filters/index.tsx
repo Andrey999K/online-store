@@ -4,6 +4,7 @@ import { Input } from "../Input";
 import { SelectionBlock } from "@/components/common/SelectionBlock";
 import { InputChangeEvent, PricesRange, Products } from "@/types";
 import { filtration } from "@/utils/filtration.ts";
+import { minPrice } from "@/utils/minPrice.ts";
 
 interface FiltersProps {
   products: Products;
@@ -11,19 +12,13 @@ interface FiltersProps {
 }
 
 export const Filters: React.FC<FiltersProps> = ({ products, result }) => {
-  const minPrice = () => {
-    return products.reduce((min, product) => {
-      return product.price < min ? product.price : min;
-    }, Infinity);
-  };
-
   const maxPrice = () => {
     return products.reduce((max, product) => {
       return product.price > max ? product.price : max;
     }, 0);
   };
 
-  const pricesRange: PricesRange = { min: minPrice(), max: maxPrice() };
+  const pricesRange: PricesRange = { min: minPrice(products), max: maxPrice() };
   const [price, setPrice] = useState(pricesRange);
   const [statuses, setStatuses] = useState<Array<string>>([]);
   const [discount, setDiscount] = useState<string>("0");
